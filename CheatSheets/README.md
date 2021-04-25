@@ -4,16 +4,6 @@
 sudo nmap 10.10.10.10 -sS -sU --min-rate 1000 -oA demo-openports-initial
 ```
 
-## Web Crawling
-```bash
-dirsearch.py -u 10.10.10.10 --simple-report demo-webcrawl.txt
-```
-
-## Vulnerability Scanning
-```bash
-nikto -h 10.10.10.10 -Format txt -o demo-vulnscan-web.txt
-```
-
 ## Password Guessing
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt 10.10.10.10 -t4 ssh
