@@ -4,5 +4,7 @@ Hello world! These are my cheat-sheets and mind maps for "Penetration Testing wi
 ### Table of Contents
 * [Cheat-sheets](/CheatSheets/)
   * [Web Apps](/CheatSheets/web-apps.md)
+  * [Shells](/CheatSheets/shells.md)
+  * [Password Guessing](/CheatSheets/password-guessing.md)
 * [Mind Maps](/MindMaps/)
   * [Web Apps](/MindMaps/web-apps.md)
