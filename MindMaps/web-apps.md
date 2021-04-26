@@ -37,6 +37,16 @@
   * Attempt a XSS attack 
     * Redirect a victim to a staged, information gathering script (HTML iframes)
     * Steal cookies and use them to negate having to authenticate to an Admin Console (JavaScript)
+* Directory Traversal
+  * Find references to files and change the value to something else. 
+  * Look for file extensions in URLs. 
+  * If you find a viable attack vector, try files accessible by all users (try the paths using encoding too; consider null characters to terminate file paths).
+    * Windows:
+      * C:\boot.ini
+      * C:\Windows\System32\Drivers\etc\hosts
+    * Linux:
+      * /etc/passwd 
+* File Inclusions
 
 ## Explore
 * Admin Consoles
