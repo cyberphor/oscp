@@ -1,13 +1,12 @@
 # Mind Map - Web Apps
-Attempt to enumerate the following before attempting to exploit a web app:
-* Programming language and/or web development framework in use
-* Web server software in use
-* Database software in use
-* Server operating system in use
-
 ## Enumerate 
+* Enumerate the following before attempting to exploit a web app:
+  * Programming language and/or web development framework in use
+  * Web server software in use
+  * Database software in use
+  * Server operating system in use
 * URLs
-  * Filetype extensions (beware: routes)
+  * Filetype extensions (don't forget, modern web apps might use routes instead)
 * Web Page Source Code
   * Comments
   * Hidden form fields
@@ -34,7 +33,9 @@ Attempt to enumerate the following before attempting to exploit a web app:
 
 ## Explore
 * Admin Consoles
-  * Explore accessible databases; determine their design (tables, columns, rows) and read their contents
+  * Explore accessible databases
+    * Determine their design (tables, columns, rows)
+    * Read their contents
 
 ## Effect
 * Admin Consoles
