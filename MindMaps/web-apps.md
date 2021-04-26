@@ -31,3 +31,11 @@ Attempt to enumerate the following before attempting to exploit a web app:
   * Attempt to login using credentials found elsewhere (shares: SMB, NFS, etc.)
   * Use Burp Proxy to confirm which parameters are required to submit a valid HTTP request (cookie, session, password, token, etc.)
   * Use Burp Intruder to set the parameters required to submit a valid HTTP request
+
+## Explore
+* Admin Consoles
+  * Explore accessible databases; determine their design (tables, columns, rows) and read their contents
+
+## Effect
+* Admin Consoles
+  * Add accounts to maintain access 
