@@ -46,6 +46,10 @@
       * C:\Windows\System32\Drivers\etc\hosts
     * Linux:
       * /etc/passwd 
+  * If you're able to access the web app's configuration files (ex: php.ini), you might be able to find credentials or determine if File Inclusions are allowed. 
+    * Variables to check in the php.ini configuration file. 
+      * register_globals
+      * allow_url 
 * File Inclusions
 
 ## Explore
