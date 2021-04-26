@@ -61,6 +61,9 @@
         * /var/log/apache2/access.log
         * /var/log/httpd/access.log
     * Parameter to use (ex: file=, page=, cmd=)
+  * For LFIs, try PHP protocol wrappers (file=data:text/plain,<php? echo 'foo' ?>)
+* SQL Injection
+  * Identify attack vectors and enumerate the underlying technology stack using single-quotes (single-quotes to delimit SQL strings) 
 
 ## Explore
 * Admin Consoles
