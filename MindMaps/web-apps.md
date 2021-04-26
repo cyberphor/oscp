@@ -51,6 +51,9 @@
       * register_globals
       * allow_url 
 * File Inclusions
+  * Use the same techniques for identifying Directory Traversal vulnerabilities to find LFIs. 
+  * Try different ports to ensure firewalls are not a problem. 
+  * If you can't upload files to perform an LFI, try log poisoning. 
 
 ## Explore
 * Admin Consoles
