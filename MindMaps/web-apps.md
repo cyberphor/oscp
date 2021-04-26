@@ -36,7 +36,7 @@
   * Check if URL (Percent) encoded special characters are sanitized
   * Attempt a XSS attack 
     * Redirect a victim to a staged, information gathering script (HTML iframes)
-    * Steal cookies (JavaScript)
+    * Steal cookies and use them to negate having to authenticate to an Admin Console (JavaScript)
 
 ## Explore
 * Admin Consoles
