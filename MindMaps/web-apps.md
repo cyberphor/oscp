@@ -30,6 +30,13 @@
   * Attempt to login using credentials found elsewhere (shares: SMB, NFS, etc.)
   * Use Burp Proxy to confirm which parameters are required to submit a valid HTTP request (cookie, session, password, token, etc.)
   * Use Burp Intruder to set the parameters required to submit a valid HTTP request
+* XSS
+  * Check if special characters are sanitized: <, >, {, }, ', ", ;
+  * Check if HTML encoded special characters are sanitized  
+  * Check if URL (Percent) encoded special characters are sanitized
+  * Attempt a XSS attack 
+    * Redirect a victim to a staged, information gathering script (HTML iframes)
+    * Steal cookies (JavaScript)
 
 ## Explore
 * Admin Consoles
