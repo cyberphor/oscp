@@ -12,5 +12,12 @@
   * sitemap.xml
 * Admin Consoles
   * MySQL
-    * Tomcat: /manager/html
-    * phpMyAdmin: /phpmyadmin
+    * Tomcat:
+      * Path: /manager/html
+    * phpMyAdmin:
+      * Path: /phpmyadmin
+      * Configuration file: config.inc.php
+
+## Exploit
+* Admin Consoles
+  * Attempt to login using default credentials
