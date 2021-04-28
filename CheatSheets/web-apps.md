@@ -55,7 +55,7 @@ firefox http://victim.edu/webshell.php?cmd=whoami # navigate to and use the abov
 ## Explore
 SQL Database Queries
 ```sql
-SELECT * FROM targetdb.usertbl # database.table
+SELECT * FROM targetdb.usertbl; # database.table
 USE targetdb;
 SELECT * FROM usertbl;
 ```
