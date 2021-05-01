@@ -1,20 +1,21 @@
 # Cheatsheet - Buffer Overflows (BOF)
 ## Generating a String of Non-Repeating Characters
 ```bash
-msf-pattern_create -l 1000 # print a string of non-repeating characters
-msf-pattern_create -l 1000 -q 12345678 # get num of bytes req. to get here
+msf-pattern_create -l 1000 # print a string of 1000 non-repeating characters
+msf-pattern_create -l 1000 -q 12345678 # get the number of bytes required to get to this offset
 ```
 
 ## Finding Opcodes
 ```bash
-msf-nasm_shell
-jmp esp
+msf-nasm_shell # invoke msf-nasm_shell
+jmp esp # give it an assembly instruction
 
 # output
-00000000 FFE4 jmp esp
+00000000 FFE4 jmp esp # the second column is the opcode that corresponds with your instruction
 ```
 
 ## Searching a Binary or DLL for Specific Assembly Instructions
+Using Immunity Debugger
 ```bash
 !mona find -s “\xff\xe4” -m “foo.dll” # search for “jmp esp” instruction
 ```
