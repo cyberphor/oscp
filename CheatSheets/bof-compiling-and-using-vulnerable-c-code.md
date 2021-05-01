@@ -1,5 +1,5 @@
 # Cheatsheet - Buffer Overflows (BOF)
-## Vulnerable C Code
+## Compiling and Using Vulnerable C Code
 How to Invoke the Vim Text-Editor
 ```bash
 vim bof.c
