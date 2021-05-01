@@ -1,5 +1,6 @@
 # Cheatsheet - Buffer Overflows (BOF)
 ## Immunity Debugger
+### GUI
 ```bash
 File > Open # open a program for debugging; provide file name & arguments
 Debug > Step into # follow the execution flow of a function
@@ -11,4 +12,10 @@ Debug > Step over # execute a function and return from it
 - Highlight the text of interest (ex: strcpy) & press F2 (set a breakpoint)
 - Debug > Run (execution will stop just before your breakpoint)
 - Debug > Step into # watch program execution "frame by frame"
+```
+
+### CLI
+Configure a working folder (have it contain your scripts). 
+```bash
+!mona config -set workingfolder c:\mona\%p
 ```
