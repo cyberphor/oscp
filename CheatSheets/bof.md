@@ -1,4 +1,24 @@
 # Cheatsheet - Buffer Overflows (BOF)
+## Generating a String of Non-Repeating Characters
+```bash
+msf-pattern_create -l 1000 # print a string of non-repeating characters
+msf-pattern_create -l 1000 -q 12345678 # get num of bytes req. to get here
+```
+
+## Finding Opcodes
+```bash
+msf-nasm_shell
+jmp esp
+
+# output
+00000000 FFE4 jmp esp
+```
+
+## Searching a Binary or DLL for Specific Assembly Instructions
+```bash
+!mona find -s “\xff\xe4” -m “foo.dll” # search for “jmp esp” instruction
+```
+
 ## Generating Shellcode
 ```bash
 msfvenom -l payloads # list all payload options
