@@ -57,6 +57,10 @@ Always re-copy the address. It will change as you remove bad characters from you
 !mona compare -f C:\mona\bytearray.bin -a <address>
 ```
 
+### Find a JMP Instruction
+```bash
+!mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
+```
 
 
 ## References
