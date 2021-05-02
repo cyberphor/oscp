@@ -21,7 +21,7 @@ How to reset the view to the original layout (instruction, registers, memory, an
 View > CPU # then, maximize the CPU window
 
 # option 2
-# ALT + c
+ALT + c # then, maximize the CPU window
 ```
 
 ### Mona.py
