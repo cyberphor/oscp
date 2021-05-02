@@ -31,7 +31,7 @@ Configure a working folder (ex: set the default location to a folder that contai
 ```
 
 #### Controlling the EIP Register
-Find all instances of a Metasploit Pattern (hence "msp"). The example below will search 2400 bytes from the ESP register (the default is to search the entire Stack Frame). The alternative to this is manually looking at the EIP register in the Registers pane (in the CPU window). 
+Find all instances of a Metasploit Pattern (hence "msp"). The example below will search 2400 bytes from the ESP register (the default is to search the entire Stack Frame). The alternative to this is manually looking at the EIP register in the Registers pane (in the CPU window). Pay attention the offset value (this represents where EIP is in the BOF you sent; if you know this value, you know exactly where in your BOF you need to place the Return Address that will point to your shellcode). For example, if the example output below means you must place your desired Return Address 1978 bytes into your BOF in order for it to accuratey land in the EIP register. 
 ```bash
 !mona findmsp -distance 2400
 
