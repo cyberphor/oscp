@@ -41,11 +41,22 @@ Find all instances of a Metasploit Pattern (hence "msp"). The example below will
 ```
 
 ### Generate a Byte Array of Bad Characters
-This step is important for knowing what characters will prevent our shellcode from working. Take these characters and send them as a payload. 
+This step is important for knowing what characters will prevent our shellcode from working. 
 ```bash
-!mona bytearray
 !mona bytearray -b "\x00"
 ```
+
+```python
+payload = ''
+for x in range(1, 256):
+  payload += "\\x" + "{:02x}".format(x)
+```
+
+```bash
+!mona compare -f C:\mona\bytearray.bin -a <address>
+```
+
+
 
 ## References
 * https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
