@@ -40,5 +40,12 @@ Find all instances of a Metasploit Pattern (hence "msp"). The example below will
     EIP contains normal pattern : 0x6f43396e (offset 1978)
 ```
 
+### Generate a Byte Array of Bad Characters
+This step is important for knowing what characters will prevent our shellcode from working. Take these characters and send them as a payload. 
+```bash
+!mona bytearray
+!mona bytearray -b "\x00"
+```
+
 ## References
 * https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
