@@ -7,6 +7,8 @@ import sys
 import time
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--generate-config-template',action='store_true')
+parser.add_argument('--config',action='store_true')
 parser.add_argument('--fuzz',action='store_true')
 parser.add_argument('--overflow',action='store_true')
 parser.add_argument('--host')
@@ -20,6 +22,37 @@ port = args.port
 target = (ip,port)
 timeout = 3
 prefix = args.prefix
+
+def get_config():
+    import config
+    if hasattr(config,'settings'):
+        if type(config.settings) is dict:
+            try:
+                mode = config.settings['mode']
+                host = config.settings['host']
+                port = config.settings['port']
+                prefix = config.settings['prefix']
+                length = config.settings['length']
+                print(mode,host,port,prefix,length)
+            except Exception as err:
+                print("[x] The %s key is missing from the settings variable." % err)
+        else:
+            print("[x] The settings variable is not of the dict type.")
+    else:
+        print("[x] The settings variable was not found in config.py.")
+
+def generate_config_template():
+    config = open("config.py","w")
+    config.write("settings = {\n")
+    config.write("    'mode': 'overflow',\n")
+    config.write("    'host': '10.10.10.10',\n")
+    config.write("    'port': 1337,\n")
+    config.write("    'prefix': 'OVERFLOW1 ',\n")
+    config.write("    'length': 2400,\n")
+    config.write("}\n")
+    config.close()
+    print("[+] Created a config.py template.")
+    print(open("config.py","r").read())
 
 def connect():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -73,9 +106,13 @@ def overflow(length):
         print("[x] Failed to connect to port %d." % port)
 
 if __name__ == "__main__":
-    if not args.fuzz and not args.overflow:
+    if args.generate_config_template:
+        generate_config_template()
+    elif args.config:
+        get_config()
+    elif not args.fuzz and not args.overflow:
         print("[x] Please specify an option using either --fuzz or --flood.")
-    if not args.host:
+    elif not args.host:
         print("[x] Please specify a host using --host.")
     elif not args.port:
         print("[x] Please specify a port using --port.")
