@@ -25,7 +25,7 @@ ALT + c # then, maximize the CPU window
 ```
 
 ### Mona.py
-Configure a working folder (ex: set the default location to a folder that contains your Python scripts). 
+Set the current working directory to be where the program (i.e. %p) being debugged is located. 
 ```bash
 !mona config -set workingfolder c:\mona\%p
 ```
