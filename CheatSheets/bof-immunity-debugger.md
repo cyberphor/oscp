@@ -52,6 +52,7 @@ for x in range(1, 256):
   payload += "\\x" + "{:02x}".format(x)
 ```
 
+Always re-copy the address. It will change as you remove bad characters from your BOF. 
 ```bash
 !mona compare -f C:\mona\bytearray.bin -a <address>
 ```
