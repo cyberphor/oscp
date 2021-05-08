@@ -15,3 +15,11 @@ sudo adduser demo
 sudo sed -i -e 's/1001/5050/g' /etc/passwd
 cat /mnt/FOO/loot.txt
 ```
+
+## SMTP
+```bash
+telnet $TARGET 25
+HELO
+VRFY root
+QUIT
+```
