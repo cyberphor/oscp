@@ -13,4 +13,4 @@ I am developing an attack framework using the following phases: Enumerate, Explo
   * [Web Apps](/MindMaps/web-apps.md)
 * [Code](/Code/)
   * [C Code Vulnerable to a Buffer Overflow](/Code/vulnerable2bof.c) 
-  * [Generation-Based Fuzzer for HTTP Servers](/Code/gbfuzzer.py)
+  * [Generation-Based Fuzzer](/Code/gbfuzzer.py)
