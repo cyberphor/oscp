@@ -1,12 +1,12 @@
 ## Enumerate
 ```bash
-dirb evil.com -r -z10 # recursive; wait 10 milliseconds between delays
+dirb $TARGET -r -z10 # recursive; wait 10 milliseconds between delays
 ```
 ```bash
-python3 dirsearch/dirsearch.py -u evil.com --simple-report demo-webcrawl.txt
+python3 dirsearch/dirsearch.py -u $TARGET --o $TARGET-webcrawl.txt
 ```
 ```bash
-nikto -h evil.com -Format txt -o demo-vulnscan-web.txt
+nikto -h $TARGET -Format txt -o $TARGET-vulnscan-web.txt
 ```
 
 Finding SQL Injection Vulnerabilities
