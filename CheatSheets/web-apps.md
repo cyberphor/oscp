@@ -7,6 +7,7 @@ python3 dirsearch/dirsearch.py -u $TARGET --o $TARGET-webcrawl.txt
 ```
 ```bash
 nikto -h $TARGET -maxtime=30s -Format txt -o $TARGET-nikto-30seconds.txt
+nikto -h $TARGET -T 2 # scan for misconfiguration vulnerabilities
 nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
 ```
 
