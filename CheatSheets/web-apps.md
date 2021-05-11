@@ -6,7 +6,8 @@ dirb $TARGET -r -z10 # recursive; wait 10 milliseconds between delays
 python3 dirsearch/dirsearch.py -u $TARGET --o $TARGET-webcrawl.txt
 ```
 ```bash
-nikto -h $TARGET -Format txt -o $TARGET-vulnscan-web.txt
+nikto -h $TARGET -maxtime=30s -Format txt -o $TARGET-nikto-30seconds.txt
+nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
 ```
 
 Finding SQL Injection Vulnerabilities
