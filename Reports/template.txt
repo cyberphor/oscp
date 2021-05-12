@@ -36,7 +36,7 @@ sudo nmap $TARGET -sS -sU --min-rate 1000 -oA $TARGET-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oA $TARGET-complete
 ```
 ```bash
-sudo nmap $TARGET -pT:80,U:53 -oA $TARGET-versions
+sudo nmap $TARGET -sSUV -pT:80,U:53 -oA $TARGET-versions
 ```
 ```bash
 python3 dirsearch -u $TARGET -o $TARGET-webcrawl.txt
