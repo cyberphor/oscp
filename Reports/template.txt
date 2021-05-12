@@ -1,10 +1,29 @@
 # Template
 ## Table of Contents
+* [Summary](#summary)
 * [Enumerate](#enumerate)
 * [Exploit](#exploit)
 * [Explore](#explore)
 * [Escalate](#escalate)
 * [Effect](#effect)
+
+## Summary
+* Hostname: ???
+* IP address: ???
+* Open ports:
+  * TCP: ???
+  * UDP: ???
+* OS:
+  * Distro: (ref:)
+  * Kernel: (ref:)
+* Users:
+  * ??? (ref:)
+* Vulnerabilities:
+  * CVE-??? (ref:)
+* Exploits:
+  * ??? (ref:)
+* Flag:
+  * ???
 
 ## Enumerate
 ```bash
@@ -16,8 +35,26 @@ sudo nmap $TARGET -sS -sU --min-rate 1000 -oA $TARGET-initial
 ```bash
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oA $TARGET-complete
 ```
-```
+```bash
 sudo nmap $TARGET -pT:80,U:53 -oA $TARGET-versions
+```
+```bash
+python3 dirsearch -u $TARGET -o $TARGET-webcrawl.txt
+
+# output
+NSTR
+```
+```bash
+nikto -h $TARGET -T2 -Format txt -o $TARGET-nikto-misconfig.txt
+
+# output
+NSTR
+```
+```bash
+hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
+
+# output
+NSTR
 ```
 
 ## Exploit
