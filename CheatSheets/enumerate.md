@@ -23,3 +23,10 @@ HELO
 VRFY root
 QUIT
 ```
+
+## SMB
+Impacket SMB Client
+```bash
+impacket-smbclient ''@$TARGET
+use IPC$
+```
