@@ -30,3 +30,7 @@ Impacket SMB Client
 impacket-smbclient ''@$TARGET
 use IPC$
 ```
+SMBClient
+```bash
+smbclient -L //10.11.1.5/ # list shares
+```
