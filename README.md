@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
   <a href="/README.md#table-of-contents">Top of Page</a> |
-  <a href="/README.md#table-of-contents">Bottom of Page</a>
+  <a href="/README.md#how-to-view-this-repo-offline">Bottom of Page</a>
 </p>
 
 # pwk
@@ -22,3 +22,12 @@ I am developing an attack framework using the following phases: Enumerate, Explo
   * [C Code Vulnerable to a Buffer Overflow](/Code/vulnerable2bof.c) 
   * [Generation-Based Fuzzer](/Code/gbfuzzer.py)
 * [Reports](/Reports/)
+
+## How to View this Repo Offline
+Execute the commands below and then, navigate to the link displayed by [Grip](https://github.com/joeyespo/grip) using your browser.
+```
+git clone https://github.com/cyberphor/pwk
+pip install grip
+cd ./pwk
+grip 
+```
