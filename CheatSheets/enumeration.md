@@ -1,3 +1,9 @@
+<p align="right">
+  <a href="https://github.com/cyberphor/pwk/blob/main/README.md">Home Page</a> |
+  <a href="https://github.com/cyberphor/pwk/blob/main/CheatSheets/enumeration.md">Top of Page</a> |
+  <a href="https://github.com/cyberphor/pwk/blob/main/CheatSheets/enumeration.md#SMB">Bottom of Page</a>
+</p>
+
 # Cheatsheets - Enumeration
 ## Table of Contents
 * [Priority of Work](#priority-of-work)
