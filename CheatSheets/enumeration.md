@@ -1,6 +1,6 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/enumeration.md#cheatsheets-enumeration">Top of Page</a> |
+  <a href="/CheatSheets/enumeration.md#table-of-contents">Top of Page</a> |
   <a href="/CheatSheets/enumeration.md#smb">Bottom of Page</a>
 </p>
 
