@@ -1,3 +1,9 @@
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/shells.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/shells.md#upgrade-to-a-pty-shell">Bottom of Page</a>
+</p>
+
 # Cheatsheets - Shells
 ## Table of Contents
 * [Bind Shells](#bind-shells)
