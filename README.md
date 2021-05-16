@@ -1,6 +1,6 @@
 <p align="right">
   <a href="https://github.com/cyberphor/pwk/blob/main/README.md">Home Page</a> |
-  <a href="https://github.com/cyberphor/pwk/blob/main/README.md#table-of-contents">Top of Page</a> |
+  <a href="/README.md#table-of-contents">Top of Page</a> |
   <a href="https://github.com/cyberphor/pwk/blob/main/README.md#table-of-contents">Bottom of Page</a>
 </p>
 
