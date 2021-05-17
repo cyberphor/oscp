@@ -18,5 +18,5 @@ schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "Rolling Reboot" /tr "shu
 
 ### Run a Script
 ```bash
-schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "Run a Script" /tr "Set-ExecutionPolicy unrestricted; C:\malware.ps1" 
+schtasks.exe /create /ru "SYSTEM" /sc minute /mo 3 /tn "Run a Script" /tr "powershell -c 'C:\malware.ps1'" 
 ```
