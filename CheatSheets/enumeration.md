@@ -17,6 +17,11 @@
 |Priority|Protocol|Port|Provides|
 |--------|--------|----|--------|
 |1       |TCP     |80  |Code execution|
+|2       |SMB     |445 |Credentials|
+|3       |NFS     |    |Credentials|
+|4       |RPC     |135 ||
+|5       |SSH     |22  |Shell access|
+|6       |POP3    |110 ||
 
 ## Nmap
 ```bash
@@ -33,8 +38,13 @@ ftp $TARGET
 # anonymous
 # password
 pwd
+
 ls
 get file.exe
+
+binary
+put reverse-shell.exe
+
 exit
 ```
 
