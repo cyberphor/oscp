@@ -72,12 +72,21 @@ QUIT
 ```
 
 ## SMB
+TCP Port 445
+SMBClient
+```bash
+smbclient -L //10.11.1.5/ # list shares
+```
+
 Impacket SMB Client
 ```bash
 impacket-smbclient ''@$TARGET
 use IPC$
 ```
-SMBClient
+
+## RPC
+TCP Port 135
 ```bash
-smbclient -L //10.11.1.5/ # list shares
+rpcclient -U '' $TARGET
+netshareenum # print the real file-path of shares; good for accurate RCE
 ```
