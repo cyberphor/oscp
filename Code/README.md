@@ -8,7 +8,7 @@
 
 |Name|Description|
 |----|-------|
-|fulton.sh|Download and install my tools to personalize a new Kali install.|
+|fulton.sh|Download and install my preferred tools to personalize a new Kali install.|
 |gbfuzzer.py|A generation-based fuzzer designed to make buffer overflows easier to execute.|
 |katz2crack.py|Converts a Mimikatz LSA dump file to a file easily parsed by John the Ripper, Hashcat, etc.|
 |print_all_possible_hex_chars.py|Prints all possible hexadecimal characters (format: "\x00\x01...")|
