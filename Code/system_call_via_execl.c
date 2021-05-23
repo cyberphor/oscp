@@ -11,3 +11,7 @@ int main(void) {
   execl(binaryPath, binaryPath, arg1, arg2, NULL);
   return 0;
 }
+
+/* HOW TO COMPILE
+gcc foo.c -shared -fPIC -o foo.so
+*/
