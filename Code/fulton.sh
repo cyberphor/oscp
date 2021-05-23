@@ -43,6 +43,8 @@ echo "[+] Installed: pip"
 python -m pip install --upgrade setuptools
 python -m pip install pysmb
 echo "[+] Installed: pysmb"
+python -m pip install pysmbclient
+echo "[+] Installed: pysmbclient"
 python -m pip install pycryptodome
 echo "[+] Installed: pycryptodome"
 
