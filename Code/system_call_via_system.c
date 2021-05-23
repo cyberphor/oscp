@@ -8,5 +8,5 @@ int main(void) {
 }
 
 /* HOW TO COMPILE
-gcc -shared -fPIC -Wall -Wno-nonnull foo.c -o foo.so
+gcc foo.c -shared -fPIC -o foo.so
 */
