@@ -41,6 +41,8 @@ python get-pip.py
 python -m pip --version
 echo "[+] Installed: pip"
 python -m pip install --upgrade setuptools
+python -m pip install impacket
+echo "[+] Installed: impacket"
 python -m pip install pysmb
 echo "[+] Installed: pysmb"
 python -m pip install pysmbclient
