@@ -30,6 +30,7 @@ python get-pip.py
 python -m pip --version
 python -m pip install --upgrade setuptools
 python -m pip install pysmb
+python -m pip install pycryptodome
 ```
 
 ## Bottom of Page
