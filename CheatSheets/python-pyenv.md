@@ -28,6 +28,8 @@ pyenv global 2.7.18
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
 python get-pip.py
 python -m pip --version
+python -m pip install --upgrade setuptools
+python -m pip install pysmb
 ```
 
 ## Bottom of Page
