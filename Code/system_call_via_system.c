@@ -6,3 +6,7 @@ int main(void) {
   system("ping -c1 localhost");
   return 0;
 }
+
+/* HOW TO COMPILE
+gcc -shared -fPIC -Wall -Wno-nonnull foo.c -o foo.so
+*/
