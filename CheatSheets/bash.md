@@ -6,10 +6,30 @@
 
 # Cheatsheets - BASH
 ## Table of Contents
+* [Create a Command Alias](#create-a-command-alias)
 * [Rename Multiple Files](#rename-multiple-files)
 * [Invoke Another Shell](#invoke-another-shell)
 * [Send Multiple Files via SSH](#send-multiple-files-via-ssh)
 * [Download Multiple Files Using Wget](#download-multiple-files-using-wget)
+
+## Create a Command Alias
+**Interactive Shells** (the CLI, a.k.a terminal)  
+Zsh
+```bash
+echo "alias cls='cls'" >> .zshrc # just me
+echo "alias cls='cls'" >> /etc/zsh/zshrc # for all users
+```
+BASH
+```bash
+echo "alias cls='cls'" >> .bash_aliases # just me
+echo "alias cls='cls'" >> /etc/bash.bashrc # for all users
+```
+
+**Login Shells (the GUI)**
+```bash
+echo "alias cls='cls'" >> .profile # just me
+echo "alias cls='cls'" >> /etc/profile # for all users
+```
 
 ## Rename Multiple Files
 ```bash
