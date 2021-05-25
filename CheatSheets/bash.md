@@ -31,6 +31,23 @@ echo "alias cls='cls'" >> .profile # just me
 echo "alias cls='cls'" >> /etc/profile # for all users
 ```
 
+## Environment Variables
+**PS1**
+```bash
+# how to change it to the previously less flashy one
+vim .bashrc
+# search for PS1 using /PS1
+# comment-out PS1=$prompt_color...
+# un-comment the line beneath BackTrack red prompt
+```
+
+**Shell**
+```nash
+# how to change it from Zsh to BASH
+chsh -s /bin/bash
+sudo reboot now
+```
+
 ## Rename Multiple Files
 ```bash
 for FILE in *alpha*; do mv $FILE "${FILE/alpha/beta}"; done
