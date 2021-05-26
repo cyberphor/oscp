@@ -37,8 +37,8 @@ mkdir scans
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
-PORTS=
-sudo nmap $TARGET -sSUV -p$PORTS -oN scans/$NAME-nmap-versions
+PORTS=$(print_open_ports_from_nmap_scan -f scans/$NAME-nmap-complete)
+sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
 ```
 
 ### Web
