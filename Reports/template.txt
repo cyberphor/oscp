@@ -8,8 +8,8 @@
 * [Effect](#effect)
 
 ## Summary
-* Hostname: ???
-* IP address: ???
+* Hostname: demo
+* IP address: 10.11.12.13
 * Open ports:
   * TCP: ???
   * UDP: ???
@@ -27,25 +27,29 @@
 
 ## Enumerate
 ```bash
-TARGET=
+TARGET=10.11.12.13
+NAME=demo
+mkdir $NAME
+mkdir scans
 ```
+
+### Nmap
 ```bash
-sudo nmap $TARGET -sS -sU --min-rate 1000 -oA $TARGET-initial
+sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
+sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
+PORTS=
+sudo nmap $TARGET -sSUV -p$PORTS -oN scans/$NAME-nmap-versions
 ```
+
+### Web
 ```bash
-sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oA $TARGET-complete
-```
-```bash
-sudo nmap $TARGET -sSUV -pT:80,U:53 -oA $TARGET-versions
-```
-```bash
-python3 dirsearch -u $TARGET -o $TARGET-webcrawl.txt
+python3 dirsearch -u $TARGET -o scans/$NAME-dirsearch-webcrawl.txt
 
 # output
 NSTR
 ```
 ```bash
-nikto -h $TARGET -T2 -Format txt -o $TARGET-nikto-misconfig.txt
+nikto -h $TARGET -T2 -Format txt -o scans/$NAME-nikto-misconfig.txt
 
 # output
 NSTR
