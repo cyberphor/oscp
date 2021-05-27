@@ -10,8 +10,8 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 
 ## Table of Contents
 * [Cheat-sheets](/CheatSheets/)
-* [Mind Maps](/MindMaps/)
 * [Code](/Code/)
+* [Mind Maps](/MindMaps/)
 * [Reports](/Reports/)
 
 ## How to View this Repo Offline
