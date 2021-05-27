@@ -16,7 +16,7 @@ echo "SuperStrongPassPhrase" >> creds.txt
 chmod u+r creds.txt
 chmod go-rwx creds.txt
 
-sed '15 i\auth-user-pass creds.txt' pwk-labs.ovpn # insert this line before the 15th line
+sed -i '15 i\auth-user-pass creds.txt' pwk-labs.ovpn # insert this line before the 15th line
 sudo openvpn pwk-labs.ovpn
 ```
 
