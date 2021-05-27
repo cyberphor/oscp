@@ -17,7 +17,7 @@ dirb $TARGET -r -z10 # recursive; wait 10 milliseconds between delays
 ```
 ```bash
 sudo apt install dirsearch
-dirsearch -u $TARGET --o scans/$TARGET-dirsearch
+dirsearch -u $TARGET -o /home/victor/pwk/labs/$TARGET/scans/$TARGET-dirsearch --format=simple
 ```
 ```bash
 nikto -h $TARGET -maxtime=30s -o scans/$TARGET-nikto-30seconds.txt
