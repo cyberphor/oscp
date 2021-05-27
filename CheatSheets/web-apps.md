@@ -20,7 +20,7 @@ sudo apt install dirsearch
 dirsearch -u $TARGET --o scans/$TARGET-dirsearch
 ```
 ```bash
-nikto -h $TARGET -maxtime=30s -Format txt -o scans/$TARGET-nikto-30seconds
+nikto -h $TARGET -maxtime=30s -o scans/$TARGET-nikto-30seconds.txt
 nikto -h $TARGET -T 2 # scan for misconfiguration vulnerabilities
 nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
 ```
