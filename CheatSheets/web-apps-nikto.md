@@ -4,7 +4,7 @@
 nikto -h $TARGET -T 2
 ```
 ```bash
-nikto -h $TARGET -maxtime=60s -Format txt -o $TARGET-nikto-60seconds.txt
+nikto -h $TARGET -maxtime=60s -o scans/$TARGET-nikto-60seconds.txt
 ```
 ```bash
 # Tuning (-T) Options
