@@ -10,17 +10,8 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 
 ## Table of Contents
 * [Cheat-sheets](/CheatSheets/)
-  * [Buffer Overflows](/CheatSheets/bof-c-code.md)
-  * [Enumeration](/CheatSheets/enumeration.md)
-  * [Password Guessing](/CheatSheets/password-guessing.md)
-  * [Shells](/CheatSheets/shells.md)
-  * [Web Apps](/CheatSheets/web-apps.md)
 * [Mind Maps](/MindMaps/)
-  * [Buffer Overflows](/MindMaps/bof.md)
-  * [Web Apps](/MindMaps/web-apps.md)
 * [Code](/Code/)
-  * [C Code Vulnerable to a Buffer Overflow](/Code/vulnerable2bof.c) 
-  * [Generation-Based Fuzzer](/Code/gbfuzzer.py)
 * [Reports](/Reports/)
 
 ## How to View this Repo Offline
