@@ -1,12 +1,26 @@
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/web-apps.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/web-apps.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+# Cheatsheets - Web Apps
+## Table of Contents
+* [Enumerate](#enumerate)
+* [Exploit](#exploit)
+* [Explore](#explore)
+* [Effect](#effect)
+
 ## Enumerate
 ```bash
 dirb $TARGET -r -z10 # recursive; wait 10 milliseconds between delays
 ```
 ```bash
-python3 dirsearch/dirsearch.py -u $TARGET --o $TARGET-webcrawl.txt
+sudo apt install dirsearch
+dirsearch -u $TARGET --o scans/$TARGET-dirsearch
 ```
 ```bash
-nikto -h $TARGET -maxtime=30s -Format txt -o $TARGET-nikto-30seconds.txt
+nikto -h $TARGET -maxtime=30s -Format txt -o scans/$TARGET-nikto-30seconds
 nikto -h $TARGET -T 2 # scan for misconfiguration vulnerabilities
 nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
 ```
@@ -67,3 +81,11 @@ Add a new user to a SQL database
 ```sql
 INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 ```
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/web-apps.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/web-apps.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+## Bottom of Page
