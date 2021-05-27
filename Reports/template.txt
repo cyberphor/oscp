@@ -30,7 +30,9 @@
 TARGET=10.11.12.13
 NAME=demo
 mkdir $NAME
-mkdir scans
+mkdir $NAME/scans
+mdkir $NAME/exploits
+cd $NAME
 ```
 
 ### Nmap
