@@ -65,23 +65,24 @@ cat /mnt/FOO/loot.txt
 ## SMTP
 TCP Port 25
 ```bash
+sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
+sudo nmap $TARGET -p25 --script smtp-enum-users -oN scans/$NAME-nmap-script-smtp-enum-users
+```
+```bash
 telnet $TARGET 25
 HELO
 VRFY root
 QUIT
 ```
 
-## SMB
-TCP Port 445
-SMBClient
+## POP3 
+TCP Port 110
 ```bash
-smbclient -L //10.11.1.5/ # list shares
-```
-
-Impacket SMB Client
-```bash
-impacket-smbclient ''@$TARGET
-use IPC$
+telnet $TARGET 110
+USER root
+PASS root
+RETR 1
+QUIT
 ```
 
 ## RPC
@@ -89,4 +90,17 @@ TCP Port 135
 ```bash
 rpcclient -U '' $TARGET
 netshareenum # print the real file-path of shares; good for accurate RCE
+```
+
+## SMB
+TCP Port 445
+SMBClient
+```bash
+smbclient -L //$TARGET/ # list shares
+```
+
+Impacket SMB Client
+```bash
+impacket-smbclient ''@$TARGET
+use IPC$
 ```
