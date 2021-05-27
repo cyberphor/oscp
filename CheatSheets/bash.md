@@ -11,6 +11,7 @@
 * [Invoke Another Shell](#invoke-another-shell)
 * [Send Multiple Files via SSH](#send-multiple-files-via-ssh)
 * [Download Multiple Files Using Wget](#download-multiple-files-using-wget)
+* [Keyboard Shortcuts](#keyboard-shortcuts)
 
 ## Create a Command Alias
 **Interactive Shells** (the CLI, a.k.a terminal)  
@@ -67,6 +68,13 @@ scp -r software/ victor@$TARGET:~/
 ## Download Multiple Files Using Wget
 ```bash
 wget -r http://$TARGET/$FOLDER -O $FOLDER
+```
+
+## Keyboard Shortcuts
+```bash
+CTRL+E # jump to end of line
+CTRL+A # jump to beginning of line
+CTRL+X+DEL # delete all text typed, from right to left
 ```
 
 <p align="right">
