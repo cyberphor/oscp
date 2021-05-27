@@ -12,6 +12,7 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 * [Cheat-sheets](/CheatSheets/)
 * [Code](/Code/)
 * [Mind Maps](/MindMaps/)
+* [References](/References/README.md)
 * [Reports](/Reports/)
 
 ## How to View this Repo Offline
