@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-openvpn.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/metawork-openvpn.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_openvpn.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork_openvpn.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - OpenVPN
@@ -22,8 +22,8 @@ sudo openvpn pwk-labs.ovpn
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-openvpn.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/metawork-openvpn.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_openvpn.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork_openvpn.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
