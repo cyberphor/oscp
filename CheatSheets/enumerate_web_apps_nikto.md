@@ -1,4 +1,10 @@
-# Cheatsheet - Web Apps
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps_nikto.md#">Top of Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps_nikto.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+# Cheatsheets - Web Apps
 ## Nikto
 ```bash
 nikto -h $TARGET -T 2
@@ -23,3 +29,11 @@ b – Software Identification
 c – Remote Source Inclusion
 x – Reverse Tuning Options (i.e., include all except specified)
 ```
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps_nikto.md#">Top of Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps_nikto.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+## Bottom of Page
