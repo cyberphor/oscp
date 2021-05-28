@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md.md#">Top of Page</a> |
-  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_bof_compiling_vulnerable_c_code.mdmd#">Top of Page</a> |
+  <a href="/CheatSheets/metawork_bof_compiling_vulnerable_c_code.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheet - Buffer Overflows (BOF)
@@ -62,8 +62,8 @@ Segmentation fault
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md.md#">Top of Page</a> |
-  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_bof_compiling_vulnerable_c_code.mdmd#">Top of Page</a> |
+  <a href="/CheatSheets/metawork_bof_compiling_vulnerable_c_code.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
