@@ -1,5 +1,11 @@
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md.md#">Top of Page</a> |
+  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md#bottom-of-page">Bottom of Page</a>
+</p>
+
 # Cheatsheet - Buffer Overflows (BOF)
-## Compiling and Using Vulnerable C Code
+## Compiling Vulnerable C Code
 How to Invoke the Vim Text-Editor
 ```bash
 vim bof.c
@@ -53,3 +59,11 @@ How to Crash the Resulting, Compiled Program
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Segmentation fault
 ```
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md.md#">Top of Page</a> |
+  <a href="/CheatSheets/metawork-bof-compiling-vulnerable-c-code.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+## Bottom of Page
