@@ -44,6 +44,6 @@ echo "[+] Installed: pycryptodome"
 sudo apt-get install gcc-multilib
 echo "[+] Installed: gcc-multilib"
 
-sudo apt install dconf-editor
-echo "[+] Installed: dconf-editor"
+sudo apt install flameshot
+echo "[+] Installed: flameshot"
 echo " --> To make it easier to organize your screenshots."
