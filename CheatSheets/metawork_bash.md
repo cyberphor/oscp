@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-bash.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/metawork-bash.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_bash.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork_bash.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - BASH
@@ -79,8 +79,8 @@ CTRL+X+DEL # delete all text typed, from right to left
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork-bash.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/metawork-bash.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_bash.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork_bash.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
