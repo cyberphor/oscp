@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/web-apps.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/web-apps.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/enumerate_web_apps.md">Top of Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - Web Apps
@@ -84,8 +84,8 @@ INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/web-apps.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/web-apps.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/enumerate_web_apps.md">Top of Page</a> |
+  <a href="/CheatSheets/enumerate_web_apps.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
