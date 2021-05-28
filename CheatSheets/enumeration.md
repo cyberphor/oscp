@@ -32,7 +32,7 @@ sudo nmap $TARGET -sS -sU -p$PORTS -oA nmap/$TARGET-versions
 ```
 
 ## FTP
-TCP Port 21
+**TCP Port 21**
 ```bash
 ftp $TARGET
 # anonymous
@@ -49,7 +49,7 @@ exit
 ```
 
 ## NFS
-TCP Port 111
+**TCP Port 111**
 ```bash
 sudo nmap $TARGET -p111 --script-nfs* 
 showmount -e $TARGET 
@@ -63,7 +63,7 @@ cat /mnt/FOO/loot.txt
 ```
 
 ## SMTP
-TCP Port 25
+**TCP Port 25**
 ```bash
 sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
 sudo nmap $TARGET -p25 --script smtp-enum-users -oN scans/$NAME-nmap-script-smtp-enum-users
@@ -93,7 +93,7 @@ netshareenum # print the real file-path of shares; good for accurate RCE
 ```
 
 ## SMB
-TCP Port 445
+**TCP Port 445**
 SMBClient
 ```bash
 smbclient -L //$TARGET/ # list shares
@@ -103,4 +103,9 @@ Impacket SMB Client
 ```bash
 impacket-smbclient ''@$TARGET
 use IPC$
+```
+
+SMBMap
+```bash
+smbmap -H $TARGET
 ```
