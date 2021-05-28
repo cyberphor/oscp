@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/python.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/python.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork-python.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork-python.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - Python
@@ -32,5 +32,11 @@ python -m pip install --upgrade setuptools
 python -m pip install pysmb
 python -m pip install pycryptodome
 ```
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/metawork-python.md#table-of-contents">Top of Page</a> |
+  <a href="/CheatSheets/metawork-python.md#bottom-of-page">Bottom of Page</a>
+</p>
 
 ## Bottom of Page
