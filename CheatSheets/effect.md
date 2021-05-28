@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/effect.md#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/effect.md#rolling-reboot">Bottom of Page</a>
+  <a href="/CheatSheets/effect.md">Top of Page</a> |
+  <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - Effect
@@ -39,3 +39,11 @@ Write-Host "[+] Donovia Rulez!"
 Read-Host "[+] Decrypt files with $($env:USERNAME) password" | Out-File -Append C:\Users\Public\loot.txt
 Start-Sleep -Seconds 5
 ```
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/CheatSheets/effect.md">Top of Page</a> |
+  <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
+</p>
+
+## Bottom of Page
