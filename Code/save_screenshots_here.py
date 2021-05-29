@@ -22,7 +22,7 @@ def update_screenshooter(config_file_path,delimiter,screenshot_dir):
 def main():
     home_dir = os.path.expanduser("~")
     config_file_path = home_dir + "/.config/xfce4/xfce4-screenshooter"
-    config_delimiter = "screenshot_dir=file://"
+    delimiter = "screenshot_dir=file://"
     if len(sys.argv) > 1:
         if sys.argv[1] == "--reset":
             screenshot_dir = home_dir + "/Pictures"
