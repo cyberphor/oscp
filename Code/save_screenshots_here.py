@@ -28,7 +28,6 @@ def update_screenshooter(screenshot_dir):
             else:
                 new_settings.append(setting)
         new_config = ''.join(new_settings)
-        print(new_config)
     with open(config_file_path,"w") as config:
         config.write(new_config)
 
