@@ -31,6 +31,7 @@ TARGET=10.11.12.13
 NAME=demo
 mkdir $NAME
 mkdir $NAME/scans
+mkdir $NAME/screenshots
 mdkir $NAME/exploits
 cd $NAME
 ```
@@ -45,7 +46,7 @@ sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
 
 ### Web
 ```bash
-python3 dirsearch -u $TARGET -o scans/$NAME-dirsearch-webcrawl.txt
+dirsearch -u $TARGET -o scans/$NAME-dirsearch-webcrawl.txt
 
 # output
 NSTR
