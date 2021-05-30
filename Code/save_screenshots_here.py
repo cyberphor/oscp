@@ -10,24 +10,15 @@ def check_credentials():
 
 def update_screenshooter(screenshot_dir):
     config_file_path = "/usr/share/kali-themes/xfce4-screenshooter"
+    pattern = r"\/.+\$FILE"
+    update = screenshot_dir + "/$FILE"
     with open(config_file_path,"r") as config:
-        old_config = config.readlines()
-        new_settings = []
-        for setting in old_config:
-            if "$FILE" in setting:
-                if "xdg-user-dir" in setting:
-                    pattern = r'\".+\"'
-                else:
-                    pattern = r"\/\w+"
-                if screenshot_dir == "default":
-                    update = '"$(xdg-user-dir PICTURES)/$FILE"'
-                else:
-                    update = screenshot_dir + "/$FILE"
-                updated_setting = re.sub(pattern,update,setting)
-                new_settings.append(updated_setting)
-            else:
-                new_settings.append(setting)
-        new_config = ''.join(new_settings)
+        old_config = config.read()
+        if "xdg-user-dir" in old_config:
+            pattern = r'\"\$\(.+\)\/\$FILE\"'
+        if screenshot_dir == "default":
+            update = '"$(xdg-user-dir PICTURES)/$FILE"'
+        new_config = re.sub(pattern,update,old_config,2)
     with open(config_file_path,"w") as config:
         config.write(new_config)
 
