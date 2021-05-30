@@ -46,7 +46,7 @@ sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
 
 ### Web
 ```bash
-dirsearch -u $TARGET -o scans/$NAME-dirsearch-webcrawl.txt
+dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch.txt --format=simple
 
 # output
 NSTR
