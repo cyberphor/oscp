@@ -5,11 +5,11 @@
 </p>
 
 # pwk
-Hello world! These are my "Penetration Testing with Kali Linux" cheat-sheets, mind maps, and programs. 
+Hello world! These are my "Penetration Testing with Kali Linux" cheatsheets, mind maps, and boot-strap code. 
 I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
 
 ## Table of Contents
-* [Cheat-sheets](/CheatSheets/)
+* [Cheatheets](/CheatSheets/)
 * [Code](/Code/)
 * [Mind Maps](/MindMaps/)
 * [References](/References/README.md)
