@@ -9,7 +9,7 @@ Hello world! These are my "Penetration Testing with Kali Linux" cheatsheets, min
 I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
 
 ## Table of Contents
-* [Cheatheets](/CheatSheets/)
+* [Cheatsheets](/CheatSheets/)
 * [Code](/Code/)
 * [Mind Maps](/MindMaps/)
 * [References](/References/README.md)
