@@ -5,10 +5,10 @@
 </p>
 
 # Cheatsheets - Effect
-* Dump Passwords
-* Find Password Files
-* Find Emailboxes
-* Get Network Connections
+* [Dump Passwords](#dump-passwords)
+* [Find Password Files](#find-password-files)
+* [Find Emailboxes](#find-emailboxes)
+* [Get Network Connections](#get-network-connections)
 * [Exfil via Netcat](#exfil-via-netcat)
 
 ## Dump Passwords
@@ -28,7 +28,11 @@ dir *.dbx /s
 
 ## Get Network Connections
 ```bash
+# all connections, no name resolution, and print owning PID 
 netstat -ano 
+
+# print filepath of each network-connected binary
+(Get-NetTcpConnection).OwningProcess | ForEach-Object { Get-Process -Id $_ | Select-Object -ExpandProperty Path } | Sort-Object | Get-Unique
 ```
 
 ## Exfil via Netcat
