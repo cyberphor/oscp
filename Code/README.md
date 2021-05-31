@@ -8,6 +8,7 @@
 
 |Name|Description|
 |----|-------|
+|Get-NetworkConnectionFilePaths.ps1|Print the filepath of binaries responsible for open network connections.|
 |gbfuzzer.py|A generation-based fuzzer designed to make buffer overflows easier to execute.|
 |katz2crack.py|Converts a Mimikatz LSA dump file to a file easily parsed by John the Ripper, Hashcat, etc.|
 |print_all_possible_hex_chars.py|Prints all possible hexadecimal characters (format: "\x00\x01...")|
