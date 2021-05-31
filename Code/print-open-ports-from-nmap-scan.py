@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import argparse
 import re
+import sys
 
 def get_open_ports(filename):
     with open(filename) as scan:
@@ -22,11 +22,8 @@ def get_open_ports(filename):
             print("-p" + open_udp_ports)
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-f")
-    args = parser.parse_args()
-    if args.f:
-        get_open_ports(args.f)
+    if len(sys.argv) > 1:
+        get_open_ports(sys.argv[1])
 
 if __name__ == "__main__":
     main()
