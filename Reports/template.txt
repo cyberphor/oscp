@@ -30,9 +30,10 @@
 TARGET=10.11.12.13
 NAME=demo
 mkdir $NAME
+mkdir $NAME/exploits
 mkdir $NAME/scans
 mkdir $NAME/screenshots
-mdkir $NAME/exploits
+sudo save_screenshots_here $NAME/screenshots
 cd $NAME
 ```
 
