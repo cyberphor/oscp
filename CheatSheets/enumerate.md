@@ -64,16 +64,19 @@ cat /mnt/FOO/loot.txt
 
 ## SMTP
 **TCP Port 25**
-```bash
-sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
-sudo nmap $TARGET -p25 --script smtp-enum-users -oN scans/$NAME-nmap-script-smtp-enum-users
-```
+Manual enumeration
 ```bash
 telnet $TARGET 25
 HELO
 VRFY root
 QUIT
 ```
+Nmap
+```bash
+sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
+sudo nmap $TARGET -p25 --script smtp-enum-users -oN scans/$NAME-nmap-script-smtp-enum-users
+```
+
 
 ## POP3 
 TCP Port 110
