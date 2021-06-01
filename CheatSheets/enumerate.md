@@ -71,12 +71,17 @@ HELO
 VRFY root
 QUIT
 ```
-Nmap
+
+Automated enumeration via Nmap.
 ```bash
 sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
 sudo nmap $TARGET -p25 --script smtp-enum-users -oN scans/$NAME-nmap-script-smtp-enum-users
 ```
 
+Automated SMTP user enumeration via smtp-user-enum.
+```bash
+smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TARGET
+```
 
 ## POP3 
 TCP Port 110
