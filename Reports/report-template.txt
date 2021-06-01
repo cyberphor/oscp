@@ -31,6 +31,7 @@ TARGET=10.11.12.13
 NAME=demo
 mkdir $NAME
 mkdir $NAME/exploits
+mkdir $NAME/loot
 mkdir $NAME/scans
 mkdir $NAME/screenshots
 sudo save_screenshots_here $NAME/screenshots
