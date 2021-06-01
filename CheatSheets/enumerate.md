@@ -113,6 +113,11 @@ SMBMap
 smbmap -H $TARGET
 ```
 
+smbget
+```bash
+smbget -R smb://$TARGET/$SHARE
+```
+
 <p align="right">
   <a href="/README.md">Home Page</a> |
   <a href="/CheatSheets/enumerate.md#">Top of Page</a> |
