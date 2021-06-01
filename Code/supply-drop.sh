@@ -44,6 +44,9 @@ echo "[+] Installed: pycryptodome"
 sudo apt-get install gcc-multilib
 echo "[+] Installed: gcc-multilib"
 
-sudo apt install flameshot
-echo "[+] Installed: flameshot"
-echo " --> To make it easier to organize your screenshots."
+sudo wget https://raw.githubusercontent.com/cyberphor/pwk/main/Code/save-screenshots-here.py -O /usr/local/bin/save-screenshots-here
+sudo chmod +x /usr/local/bin/save-screenshots-here
+echo "[+] Installed: save-screenshots-here"
+
+sudo apt install smtp-user-enum
+echo "[+] Installed: smtp-user-enum"
