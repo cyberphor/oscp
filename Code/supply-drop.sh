@@ -50,3 +50,6 @@ echo "[+] Installed: save-screenshots-here"
 
 sudo apt install smtp-user-enum
 echo "[+] Installed: smtp-user-enum"
+
+sudo apt install feh
+echo "[+] Installed: feh"
