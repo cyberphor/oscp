@@ -3,7 +3,11 @@
 * [Summary](#summary)
 * [Enumerate](#enumerate)
   * [Nmap](#nmap)
-  * [Web](#web)
+  * [HTTP](#http)
+  * [RPC](#rpc)
+  * [NetBIOS](#netbios)
+  * [SMB](#smb)
+  * [SQL](#sql)
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
@@ -50,7 +54,7 @@ PORTS=$(print-open-ports-from-nmap-scan -f scans/$NAME-nmap-complete)
 sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
 ```
 
-### Web
+### HTTP
 ```bash
 dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
 
@@ -59,6 +63,12 @@ NSTR
 ```
 ```bash
 nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig.txt
+
+# output
+NSTR
+```
+```bash
+dirb http://$TARGET -r -z10
 
 # output
 NSTR
