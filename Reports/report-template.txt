@@ -48,13 +48,13 @@ sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
 
 ### Web
 ```bash
-dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch.txt --format=simple
+dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
 
 # output
 NSTR
 ```
 ```bash
-nikto -h $TARGET -T2 -Format txt -o scans/$NAME-nikto-misconfig.txt
+nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig.txt
 
 # output
 NSTR
