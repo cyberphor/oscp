@@ -2,7 +2,11 @@
 ## Table of Contents
 * [Summary](#summary)
 * [Enumerate](#enumerate)
+  * [Nmap](#nmap)
+  * [Web](#web)
 * [Exploit](#exploit)
+  * [Online Password Guessing](#online-password-guessing)
+  * [Offline Password Guessing](#offline-password-guessing)
 * [Explore](#explore)
 * [Escalate](#escalate)
 * [Effect](#effect)
@@ -59,14 +63,15 @@ nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig.txt
 # output
 NSTR
 ```
+
+## Exploit
+### Online Password Guessing
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 
 # output
 NSTR
 ```
-
-## Exploit
 
 ## Escalate
 
