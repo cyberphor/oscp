@@ -12,8 +12,8 @@
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
-* [Explore](#explore)
 * [Escalate](#escalate)
+* [Explore](#explore)
 * [Effect](#effect)
 
 ## Summary
