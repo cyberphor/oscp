@@ -43,7 +43,7 @@ mkdir $NAME/exploits
 mkdir $NAME/loot
 mkdir $NAME/scans
 mkdir $NAME/screenshots
-sudo save_screenshots_here $NAME/screenshots
+sudo save-screenshots-here $NAME/screenshots
 cd $NAME
 ```
 
