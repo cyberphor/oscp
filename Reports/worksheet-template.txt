@@ -70,7 +70,7 @@ sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-c
 
 Automated enumeration of existing SMTP users.
 ```bash
-sudo nmap $TARGET -p25 --script --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-script-smtp-enum-users
+sudo nmap $TARGET -p25 --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-script-smtp-enum-users
 ```
 ```bash
 smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TARGET
@@ -78,7 +78,7 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 
 Automated enumeration of exploitable SMTP vulnerabilities.
 ```bash
-sudo nmap $TARGET -p25 --script --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vuln
+sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vuln
 ```
 
 ### HTTP
@@ -135,7 +135,7 @@ NSTR
 
 ### RDP
 ```bash
-sudo nmap $TARGET --script rdp-ntlm-info
+sudo nmap $TARGET --script rdp-ntlm-info -oN scans/$NAME-nmap-script-rdp-ntlm-info
 
 # output
 NSTR
