@@ -2,13 +2,17 @@
 ## Table of Contents
 * [Summary](#summary)
 * [Enumerate](#enumerate)
-  * [Ports and Services](#ports-and-services)
-  * [HTTP](#http)
-  * [RPC](#rpc)
-  * [NetBIOS](#netbios)
-  * [SMB](#smb)
-  * [SQL](#sql)
-  * [RDP](#rdp)
+  * [Ports](#ports)
+  * [Services](#services)
+    * [SMTP](#smtp)
+    * [HTTP](#http)
+    * [POP3](#pop3)
+    * [RPC](#rpc)
+    * [IMAP](#imap)
+    * [NetBIOS](#netbios)
+    * [SMB](#smb)
+    * [SQL](#sql)
+    * [RDP](#rdp)
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
@@ -34,7 +38,7 @@
 * Flag:
   * ???
 
-## Enumerate
+# Enumerate
 ```bash
 TARGET=10.11.12.13
 NAME=demo
@@ -47,12 +51,32 @@ sudo save-screenshots-here $NAME/screenshots
 cd $NAME
 ```
 
-### Ports and Services
+## Ports
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
 PORTS=$(print-open-ports-from-nmap-scan -f scans/$NAME-nmap-complete)
 sudo nmap $TARGET -sV -p$PORTS -oN scans/$NAME-nmap-versions
+```
+
+## Services
+### SMTP
+Automated enumeration of supported SMTP commands.
+```bash
+sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
+```
+
+Automated enumeration of existing SMTP users.
+```bash
+sudo nmap $TARGET -p25 --script --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-script-smtp-enum-users
+```
+```bash
+smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TARGET
+```
+
+Automated enumeration of exploitable SMTP vulnerabilities.
+```bash
+sudo nmap $TARGET -p25 --script --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vuln
 ```
 
 ### HTTP
@@ -115,8 +139,8 @@ sudo nmap $TARGET --script rdp-ntlm-info
 NSTR
 ```
 
-## Exploit
-### Online Password Guessing
+# Exploit
+## Online Password Guessing
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 
@@ -124,7 +148,7 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 NSTR
 ```
 
-### Offline Password Guessing
+## Offline Password Guessing
 Hashcat
 ```bash
 hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt 
@@ -136,8 +160,8 @@ unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
 john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-## Escalate
+# Escalate
 
-## Explore
+# Explore
 
-## Effect
+# Effect
