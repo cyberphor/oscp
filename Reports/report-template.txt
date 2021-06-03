@@ -2,12 +2,13 @@
 ## Table of Contents
 * [Summary](#summary)
 * [Enumerate](#enumerate)
-  * [Nmap](#nmap)
+  * [Ports and Services](#ports-and-services)
   * [HTTP](#http)
   * [RPC](#rpc)
   * [NetBIOS](#netbios)
   * [SMB](#smb)
   * [SQL](#sql)
+  * [RDP](#rdp)
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
@@ -16,12 +17,12 @@
 * [Effect](#effect)
 
 ## Summary
-* Hostname: demo
-* IP address: 10.11.12.13
-* Open ports:
-  * TCP: ???
-  * UDP: ???
-* OS:
+* Hostname: 
+* IP address: 
+* Domain: 
+* TCP Ports and Services: 
+* UDP Ports and Services: 
+* OS: (ref:)
   * Distro: (ref:)
   * Kernel: (ref:)
 * Users:
@@ -46,7 +47,7 @@ sudo save_screenshots_here $NAME/screenshots
 cd $NAME
 ```
 
-### Nmap
+### Ports and Services
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
@@ -74,6 +75,46 @@ dirb http://$TARGET -r -z10
 NSTR
 ```
 
+### RPC
+```bash
+rpcclient -U '' $TARGET
+
+# output
+NSTR
+```
+
+### NetBIOS
+```bash
+nbtscan $TARGET
+
+# output
+NSTR
+```
+
+### SMB
+```bash
+smbclient -L $TARGET
+
+# output
+NSTR
+```
+
+### SQL
+```bash
+mysql -u $USER -h $TARGET
+
+# output
+NSTR
+```
+
+### RDP
+```bash
+sudo nmap $TARGET --script rdp-ntlm-info
+
+# output
+NSTR
+```
+
 ## Exploit
 ### Online Password Guessing
 ```bash
@@ -83,6 +124,20 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 NSTR
 ```
 
+### Offline Password Guessing
+Hashcat
+```bash
+hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt 
+```
+
+John the Ripper
+```bash
+unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
+john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
 ## Escalate
 
 ## Explore
+
+## Effect
