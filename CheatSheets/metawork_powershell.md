@@ -13,8 +13,8 @@
 powershell.exe -nop -w hidden -e abcdcef...
 
 # -nop = No Profile (do not load the user's PowerShell profile)
-# -w hidden = Windows Style is Hidden (do not open a window during execution)
-# -e = Encoded Command (decode & execute the following Base64-encoded string as a command)
+# -w hidden = WindowsStyle is Hidden (do not open a window during exec)
+# -e = Encoded Command (execute the following Base64 string as a command)
 ```
 
 <p align="right">
