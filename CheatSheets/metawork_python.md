@@ -8,6 +8,7 @@
 ## Table of Contents
 * [Pyenv](#pyenv)
 * [Pip](#pip)
+* [Splitting a Long String](#splitting-a-long-string)
 
 ## Pyenv
 ```bash
@@ -31,6 +32,14 @@ python -m pip --version
 python -m pip install --upgrade setuptools
 python -m pip install pysmb
 python -m pip install pycryptodome
+```
+
+## Splitting a Long String
+```python
+long_string = "<long string goes here>"
+chunk_size = 25
+for i in range(0, len(long_string), chunk_size):
+    print("long_string = long_string + " + '"' + str[i:i+chunk_size] + '"')
 ```
 
 <p align="right">
