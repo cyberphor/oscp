@@ -40,12 +40,12 @@ End Sub
 
 ## Example Macro Syntax Explained
 ```bash
-# Sub = used like a function, but does not return values (functions return values)
-# AutoOpen() = a predefined procedure; executed when a new document is opened
-# Document_Open() = a predfined procedure; executed when a document is already opened
+# Sub = used like a function, does not return values (functions do)
+# AutoOpen() = predefined procedure; executed when a new doc is opened
+# Document_Open() = predefined procedure; exec when a doc is already opened
 # ' = comments
-# Dim = used to declare a variable (the example declares FOO as a string variable
-# CreateObject()
+# Dim = used to declare a var (example declares FOO as a string var)
+# CreateObject() = ???
 # End Sub = represents the end of "sub" procedure within our exploit
 ```
 
