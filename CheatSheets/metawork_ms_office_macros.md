@@ -1,10 +1,10 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork_vba.md">Top of Page</a> |
-  <a href="/CheatSheets/metawork_vba.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_ms_office_macros.md.md">Top of Page</a> |
+  <a href="/CheatSheets/metawork_ms_office_macros.md#bottom-of-page">Bottom of Page</a>
 </p>
 
-# Cheatsheets - VBA (Visual Basic for Applications)
+# Cheatsheets - Macros
 ## Table of Contents
 * [How to Add a Macro to a Microsoft Word Document](#how-to-add-a-macro-to-a-microsoft-word-document)
 * [Example Macro](#example-macro)
@@ -51,8 +51,8 @@ End Sub
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork_vba.md">Top of Page</a> |
-  <a href="/CheatSheets/metawork_vba.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/metawork_ms_office_macros.md.md">Top of Page</a> |
+  <a href="/CheatSheets/metawork_ms_office_macros.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
