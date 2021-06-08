@@ -9,7 +9,7 @@
 * [How to Add a Macro to a Microsoft Word Document](#how-to-add-a-macro-to-a-microsoft-word-document)
 * [Example Macro](#example-macro)
 * [Example Macro Syntax Explained](#example-macro-syntax-explained)
-* [VBScript, CScript, and WScript](#vbscript-cscript-wscript)
+* [VBScript, CScript, and WScript](#vbscript-cscript-and-wscript)
 
 ## How to Add a Macro to a Microsoft Word Document
 1. Click-on "View" > "Macros" 
