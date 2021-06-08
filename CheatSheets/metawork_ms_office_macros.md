@@ -51,10 +51,8 @@ End Sub
 ```
 
 ## VBScript, CScript, and WScript
-```bash
-'cscript' runs entirely in the command line and is ideal for non-interactive scripts.
-'wscript' will popup Windows dialogue boxes for user interaction.
-```
+* 'cscript' runs entirely in the command line and is ideal for non-interactive scripts.
+* 'wscript' will popup Windows dialogue boxes for user interaction.
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
