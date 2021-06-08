@@ -9,6 +9,7 @@
 * [How to Add a Macro to a Microsoft Word Document](#how-to-add-a-macro-to-a-microsoft-word-document)
 * [Example Macro](#example-macro)
 * [Example Macro Syntax Explained](#example-macro-syntax-explained)
+* [VBScript, CScript, and WScript](#vbscript-cscript-wscript)
 
 ## How to Add a Macro to a Microsoft Word Document
 1. Click-on "View" > "Macros" 
@@ -47,6 +48,12 @@ End Sub
 # Dim = used to declare a var (example declares FOO as a string var)
 # CreateObject() = ???
 # End Sub = represents the end of "sub" procedure within our exploit
+```
+
+## VBScript, CScript, and WScript
+```bash
+'cscript' runs entirely in the command line and is ideal for non-interactive scripts.
+'wscript' will popup Windows dialogue boxes for user interaction.
 ```
 
 <p align="right">
