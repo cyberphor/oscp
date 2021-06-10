@@ -5,15 +5,13 @@
 </p>
 
 # pwk
-Hello world! These are my "Penetration Testing with Kali Linux" cheatsheets, mind maps, and boot-strap code. 
+Hello world! These are my "Penetration Testing with Kali Linux" cheatsheets bootstrap code. 
 I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
 
 ## Table of Contents
 * [Cheatsheets](/CheatSheets/)
 * [Code](/Code/)
-* [Mind Maps](/MindMaps/)
-* [References](/References/README.md)
-* [Reports](/Reports/)
+* [Docs](/Docs/README.md)
 
 ## How to View this Repo Offline
 Execute the commands below and then, navigate to the link displayed by [Grip](https://github.com/joeyespo/grip) using your browser.
