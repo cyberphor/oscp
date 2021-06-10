@@ -1,10 +1,10 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork.md">Top of Page</a> |
-  <a href="/CheatSheets/metawork.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/0_metawork.md">Top of Page</a> |
+  <a href="/CheatSheets/0_metawork.md#bottom-of-page">Bottom of Page</a>
 </p>
 
-# Cheatsheets - Metawork
+# Metawork
 ## Screenshots
 * PrtSc – Save a screenshot of the entire screen to the “Pictures” directory.
 * Shift + PrtSc – Save a screenshot of a specific region to Pictures.
@@ -15,8 +15,8 @@
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/metawork.md">Top of Page</a> |
-  <a href="/CheatSheets/metawork.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/0_metawork.md">Top of Page</a> |
+  <a href="/CheatSheets/0_metawork.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
