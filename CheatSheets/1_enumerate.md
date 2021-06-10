@@ -1,10 +1,10 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/enumerate.md#">Top of Page</a> |
-  <a href="/CheatSheets/enumerate.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/1_enumerate.md#">Top of Page</a> |
+  <a href="/CheatSheets/1_enumerate.md#bottom-of-page">Bottom of Page</a>
 </p>
 
-# Cheatsheets - Enumerate
+# Enumerate
 ## Table of Contents
 * [Priority of Work](#priority-of-work)
 * [Nmap](#nmap)
@@ -125,8 +125,8 @@ smbget -R smb://$TARGET/$SHARE
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/enumerate.md#">Top of Page</a> |
-  <a href="/CheatSheets/enumerate.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/1_enumerate.md#">Top of Page</a> |
+  <a href="/CheatSheets/1_enumerate.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
