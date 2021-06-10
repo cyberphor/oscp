@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/References/README.md#">Top of Page</a> |
-  <a href="/References/README.md#bottom-of-page">Bottom of Page</a>
+  <a href="/docs/references.md#">Top of Page</a> |
+  <a href="/docs/references.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # References
@@ -23,8 +23,8 @@ Windows
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/References/README.md#">Top of Page</a> |
-  <a href="/References/README.md#bottom-of-page">Bottom of Page</a>
+  <a href="/docs/references.md#">Top of Page</a> |
+  <a href="/docs/references.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
