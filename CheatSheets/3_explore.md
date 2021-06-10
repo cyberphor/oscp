@@ -1,10 +1,10 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/MindMaps/3_explore.md">Top of Page</a> |
-  <a href="/MindMaps/3_explore.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/3_explore.md">Top of Page</a> |
+  <a href="/CheatSheets/3_explore.md#bottom-of-page">Bottom of Page</a>
 </p>
 
-# Mind Maps: Explore
+# Explore
 ## Table of Contents
 * [Information to Gather](#information-to-gather)
 
@@ -37,8 +37,8 @@ uname -a # print kernel version and system architecture
 
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/MindMaps/3_explore.md">Top of Page</a> |
-  <a href="/MindMaps/3_explore.md#bottom-of-page">Bottom of Page</a>
+  <a href="/CheatSheets/3_explore.md">Top of Page</a> |
+  <a href="/CheatSheets/3_explore.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 ## Bottom of Page
