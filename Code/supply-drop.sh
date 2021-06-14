@@ -41,8 +41,10 @@ echo "[+] Installed: pysmbclient"
 python -m pip install pycryptodome
 echo "[+] Installed: pycryptodome"
 
-sudo apt-get install gcc-multilib
+sudo apt install gcc-multilib
 echo "[+] Installed: gcc-multilib"
+sudo apt install mingw-w64
+echo "[+] Installed: mingw-w64"
 
 sudo wget https://raw.githubusercontent.com/cyberphor/pwk/main/Code/save-screenshots-here.py -O /usr/local/bin/save-screenshots-here
 sudo chmod +x /usr/local/bin/save-screenshots-here
