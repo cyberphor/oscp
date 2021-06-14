@@ -8,6 +8,7 @@
 
 |Name|Description|
 |----|-------|
+|add-new-windows-admin.c|Boiler-plate C code for a Windows-based exploit.|
 |Get-NetworkConnectionFilePaths.ps1|Print the filepath of binaries responsible for open network connections.|
 |gbfuzzer.py|A generation-based fuzzer designed to make buffer overflows easier to execute.|
 |katz2crack.py|Converts a Mimikatz LSA dump file to a file easily parsed by John the Ripper, Hashcat, etc.|
