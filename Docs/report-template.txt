@@ -113,7 +113,6 @@ sudo nmap $TARGET --script http-shellshock -oN scans/$NAME-nmap-script-http-shel
 NSTR
 ```
 
-
 ### RPC
 ```bash
 rpcclient -U '' $TARGET
