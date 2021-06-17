@@ -4,6 +4,7 @@
 * [Enumerate](#enumerate)
   * [Ports](#ports)
   * [Services](#services)
+    * [FTP](#ftp)
     * [SMTP](#smtp)
     * [HTTP](#http)
     * [POP3](#pop3)
@@ -64,6 +65,9 @@ NSTR
 ```
 
 ## Services
+### FTP
+
+
 ### SMTP
 Automated enumeration of supported SMTP commands.
 ```bash
@@ -91,17 +95,18 @@ dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
 NSTR
 ```
 ```bash
-nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig
-
-# output
-NSTR
-```
-```bash
 dirb http://$TARGET -r -z10
 
 # output
 NSTR
 ```
+```bash
+nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig
+
+# output
+NSTR
+```
+
 
 ### RPC
 ```bash
