@@ -16,8 +16,8 @@
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
-* [Escalate](#escalate)
 * [Explore](#explore)
+* [Escalate](#escalate)
 * [Effect](#effect)
 
 ## Summary
@@ -162,8 +162,8 @@ unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
 john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-# Escalate
-
 # Explore
+
+# Escalate
 
 # Effect
