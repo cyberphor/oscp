@@ -24,18 +24,20 @@
 * Hostname: 
 * IP address: 
 * Domain: 
-* TCP Ports and Services: 
-* UDP Ports and Services: 
-* OS: (ref:)
+* TCP Ports and Services
+  * ???
+* UDP Ports and Services
+  * ???
+* OS
   * Distro: (ref:)
   * Kernel: (ref:)
-* Users:
+* Users
   * ??? (ref:)
-* Vulnerabilities:
+* Vulnerabilities
   * CVE-??? (ref:)
-* Exploits:
+* Exploits
   * ??? (ref:)
-* Flag:
+* Flag
   * ???
 
 # Enumerate
