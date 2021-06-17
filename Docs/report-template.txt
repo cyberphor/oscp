@@ -91,7 +91,7 @@ dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
 NSTR
 ```
 ```bash
-nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig.txt
+nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig
 
 # output
 NSTR
