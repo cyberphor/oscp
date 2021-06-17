@@ -95,13 +95,19 @@ dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
 NSTR
 ```
 ```bash
-dirb http://$TARGET -r -z10
+dirb http://$TARGET -r -z10 -o scans/$NAME-dirb
 
 # output
 NSTR
 ```
 ```bash
 nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig
+
+# output
+NSTR
+```
+```bash
+sudo nmap $TARGET --script http-shellshock -oN scans/$NAME-nmap-script-http-shellshock
 
 # output
 NSTR
