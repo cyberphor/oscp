@@ -145,6 +145,18 @@ smbclient -L $TARGET
 # output
 NSTR
 ```
+```bash
+smbmap -H $TARGET
+
+# output
+NSTR
+```
+```bash
+sudo nmap $TARGET -p445 --script smb-vuln-ms17-010 -oN scans/$NAME-nmap-scripts-smb-vuln-ms17-010
+
+# output
+NSTR
+```
 
 ### SQL
 ```bash
@@ -183,7 +195,7 @@ hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt
 John the Ripper
 ```bash
 unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
-john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
+john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 # Explore
