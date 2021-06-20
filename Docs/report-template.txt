@@ -161,6 +161,9 @@ sudo nmap $TARGET --script rdp-ntlm-info -oN scans/$NAME-nmap-script-rdp-ntlm-in
 # output
 NSTR
 ```
+```bash
+rdesktop -u administrator $TARGET
+```
 
 # Exploit
 ## Online Password Guessing
