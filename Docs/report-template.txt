@@ -26,7 +26,12 @@
 * IP address: 
 * Domain: 
 * TCP Ports and Services
-  * ???
+  * 22
+    * ???
+  * 80
+    * ???
+  * 445
+    * ???
 * UDP Ports and Services
   * ???
 * OS
@@ -40,6 +45,8 @@
   * ??? (ref:)
 * Flag
   * ???
+* Hints
+  * n/a
 
 # Enumerate
 ```bash
@@ -66,7 +73,9 @@ NSTR
 
 ## Services
 ### FTP
-
+```bash
+???
+```
 
 ### SMTP
 Automated enumeration of supported SMTP commands.
