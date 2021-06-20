@@ -152,7 +152,15 @@ smbmap -H $TARGET
 NSTR
 ```
 ```bash
+# check if vulnerable to EternalBlue
 sudo nmap $TARGET -p445 --script smb-vuln-ms17-010 -oN scans/$NAME-nmap-scripts-smb-vuln-ms17-010
+
+# output
+NSTR
+```
+```bash
+# check if vulnerable to SambaCry
+sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-smb-vuln-cve-2017-7494
 
 # output
 NSTR
