@@ -55,3 +55,6 @@ echo "[+] Installed: smtp-user-enum"
 
 sudo apt install feh
 echo "[+] Installed: feh"
+
+sudo apt install crowbar
+echo "[+] Installed: crowbar"
