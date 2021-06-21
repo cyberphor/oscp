@@ -111,7 +111,7 @@ dirb http://$TARGET -r -z10 -o scans/$NAME-dirb
 NSTR
 ```
 ```bash
-nikto -h $TARGET -T 2 -Format txt -o scans/$NAME-nikto-misconfig
+nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig
 
 # output
 NSTR
