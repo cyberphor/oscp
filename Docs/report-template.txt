@@ -38,8 +38,8 @@
 * OS
   * Distro: (ref:)
   * Kernel: (ref:)
-* Users
-  * ??? (ref:)
+* Users (ref: )
+  * ???
 * Vulnerabilities
   * CVE-??? (ref:)
 * Exploits
