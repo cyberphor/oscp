@@ -24,6 +24,7 @@
 ## Summary
 * Hostname: 
 * IP address: 
+* MAC address: (ref:)
 * Domain: 
 * TCP Ports and Services
   * 22
