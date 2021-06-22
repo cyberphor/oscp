@@ -34,7 +34,7 @@
   * 445
     * ???
 * UDP Ports and Services
-  * ???
+  * 53
 * OS
   * Distro: (ref:)
   * Kernel: (ref:)
@@ -177,7 +177,7 @@ NSTR
 
 ### RDP
 ```bash
-sudo nmap $TARGET --script rdp-ntlm-info -oN scans/$NAME-nmap-script-rdp-ntlm-info
+sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-script-rdp-ntlm-info
 
 # output
 NSTR
