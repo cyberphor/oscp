@@ -18,6 +18,7 @@ SQL Injection
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
 - https://pentesterlab.com/exercises/from_sqli_to_shell/course
 - https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#StackingQueries
+- https://www.w3schools.com/tags/ref_urlencode.ASP
 
 ## Escalate
 Windows
