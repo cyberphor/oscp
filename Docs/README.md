@@ -16,6 +16,7 @@ Local File Inclusions
 
 SQL Injection
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+- https://pentesterlab.com/exercises/from_sqli_to_shell/course
 
 ## Escalate
 Windows
