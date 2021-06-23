@@ -16,6 +16,7 @@
     * [SMB](#smb)
     * [SQL](#sql)
     * [RDP](#rdp)
+  * [OS](#os)
 * [Exploit](#exploit)
   * [Online Password Guessing](#online-password-guessing)
   * [Offline Password Guessing](#offline-password-guessing)
@@ -196,6 +197,14 @@ NSTR
 ```
 ```bash
 rdesktop -u administrator $TARGET
+```
+
+## OS
+```bash
+sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
+
+# output
+NSTR
 ```
 
 # Exploit
