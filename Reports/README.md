@@ -23,6 +23,7 @@
 * [Explore](#explore)
 * [Escalate](#escalate)
 * [Effect](#effect)
+* [Lessons Learned](#lessons-learned)
 
 ## Summary
 * Hostname: 
@@ -233,3 +234,5 @@ john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
 # Escalate
 
 # Effect
+
+# Lessons Learned
