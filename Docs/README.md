@@ -5,6 +5,9 @@
 </p>
 
 # References
+## Walkthroughs
+- https://www.trenchesofit.com/
+
 ## Exam Tips
 - https://markeldo.com/how-to-pass-the-oscp/
 - https://fareedfauzi.gitbook.io/oscp-notes/
