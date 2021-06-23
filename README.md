@@ -11,7 +11,8 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 ## Table of Contents
 * [Cheatsheets](/CheatSheets/)
 * [Code](/Code/)
-* [Docs](/Docs/README.md)
+* [Reports](/Reports/README.md)
+* [References](/references.md)
 
 ## How to View this Repo Offline
 Execute the commands below and then, navigate to the link displayed by [Grip](https://github.com/joeyespo/grip) using your browser.
