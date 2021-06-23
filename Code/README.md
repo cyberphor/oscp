@@ -18,6 +18,7 @@
 |save-screenshots-here.py|Sets the default directory for xfce4-screenshooter.|
 |system-call-via-execl.c|Boiler-plate C code to execute a system call (Linux command) using the execl C function.|
 |system-call-via-system.c|Boiler-plate C code to execute a system call (Linux command) using the system C function.|
+|toggle-smbv1.py|Enable/disable SMBv1 on Kali Linux 5.10 (SMBv1 is disabled by default, but required for some exploits to work).|
 |vulnerable2bof.c|C code vulnerable to a Buffer Overflow.|
 
 ## Bottom of Page
