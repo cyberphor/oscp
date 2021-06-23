@@ -114,6 +114,7 @@ sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vu
 ### HTTP
 ```bash
 dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
+dirsearch -u $TARGET:$PORT -e php -o $FULLPATH/$NAME-dirsearch-php --format=simple
 
 # output
 NSTR
