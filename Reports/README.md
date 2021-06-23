@@ -129,7 +129,7 @@ nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig
 NSTR
 ```
 ```bash
-sudo nmap $TARGET --script http-shellshock -oN scans/$NAME-nmap-script-http-shellshock
+sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-script-http-shellshock
 
 # output
 NSTR
