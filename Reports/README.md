@@ -4,8 +4,10 @@
 * [Enumerate](#enumerate)
   * [Ports](#ports)
   * [Services](#services)
+    * [SSH](#ssh) 
     * [FTP](#ftp)
     * [SMTP](#smtp)
+    * [DNS](#dns)
     * [HTTP](#http)
     * [POP3](#pop3)
     * [RPC](#rpc)
@@ -78,6 +80,11 @@ NSTR
 ???
 ```
 
+### SSH
+```bash
+???
+```
+
 ### SMTP
 Automated enumeration of supported SMTP commands.
 ```bash
@@ -95,6 +102,11 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 Automated enumeration of exploitable SMTP vulnerabilities.
 ```bash
 sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vuln
+```
+
+## DNS
+```bash
+???
 ```
 
 ### HTTP
