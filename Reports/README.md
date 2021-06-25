@@ -120,7 +120,7 @@ dirsearch -u $TARGET:$PORT -e php -o $FULLPATH/$NAME-dirsearch-php --format=simp
 NSTR
 ```
 ```bash
-dirb http://$TARGET -r -z10 -o scans/$NAME-dirb
+dirb http://$TARGET -r -z10 -o scans/$NAME-dirb-common
 
 # output
 NSTR
