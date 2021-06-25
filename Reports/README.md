@@ -42,6 +42,7 @@
 * OS
   * Distro: (ref:)
   * Kernel: (ref:)
+  * Architecture: (ref:)
 * Users (ref: )
   * ???
 * Vulnerabilities
