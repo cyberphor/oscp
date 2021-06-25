@@ -49,6 +49,8 @@
   * CVE-??? (ref:)
 * Exploits
   * ??? (ref:)
+* Tools Used
+  * Nmap
 * Flag
   * ???
 * Hints
