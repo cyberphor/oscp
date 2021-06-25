@@ -58,3 +58,9 @@ echo "[+] Installed: feh"
 
 sudo apt install crowbar
 echo "[+] Installed: crowbar"
+
+sudo apt install foremost
+echo "[+] Installed: foremost"
+
+sudo apt install steghide
+echo "[+] Installed: steghide"
