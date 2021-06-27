@@ -18,8 +18,13 @@
     * [RDP](#rdp)
   * [OS](#os)
 * [Exploit](#exploit)
-  * [Online Password Guessing](#online-password-guessing)
-  * [Offline Password Guessing](#offline-password-guessing)
+  * [Password Guessing](#password-guessing) 
+    * [Online Password Guessing](#online-password-guessing)
+    * [Offline Password Guessing](#offline-password-guessing)
+  * [CVE-2021-1234] 
+    * [EDB-ID-56789](#edb-id-56789)
+    * [cyberphor POC](#cyberphor-poc)
+    * [Metasploit](#metasploit)
 * [Explore](#explore)
 * [Escalate](#escalate)
 * [Effect](#effect)
@@ -43,12 +48,13 @@
   * Distro: (ref:)
   * Kernel: (ref:)
   * Architecture: (ref:)
-* Users (ref: )
+* Users (ref:)
   * ???
-* Vulnerabilities
-  * CVE-??? (ref:)
-* Exploits
-  * ??? (ref:)
+* Vulnerabilities and Exploits
+  * CVE-2021-1234 (ref:)
+    * EDB-ID-56789
+    * cyberphor POC
+    * Metasploit
 * Tools Used
   * Nmap
 * Flag
@@ -213,7 +219,8 @@ NSTR
 ```
 
 # Exploit
-## Online Password Guessing
+## Password Guessing
+### Online Password Guessing
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 
@@ -221,7 +228,7 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 NSTR
 ```
 
-## Offline Password Guessing
+### Offline Password Guessing
 Hashcat
 ```bash
 hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt 
@@ -231,6 +238,31 @@ John the Ripper
 ```bash
 unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
 john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
+## CVE-2020-1234
+### EDB-ID-56789
+```bash
+searchsploit foo
+mkdir edb-id-56789
+cd edb-id-56789
+searchsploit -x 56789
+```
+
+### cyberphor POC
+```bash
+git clone https://github.com/cyberphor/cve-2021-1234-poc.git
+cd cve-2021-56789-poc
+```
+
+### Metasploit
+```bash
+msfconsole
+search ???
+use exploit/???/???
+set LHOST tun0
+set RHOST $TARGET
+run
 ```
 
 # Explore
