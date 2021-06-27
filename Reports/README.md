@@ -240,7 +240,7 @@ unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
 john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-## CVE-2020-1234
+## CVE-2021-1234
 ### EDB-ID-56789
 ```bash
 searchsploit foo
