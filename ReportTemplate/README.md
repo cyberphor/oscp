@@ -1,4 +1,4 @@
-# Template
+# Report Template
 ## Table of Contents
 * [Summary](#summary)
 * [Enumerate](#enumerate)
