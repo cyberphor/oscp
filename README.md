@@ -5,13 +5,13 @@
 </p>
 
 # pwk
-Hello world! These are my "Penetration Testing with Kali Linux" cheatsheets bootstrap code. 
+Hello world! These are my "Penetration Testing with Kali Linux" (PWK) cheatsheets and bootstrap code. 
 I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
 
 ## Table of Contents
 * [Cheatsheets](/CheatSheets/)
 * [Code](/Code/)
-* [Reports](/Reports/README.md)
+* [ReportTemplate](/ReportTemplate/README.md)
 * [References](/references.md)
 
 ## How to View this Repo Offline
