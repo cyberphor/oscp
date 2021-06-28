@@ -29,7 +29,6 @@
     * [Metasploit](#metasploit)
 * [Explore](#explore)
 * [Escalate](#escalate)
-* [Effect](#effect)
 * [Lessons Learned](#lessons-learned)
 
 ## Summary
@@ -65,15 +64,11 @@
   * n/a
 
 # Enumerate
+Setup.
 ```bash
 TARGET=10.11.12.13
 NAME=demo
-mkdir $NAME
-mkdir $NAME/exploits
-mkdir $NAME/loot
-mkdir $NAME/scans
-mkdir $NAME/screenshots
-sudo save-screenshots-here $NAME/screenshots
+new-ctf $NAME
 cd $NAME
 ```
 
@@ -274,9 +269,10 @@ run
 ```
 
 # Explore
+NSTR
 
 # Escalate
-
-# Effect
+NSTR
 
 # Lessons Learned
+* Birds are not real.
