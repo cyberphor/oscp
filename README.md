@@ -11,7 +11,7 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 ## Table of Contents
 * [Cheatsheets](/CheatSheets/)
 * [Code](/Code/)
-* [ReportTemplate](/ReportTemplate/README.md)
+* [Report Template](/ReportTemplate/README.md)
 * [References](/references.md)
 
 ## How to View this Repo Offline
