@@ -38,19 +38,21 @@
 * Domain: 
 * TCP Ports and Services
   * 22
-    * ???
+    * OpenSSH 
   * 80
-    * ???
+    * HTTP
   * 445
-    * ???
+    * SMBv1
 * UDP Ports and Services
   * 53
-* OS
+    * DNS
+* OS 
   * Distro: (ref:)
   * Kernel: (ref:)
   * Architecture: (ref:)
 * Users (ref:)
-  * ???
+  * root
+  * administrator
 * Vulnerabilities and Exploits
   * CVE-2021-1234 (ref:)
     * EDB-ID-56789
