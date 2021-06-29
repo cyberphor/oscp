@@ -17,6 +17,8 @@
     * [SQL](#sql)
     * [RDP](#rdp)
   * [OS](#os)
+    * [Nmap OS Discovery Scan](#nmap-os-discovery-scan)
+    * [Nmap OS Discovery Scan via SMB](#nmap-os-discovery-scan-via-smb)
 * [Exploit](#exploit)
   * [Password Guessing](#password-guessing) 
     * [Default Credentials](#default-credentials)
@@ -66,7 +68,7 @@
   * n/a
 
 # Enumerate
-Setup.
+## Setup
 ```bash
 TARGET=10.11.12.13
 NAME=demo
@@ -210,8 +212,17 @@ rdesktop -u administrator $TARGET
 ```
 
 ## OS
+### Nmap OS Discovery Scan
 ```bash
 sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
+
+# output
+NSTR
+```
+
+### Nmap OS Discovery Scan via SMB
+```bash
+sudo nmap $TARGET -p445 --script smb-os-discovery -oN scans/$NAME-nmap-os-smb
 
 # output
 NSTR
