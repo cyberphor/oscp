@@ -35,7 +35,7 @@
 * Hostname: 
 * IP address: 
 * MAC address: (ref:)
-* Domain: 
+* Domain: WORKGROUP
 * TCP Ports and Services
   * 22
     * OpenSSH 
