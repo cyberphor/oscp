@@ -35,8 +35,9 @@
 
 ## Summary
 * Hostname: 
-* IP address: 
-* MAC address: (ref:)
+* Description: 
+* IP Address: 
+* MAC Address: (ref:)
 * Domain: WORKGROUP
 * TCP Ports and Services
   * 22
