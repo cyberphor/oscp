@@ -90,7 +90,12 @@ NSTR
 ## Services
 ### FTP
 ```bash
-???
+touch README.too # create a file
+ftp $TARGET 21 # login using anonymous:anonymous
+put README.too # upload file created above (i.e. check if we have write privileges)
+ls
+binary 
+get file.txt # download a file (i.e. check if we have read privileges)
 ```
 
 ### SSH
