@@ -23,8 +23,6 @@
   * [Password Guessing](#password-guessing) 
     * [Default Credentials](#default-credentials)
     * [Hydra](#hydra)
-    * [Hashcat](#hashcat)
-    * [John the Ripper](#john-the-ripper)
   * [CVE-2021-1234](#cve-2021-1234) 
     * [EDB-ID-56789](#edb-id-56789)
     * [cyberphor POC](#cyberphor-poc)
@@ -251,18 +249,6 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 
 # output
 NSTR
-```
-
-### Hashcat
-Hashcat
-```bash
-hashcat -m 1000 -a 0 --force --show $HASHDUMP /usr/share/wordlists/rockyou.txt 
-```
-
-### John the Ripper
-```bash
-unshadow $PASSWD_FILE $SHADOW_FILE > $HASHDUMP
-john $HASHDUMP --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ## CVE-2021-1234
