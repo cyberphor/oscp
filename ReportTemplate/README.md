@@ -20,6 +20,7 @@
     * [Nmap OS Discovery Scan](#nmap-os-discovery-scan)
     * [Nmap OS Discovery Scan via SMB](#nmap-os-discovery-scan-via-smb)
     * [Nmap Aggresive Scan](#nmap-aggresive-scan)
+    * [Nmap Scripts Scan](#nmap-scripts-scan)
 * [Exploit](#exploit)
   * [Password Guessing](#password-guessing) 
     * [Default Credentials](#default-credentials)
@@ -239,6 +240,14 @@ NSTR
 ### Nmap Aggressive Scan
 ```bash
 sudo nmap $TARGET -A -oN scans/$NAME-nmap-aggresive
+
+# output
+NSTR
+```
+
+### Nmap Scripts Scan
+```bash
+sudo nmap $TARGET -sC -oN scans/$NAME-nmap-scripts
 
 # output
 NSTR
