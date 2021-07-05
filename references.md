@@ -26,6 +26,7 @@ Windows
 - https://markeldo.com/how-to-pass-the-oscp/
 - https://fareedfauzi.gitbook.io/oscp-notes/
 - https://github.com/wwong99/pentest-notes/blob/master/oscp_resources/OSCP-Survival-Guide.md
+- https://guide.offsecnewbie.com/
 
 ## Tools
 - https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
