@@ -33,6 +33,7 @@
 * [Explore](#explore)
 * [Escalate](#escalate)
 * [Lessons Learned](#lessons-learned)
+* [Walkthrough](#walkthrough)
 
 ## Summary
 * Hostname: 
@@ -62,14 +63,6 @@
     * EDB-ID-56789
     * cyberphor POC
     * Metasploit
-* Tools Used
-  * Nmap
-  * Patator
-  * Intruder from Burp Suite
-* Flag
-  * ???
-* Hints
-  * n/a
 
 # Enumerate
 ## Setup
@@ -312,3 +305,19 @@ NSTR
 
 # Lessons Learned
 * Birds are not real.
+
+# Walkthrough
+* Tools Used
+  * Nmap
+  * Patator
+  * Intruder from Burp Suite
+* Flag
+  * abcdef0123456789
+* Hints
+  * Scan all ports
+  * Identify every application and their version
+  * Try harder
+
+```bash
+# walkthrough goes here
+```
