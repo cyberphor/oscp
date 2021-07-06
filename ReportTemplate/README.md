@@ -55,9 +55,9 @@
   * Distro: (ref:)
   * Kernel: (ref:)
   * Architecture: (ref:)
-* Users (ref:)
-  * root
-  * administrator
+* Users 
+  * root:password123 (ref:)
+  * administrator:password (ref:)
 * Vulnerabilities and Exploits
   * CVE-2021-1234 (ref:)
     * EDB-ID-56789
