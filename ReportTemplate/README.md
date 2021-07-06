@@ -134,9 +134,9 @@ sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-htt
 NSTR
 ```
 ```bash
-dirb http://$TARGET:80 -r -z10 -o scans/$NAME-dirb-common-80
-dirb http://$TARGET:443 -r -z10 -o scans/$NAME-dirb-common-443
-dirb http://$TARGET:443 -w /usr/share/wordlists/dirb/big.txt -r -z10 -o scans/$NAME-dirb-big-443
+dirb http://$TARGET:80 -z10 -o scans/$NAME-dirb-common-80
+dirb http://$TARGET:443 -z10 -o scans/$NAME-dirb-common-443
+dirb http://$TARGET:443 -w /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-443
 
 # output
 NSTR
