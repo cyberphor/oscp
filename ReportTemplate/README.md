@@ -135,26 +135,28 @@ sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vu
 
 ### HTTP
 ```bash
-dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch --format=simple
-dirsearch -u $TARGET:$PORT -e php -o $FULLPATH/$NAME-dirsearch-php --format=simple
+sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-http-shellshock-80
 
 # output
 NSTR
 ```
 ```bash
-dirb http://$TARGET -r -z10 -o scans/$NAME-dirb-common
+dirb http://$TARGET:80 -r -z10 -o scans/$NAME-dirb-common-80
+dirb http://$TARGET:443 -r -z10 -o scans/$NAME-dirb-common-443
+dirb http://$TARGET:443 -w /usr/share/wordlists/dirb/big.txt -r -z10 -o scans/$NAME-dirb-big-443
 
 # output
 NSTR
 ```
 ```bash
-nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig
+dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80 --format=simple
+dirsearch -u $TARGET:$PORT -e php -o $FULLPATH/$NAME-dirsearch-80-php --format=simple
 
 # output
 NSTR
 ```
 ```bash
-sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-script-http-shellshock
+nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig-80
 
 # output
 NSTR
