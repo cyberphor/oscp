@@ -19,8 +19,8 @@
   * [OS](#os)
     * [Nmap OS Discovery Scan](#nmap-os-discovery-scan)
     * [Nmap OS Discovery Scan via SMB](#nmap-os-discovery-scan-via-smb)
-    * [Nmap Aggresive Scan](#nmap-aggresive-scan)
     * [Nmap Scripts Scan](#nmap-scripts-scan)
+    * [Nmap Aggressive Scan](#nmap-aggressive-scan)
 * [Exploit](#exploit)
   * [Password Guessing](#password-guessing) 
     * [Default Credentials](#default-credentials)
@@ -64,6 +64,8 @@
     * Metasploit
 * Tools Used
   * Nmap
+  * Patator
+  * Intruder from Burp Suite
 * Flag
   * ???
 * Hints
@@ -238,17 +240,17 @@ sudo nmap $TARGET -p445 --script smb-os-discovery -oN scans/$NAME-nmap-os-smb
 NSTR
 ```
 
-### Nmap Aggressive Scan
+### Nmap Scripts Scan
 ```bash
-sudo nmap $TARGET -A -oN scans/$NAME-nmap-aggresive
+sudo nmap $TARGET -sC -oN scans/$NAME-nmap-scripts
 
 # output
 NSTR
 ```
 
-### Nmap Scripts Scan
+### Nmap Aggressive Scan
 ```bash
-sudo nmap $TARGET -sC -oN scans/$NAME-nmap-scripts
+sudo nmap $TARGET -A -oN scans/$NAME-nmap-aggressive
 
 # output
 NSTR
