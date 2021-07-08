@@ -7,6 +7,7 @@ else
   cd $1
   mkdir exploits loot scans screenshots
   sudo save-screenshots-here ./screenshots 
-  wget https://raw.githubusercontent.com/cyberphor/pwk/main/ReportTemplate/README.md
+  wget https://raw.githubusercontent.com/cyberphor/pwk/main/ReportTemplates/draft-report.md
+  wget https://raw.githubusercontent.com/cyberphor/pwk/main/ReportTemplates/final-report.md
   ls -al
 fi
