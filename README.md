@@ -25,7 +25,7 @@ grip
 
 ## Private Repo Contents
 I have a private GitHub repo for solutions to challenges from the following ethical hacking platforms:
-* [TryHackMe](https://github.com/cyberphor/oscp/thm/)
-* [PWK Labs](https://github.com/cyberphor/oscp/pwk/)
-* [Proving Grounds](https://github.com/cyberphor/oscp/pg/)
-* [HackTheBox](https://github.com/cyberphor/oscp/htb/)
+* [TryHackMe](https://github.com/cyberphor/oscp/tree/main/thm/)
+* [PWK Labs](https://github.com/cyberphor/oscp/tree/main/pwk/)
+* [Proving Grounds](https://github.com/cyberphor/oscp/tree/main/pg/)
+* [HackTheBox](https://github.com/cyberphor/oscp/tree/main/htb/)
