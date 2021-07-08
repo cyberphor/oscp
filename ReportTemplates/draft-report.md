@@ -44,7 +44,7 @@ The information gathering portion of a penetration test focuses on identifying t
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
-sudo nmap $TARGET -sV $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
+sudo nmap $TARGET -O -sC -sV $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
 
 # output
 NSTR
