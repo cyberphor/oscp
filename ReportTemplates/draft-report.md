@@ -25,7 +25,7 @@ On 1 August 2021, Victor Fernandez III performed a penetration test of the Offen
 Victor recommends patching the vulnerabilities he identified to mitigate the risk of exploitation and/or unauthorized access to Offensive Security information systems. One thing to remember is that these systems require frequent patching and once patched, should remain on a regular patch program to protect additional vulnerabilities that are discovered at a later date.
 
 # Methodology
-Victor utilized a widely adopted approach to performing penetration testing that is effective in test-ing how well the Offensive Security Labs and Exam environments are secure. Below is a breakout of how Victor was able to identify and exploit the variety of systems and includes all in-dividual vulnerabilities found.
+Victor used a widely-adopted and phased approach for the penetration test. This included reconnaissance, enumeration, gaining access, maintaining access, and covering his tracks. Below is an outline of Victor's activities and serves to demonstrate how he identified and exploited a variety of information systems across the Offensive Security exam network.
 
 ## Reconnaissance
 The information gathering portion of a penetration test focuses on identifying the scope of the penetration test. During this penetration test, Victor was tasked with exploiting the lab and exam network.
