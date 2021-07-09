@@ -118,11 +118,8 @@ NSTR
 
 Victor was able to discover the hidden directories below using Dirsearch.
 ```bash
-dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80 --format=simple
-dirsearch -u $TARGET:$PORT -e php -o $FULLPATH/$NAME-dirsearch-80-php --format=simple
-
-# output
-NSTR
+dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80
+# replace the lines above with the actual scan results
 ```
 
 Victor was able to identify the following HTTP server misconfigurations using Nikto.
