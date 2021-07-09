@@ -28,7 +28,7 @@ Victor recommends patching the vulnerabilities he identified to mitigate the ris
 Victor used a widely-adopted and phased approach for the penetration test. This included reconnaissance, enumeration, gaining access, maintaining access, and covering his tracks. Below is an outline of Victor's activities and serves to demonstrate how he identified and exploited a variety of information systems across the Offensive Security exam network.
 
 ## Reconnaissance
-The information gathering portion of a penetration test focuses on identifying the scope of the penetration test. During this penetration test, Victor was tasked with exploiting the lab and exam network.
+The purpose of the reconnaissance phase of a penetration test is to identify information and sytems that represent the organization online and then, discover attack vectors. For this penetration test, Victor was asked to narrow his information gathering objectives to collecting the details below. 
 
 ### General Information
 * Hostname: 
@@ -44,7 +44,21 @@ The information gathering portion of a penetration test focuses on identifying t
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
-sudo nmap $TARGET -sV -sC -O $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
+
+# NSTR
+```
+
+### Service Versions
+```
+sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
+
+# output
+NSTR
+```
+
+### Operating System
+```bash
+sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-os
 
 # output
 NSTR
