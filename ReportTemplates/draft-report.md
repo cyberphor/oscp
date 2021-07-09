@@ -204,6 +204,7 @@ rdesktop -u administrator $TARGET
 ### Postgres
 ```bash
 psql -U postgres -p 5437 -h $TARGET # postgres:postgres
+SELECT pg_ls_dir('/');
 ```
 
 ## Gaining Access
