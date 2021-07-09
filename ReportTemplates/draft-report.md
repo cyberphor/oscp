@@ -28,7 +28,7 @@ Victor recommends patching the vulnerabilities he identified to mitigate the ris
 Victor used a widely-adopted and phased approach for the penetration test. This included reconnaissance, enumeration, gaining access, maintaining access, and covering his tracks. Below is an outline of Victor's activities and serves to demonstrate how he identified and exploited a variety of information systems across the Offensive Security exam network.
 
 ## Reconnaissance
-The purpose of the reconnaissance phase of a penetration test is to identify information and sytems that represent the organization online and then, discover attack vectors. For this penetration test, Victor was asked to narrow his information gathering objectives to collecting the details below. 
+The purpose of the reconnaissance phase of a penetration test is to identify information and sytems that represent the organization online and then, discover possible attack vectors. For this penetration test, Victor was asked to narrow his information gathering objectives to collecting the details below. 
 
 ### General Information
 * Hostname: 
@@ -44,24 +44,19 @@ The purpose of the reconnaissance phase of a penetration test is to identify inf
 ```bash
 sudo nmap $TARGET -sS -sU --min-rate 1000 -oN scans/$NAME-nmap-initial
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
-
-# NSTR
+# replace the lines above with the actual scan
 ```
 
 ### Service Versions
 ```
 sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
-
-# output
-NSTR
+# replace the lines above with the actual scan results
 ```
 
 ### Operating System
 ```bash
 sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-os
-
-# output
-NSTR
+# replace the lines above with the actual scan results
 ```
 
 ## Enumeration
