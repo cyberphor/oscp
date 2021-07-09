@@ -110,7 +110,7 @@ NSTR
 
 Victor was able to discover the hidden directories below using Dirb.
 ```bash
-dirb http://$TARGET:80 -w /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-80
+dirb http://$TARGET:80 /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-80
 
 # output
 NSTR
