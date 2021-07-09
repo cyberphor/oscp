@@ -201,6 +201,11 @@ NSTR
 rdesktop -u administrator $TARGET
 ```
 
+### Postgres
+```bash
+psql -U postgres -p 5437 -h $TARGET # postgres:postgres
+```
+
 ## Gaining Access
 The penetration testing portions of the assessment focus heavily on gaining access to a variety of systems. During this penetration test, Victor was able to successfully gain access to 10 out of the 50 systems.
 
