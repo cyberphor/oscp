@@ -48,7 +48,7 @@ sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-complete
 ```
 
 ### Service Versions
-```
+```bash
 sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
 # replace the lines above with the actual scan results
 ```
