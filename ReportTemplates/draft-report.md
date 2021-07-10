@@ -267,22 +267,30 @@ run
 ## Maintaining Access
 Maintaining access to a system is important to us as attackers, ensuring that we can get back into a system after it has been exploited is invaluable. The maintaining access phase of the penetration test focuses on ensuring that once the focused attack has occurred (i.e. a buffer overflow), we have administrative access over the system again. Many exploits may only be exploitable once and we may never be able to get back into a system after we have already per-formed the exploit. Victor added administrator and root level accounts on all systems compromised. In addition to the administrative/root access, a Metasploit meterpreter service was installed on the machine to en-sure that additional access could be established.
 
+### Privilege Escalation
+```bash
+cat /etc/passwd
+find / -perm -u=s -type f 2> /dev/null
+cat /etc/crontab
+```
+
 ## Covering Tracks
 The house cleaning portions of the assessment ensures that remnants of the penetration test are removed. Often fragments of tools or user accounts are left on an organizations computer which can cause security issues down the road. Ensuring that we are meticulous and no remnants of our penetration test are left over is important. After the trophies on both the lab network and exam network were completed, Victor removed all user accounts and passwords as well as the Meterpreter services installed on the system. Offensive Security should not have to remove any user accounts or services from the system.
 
 # Additional Items
 ## Tools Used
-  * Nmap
-  * Patator
-  * Intruder from Burp Suite
+* Nmap
+* Patator
+* Intruder from Burp Suite
 
 ## Hints
-  * Scan all ports
-  * Identify every application and their version
-  * Try harder
+* Scan all ports
+* Identify every application and their version
+* Try harder
 
 ## Flags
-* abcdef0123456789
+* local.txt = abcdef0123456789
+* proof.txt = abcdef0123456789
 
 ## Official Walkthrough
 ```bash
