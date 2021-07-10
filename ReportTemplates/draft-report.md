@@ -133,6 +133,15 @@ NSTR
 ### RPC
 ```bash
 rpcclient -U '' $TARGET
+```
+```
+srvinfo
+
+# output
+NSTR
+```
+```
+netshareenum
 
 # output
 NSTR
