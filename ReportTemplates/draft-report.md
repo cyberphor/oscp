@@ -55,7 +55,7 @@ sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-com
 
 ### Operating System
 ```bash
-sudo nmap $TARGET -sS -sU -p- --min-rate 1000 -oN scans/$NAME-nmap-os
+sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
 # replace the lines above with the actual scan results
 ```
 
