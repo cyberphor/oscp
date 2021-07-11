@@ -172,6 +172,17 @@ smbmap -H $TARGET
 NSTR
 ```
 
+Victor was able to download files from the accessible SMB share(s).
+```bash
+cd loot
+smbclient \\\\$TARGET\\$SHARE
+prompt
+mget *
+
+# output
+NSTR
+```
+
 The target is NOT vulnerable to EternalBlue.
 ```bash
 # check if vulnerable to EternalBlue
