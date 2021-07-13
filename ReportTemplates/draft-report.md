@@ -83,12 +83,14 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt  ssh://10.11.12.13
 ### SMTP
 Automated enumeration of supported SMTP commands.
 ```bash
-sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-script-smtp-commands
+sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-scripts-smtp-commands
+# replace the lines above with the actual scan results
 ```
 
 Automated enumeration of existing SMTP users.
 ```bash
-sudo nmap $TARGET -p25 --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-script-smtp-enum-users
+sudo nmap $TARGET -p25 --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-scripts-smtp-enum-users
+# replace the lines above with the actual scan results
 ```
 ```bash
 smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TARGET
@@ -96,16 +98,15 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 
 Automated enumeration of exploitable SMTP vulnerabilities.
 ```bash
-sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-script-smtp-vuln
+sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-scripts-smtp-vuln
+# replace the lines above with the actual scan results
 ```
 
 ### HTTP
 The target is NOT vulnerable to Shellshock.
 ```bash
 sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-http-shellshock-80
-
-# output
-NSTR
+# replace the lines above with the actual scan results
 ```
 
 Victor was able to discover the hidden directories below using Dirb.
@@ -187,18 +188,14 @@ The target is NOT vulnerable to EternalBlue.
 ```bash
 # check if vulnerable to EternalBlue
 sudo nmap $TARGET -p445 --script smb-vuln-ms17-010 -oN scans/$NAME-nmap-scripts-smb-vuln-ms17-010
-
-# output
-NSTR
+# replace the lines above with the actual scan results
 ```
 
 The target is NOT vulnerable to SambaCry.
 ```bash
 # check if vulnerable to SambaCry
-sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-smb-vuln-cve-2017-7494
-
-# output
-NSTR
+sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-scripts-smb-vuln-cve-2017-7494
+# replace the lines above with the actual scan results
 ```
 
 ### SQL
@@ -211,10 +208,8 @@ NSTR
 
 ### RDP
 ```bash
-sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-script-rdp-ntlm-info
-
-# output
-NSTR
+sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-scripts-rdp-ntlm-info
+# replace the lines above with the actual scan results
 ```
 
 ```bash
