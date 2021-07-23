@@ -9,10 +9,10 @@ Hello world! These are my "Penetration Testing with Kali Linux" (PWK) cheatsheet
 I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
 
 ## Public Repo Contents
-* [Cheatsheets](/CheatSheets/)
-* [Code](/Code/)
-* [Report Template](/ReportTemplate/README.md)
-* [References](/references.md)
+* [Cheatsheets](/cheatSheets/)
+* [Code](/code/)
+* [Report Template](/report/README.md)
+* [References](/cheatsheets/99_references.md)
 
 ## How to View this Public Repo Offline
 Execute the commands below and then, navigate to the link displayed by [Grip](https://github.com/joeyespo/grip) using your browser.
