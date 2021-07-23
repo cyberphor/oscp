@@ -1,7 +1,7 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/README.md#table-of-contents">Top of Page</a> |
-  <a href="/README.md#how-to-view-this-repo-offline">Bottom of Page</a>
+  <a href="/README.md#public-repo-contents">Top of Page</a> |
+  <a href="/README.md#bottom-of-page">Bottom of Page</a>
 </p>
 
 # pwk
@@ -10,9 +10,8 @@ I am developing an attack framework using the following phases: Enumerate, Explo
 
 ## Public Repo Contents
 * [Cheatsheets](/cheatSheets/)
-* [Code](/code/)
 * [Report Template](/report/README.md)
-* [References](/cheatsheets/99_references.md)
+* [Source Code](/src/)
 
 ## How to View this Public Repo Offline
 Execute the commands below and then, navigate to the link displayed by [Grip](https://github.com/joeyespo/grip) using your browser.
@@ -29,3 +28,5 @@ I have a private GitHub repo for solutions to challenges from the following ethi
 * [PWK Labs](https://github.com/cyberphor/oscp/tree/main/pwk/)
 * [Proving Grounds](https://github.com/cyberphor/oscp/tree/main/pg/)
 * [HackTheBox](https://github.com/cyberphor/oscp/tree/main/htb/)
+
+## Bottom of Page
