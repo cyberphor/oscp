@@ -1,0 +1,37 @@
+# Proving Grounds
+## Warm Up
+* [x] [Pebbles](/pg/pebbles/)
+* [x] [Helpdesk](/pg/helpdesk)
+* [x] [Internal](/pg/internal)
+* [x] [Twiggy](/pg/twiggy/)
+* [x] [Metallus](/pg/metallus/)
+* [x] [Kevin](/pg/kevin/)
+* [x] [Algernon](/pg/algernon/)
+* [x] [Wombo](/pg/wombo/)
+* [x] [Bratarina](/pg/bratarina/)
+* [x] [Interface](/pg/interface/)
+* [x] [Hawat](/pg/hawat/)
+* [x] [ClamAV](/pg/clamav/)
+
+## Get to Work
+* [x] [Slort](/pg/slort/)
+* [x] [Nibbles](/pg/nibbles/)
+* [x] [PayDay](/pg/payday/)
+* [x] [Zino](/pg/zino/)
+* [x] [AuthBy](/pg/authby/)
+* [x] [Billyboss](/pg/billyboss)
+* [x] [Jacko](/pg/jacko/)
+* [x] [Medjed](pg/medjed/)
+* [ ] [Nickel](/pg/nickel/)
+* [ ] [UT99](/pg/ut99/)
+* [ ] [Banzai](/pg/banzai/)
+* [ ] [Dibble](/pg/dibble)
+* [ ] [Fail](/pg/fail/)
+* [ ] [Hunit](/pg/hunit/)
+* [ ] [Hetermit](/pg/hetermit/)
+
+## Try Harder
+* [ ] [Meathead](/pg/meathead/)
+* [ ] [Vector](/pg/vector/)
+* [ ] [Clyde](/pg/clyde/)
+* [ ] [Shifty](/pg/shifty/)
