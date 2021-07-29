@@ -322,19 +322,5 @@ The house cleaning portions of the assessment ensures that remnants of the penet
 * Patator
 * Intruder from Burp Suite
 
-## Hints
-* Scan all ports
-* Identify every application and their version
-* Try harder
-
-## Flags
-* local.txt = e572d4bbef08cf61d3f6ff65a27aabca
-* proof.txt = 5e5099aec5aafe58bd8ba5bd141f6b6c
-
 ## Lessons Learned
 * Use multiple tools
-
-## Official Walkthrough
-```bash
-# walkthrough goes here
-```
