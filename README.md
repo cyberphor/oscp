@@ -5,8 +5,7 @@
 </p>
 
 # pwk
-Hello world! These are my "Penetration Testing with Kali Linux" (PWK) cheatsheets and bootstrap code. 
-I am developing an attack framework using the following phases: Enumerate, Exploit, Explore, Escalate, and Effect. 
+"Penetration Testing with Kali Linux" (PWK) cheatsheets and bootstrap code. 
 
 ## Contents
 * [Cheatsheets](/cheatSheets/)
