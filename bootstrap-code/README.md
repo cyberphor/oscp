@@ -1,10 +1,10 @@
 <p align="right">
   <a href="/README.md">Home Page</a> |
-  <a href="/Code/README.md#code">Top of Page</a> |
-  <a href="/Code/README.md#bottom-of-page">Bottom of Page</a>
+  <a href="/bootstrap-code/README.md">Top of Page</a> |
+  <a href="/bootstrap-code/README.md#bottom-of-page">Bottom of Page</a>
 </p>
 
-# Code
+# Bootstrap Code
 
 |Name|Description|
 |----|-------|
@@ -25,5 +25,11 @@
 
 ## References
 - https://root4loot.com/post/eternalblue_manual_exploit/
+
+<p align="right">
+  <a href="/README.md">Home Page</a> |
+  <a href="/bootstrap-code/README.md">Top of Page</a> |
+  <a href="/bootstrap-code/README.md#bottom-of-page">Bottom of Page</a>
+</p>
 
 ## Bottom of Page
