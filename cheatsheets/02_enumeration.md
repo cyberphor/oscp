@@ -168,6 +168,11 @@ c – Remote Source Inclusion
 x – Reverse Tuning Options (i.e., include all except specified)
 ```
 
+## IRC
+```bash
+irssi -c $TARGET -p $PORT
+```
+
 <p align="right">
   <a href="/README.md">Home Page</a> |
   <a href="/cheatsheets/02_enumeration.md#">Top of Page</a> |
