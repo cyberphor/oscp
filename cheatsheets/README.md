@@ -190,8 +190,14 @@ cat /etc/crontab
 
 #### Windows
 ```bash
+whoami
 whoami /priv
-systeminfo
 net user
+systeminfo
 dir c:\
+wmic service get name,startname
+cd "c:\program files"
+cd "c:\program files (x86)"
+wmic service get name,pathname,startname | findstr "Program Files"
+cacls *.exe
 ```
