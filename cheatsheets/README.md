@@ -175,6 +175,7 @@ whoami
 cat /etc/passwd
 find / -perm -u=s -type f 2> /dev/null
 cat /etc/crontab
+ps aux | grep -v "\[" | grep root
 ```
 
 #### Windows
