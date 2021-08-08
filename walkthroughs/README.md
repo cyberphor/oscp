@@ -30,7 +30,7 @@ Here are the solutions to challenges I solved across a number ethical hacking pl
 * [x] [Medjed](/walkthroughspg/medjed/)
 * [x] [Nickel](/walkthroughs/pg/nickel/)
 * [x] [UT99](/walkthroughs/pg/ut99/)
-* [ ] [Banzai](/walkthroughs/pg/banzai/)
+* [x] [Banzai](/walkthroughs/pg/banzai/)
 * [ ] [Dibble](/walkthroughs/pg/dibble)
 * [ ] [Fail](/walkthroughs/pg/fail/)
 * [ ] [Hunit](/walkthroughs/pg/hunit/)
