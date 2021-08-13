@@ -1,9 +1,3 @@
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/cheatsheets/02_enumeration.md#">Top of Page</a> |
-  <a href="/cheatsheets/02_enumeration.md#bottom-of-page">Bottom of Page</a>
-</p>
-
 # Enumeration
 ## Table of Contents
 * [Priority of Work](#priority-of-work)
@@ -12,6 +6,7 @@
 * [NFS](#nfs)
 * [SMTP](#smtp)
 * [SMB](#smb)
+* [Rsync](#rsync)
 
 ## Priority of Work
 |Priority|Protocol|Port|Provides|
@@ -173,10 +168,7 @@ x – Reverse Tuning Options (i.e., include all except specified)
 irssi -c $TARGET -p $PORT
 ```
 
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/cheatsheets/02_enumeration.md#">Top of Page</a> |
-  <a href="/cheatsheets/02_enumeration.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-## Bottom of Page
+### Rsync
+```bash
+sudo nmap $TARGET -p873 --script rsync-list-modules
+```
