@@ -1,10 +1,4 @@
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/cheatsheets/03_gain-access.md#table-of-contents">Top of Page</a> |
-  <a href="/cheatSheets/03_gain-access.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-# Exploit
+# Gaining Access
 ## Table of Contents
 * [MS09-050: SMBv2 Command Value Vulnerability](#ms09-050-smbv2-command-value-vulnerability)
   * [CVE-2009-3103](#cve-2009-2532)
@@ -562,21 +556,3 @@ SELECT * FROM usertbl;
   * Enumerate column count of immediate table using ORDER BY statements
   * Enumerate table names using UNION statements
   * Enumerate column names of interesting tables using UNION statements
-
-## Explore
-* Admin Consoles
-  * Explore accessible databases
-    * Determine their design (tables, columns, rows)
-    * Read their contents
-
-## Effect
-* Admin Consoles
-  * Add accounts to maintain access 
-
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/cheatsheets/03_gain-access.md#table-of-contents">Top of Page</a> |
-  <a href="/cheatSheets/03_gain-access.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-## Bottom of Page 

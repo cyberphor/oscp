@@ -171,4 +171,6 @@ irssi -c $TARGET -p $PORT
 ### Rsync
 ```bash
 sudo nmap $TARGET -p873 --script rsync-list-modules
+rsync -av rsync://$TARGET/$SHARE --list-only
+rsync -av rsync://$TARGET/$SHARE loot
 ```
