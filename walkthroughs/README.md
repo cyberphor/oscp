@@ -31,7 +31,7 @@ Here are the solutions to challenges I solved across a number ethical hacking pl
 * [x] [Nickel](/walkthroughs/pg/nickel/)
 * [x] [UT99](/walkthroughs/pg/ut99/)
 * [x] [Banzai](/walkthroughs/pg/banzai/)
-* [ ] [Dibble](/walkthroughs/pg/dibble)
+* [x] [Dibble](/walkthroughs/pg/dibble)
 * [ ] [Fail](/walkthroughs/pg/fail/)
 * [ ] [Hunit](/walkthroughs/pg/hunit/)
 * [ ] [Hetermit](/walkthroughs/pg/hetermit/)
