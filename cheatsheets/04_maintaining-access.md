@@ -1,10 +1,4 @@
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/3_explore.md">Top of Page</a> |
-  <a href="/CheatSheets/3_explore.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-# Explore
+# Maintaining Access
 ## Table of Contents
 * [Information to Gather for Privilege Escalation](#information-to-gather-for-privilege-escalation)
 * [Gathering Information on a Windows System](#gathering-information-on-a-windows-system)
@@ -47,11 +41,3 @@ cat /etc/issue # print OS version
 cat /etc/*-release # print OS version
 uname -a # print kernel version and system architecture
 ```
-
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/3_explore.md">Top of Page</a> |
-  <a href="/CheatSheets/3_explore.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-## Bottom of Page
