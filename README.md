@@ -11,9 +11,9 @@
   * [Covering Tracks](/cheatsheets/05_covering-tracks.md)
 * [Report Template](/report/)
 * [Walkthroughs](/walkthroughs/)
-  * [HackTheBox](/walkthrough/htb/)
-  * [Proving Grounds](/walkthrough/pg/)
-  * [TryHackMe](/walkthrough/thm/)
+  * [HackTheBox](/walkthroughs/htb/)
+  * [Proving Grounds](/walkthroughs/pg/)
+  * [TryHackMe](/walkthroughs/thm/)
 
 ## Cheatsheet
 I personally maintain and use the cheatsheet here: [Cheatsheet](/cheatsheets/README.md)
