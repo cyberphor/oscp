@@ -32,7 +32,7 @@ Here are the solutions to challenges I solved across a number ethical hacking pl
 * [x] [UT99](/walkthroughs/pg/ut99/)
 * [x] [Banzai](/walkthroughs/pg/banzai/)
 * [x] [Dibble](/walkthroughs/pg/dibble)
-* [ ] [Fail](/walkthroughs/pg/fail/)
+* [x] [Fail](/walkthroughs/pg/fail/)
 * [ ] [Hunit](/walkthroughs/pg/hunit/)
 * [ ] [Hetermit](/walkthroughs/pg/hetermit/)
 
