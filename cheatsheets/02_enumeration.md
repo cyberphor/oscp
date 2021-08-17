@@ -15,14 +15,14 @@
 ### Overview
 | Port | Protocol | Provides |
 | ---- | -------- | -------- |
-| 21   | FTP      | Credentials <br> File upload |
+| 21   | FTP      | Credentials, File upload |
 | 22   | SSH      | Remote access |
-| 25   | SMTP     | Code execution <br> Credentials |
-| 80   | HTTP     | Code execution <br> Credentials |
-| 110  | POP3     | Code execution <br> Credentials |
+| 25   | SMTP     | Code execution, Credentials |
+| 80   | HTTP     | Code execution, Credentials |
+| 110  | POP3     | Code execution, Credentials |
 | 111  | NFS      | Credentials |
 | 135  | RPC      | Enumeration |
-| 445  | SMB      | Credentials <br> Remote access |
+| 445  | SMB      | Credentials, Remote access |
 | 873  | Rsync    | File upload |
 | 6667 | IRC      | Credentials |
 

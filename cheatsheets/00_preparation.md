@@ -1,10 +1,4 @@
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/#table-of-contents">Top of Page</a> |
-  <a href="/CheatSheets/metawork_bash.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-# Cheatsheets
+# Preparation
 ## Table of Contents
 * [Create a Command Alias](#create-a-command-alias)
 * [Rename Multiple Files](#rename-multiple-files)
@@ -12,6 +6,9 @@
 * [Send Multiple Files via SSH](#send-multiple-files-via-ssh)
 * [Download Multiple Files Using Wget](#download-multiple-files-using-wget)
 * [Keyboard Shortcuts](#keyboard-shortcuts)
+
+# Tips
+* Avoid calling PowerShell from a Netcat provided cmd.exe shell. 
 
 ## Create a Command Alias
 **Interactive Shells** (the CLI, a.k.a terminal)  
