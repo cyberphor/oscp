@@ -77,8 +77,9 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 ### HTTP
 #### Dirb
 ```bash
-dirb http://$TARGET -r -z10 # recursive; wait 10 milliseconds between delays
-dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-$WORDLIST # wordlist ex: common, dirb/big.txt
+dirb http://$TARGET 
+dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-common
+dirb http://$TARGET:$PORT/ /usr/share/wordlist/dirb/big.txt -o scans/$TARGET-dirb-$PORT-big
 ```
 
 #### Dirsearch
@@ -88,7 +89,6 @@ dirsearch -u $TARGET -o /home/victor/oscp/pwk/labs/$TARGET/scans/$TARGET-dirsear
 
 #### Nikto
 ```bash
-nikto -h $TARGET -maxtime=30s -o scans/$TARGET-nikto-30seconds.txt
 nikto -h $TARGET -T 2 # scan for misconfiguration vulnerabilities
 nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
 ```
