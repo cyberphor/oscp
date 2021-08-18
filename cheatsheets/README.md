@@ -183,6 +183,7 @@ whoami
 uname -a
 dpkg -l # debian
 rpm -qa # red hat
+pacman -Qe # arch
 cat /etc/passwd
 find / -perm -u=s -type f 2> /dev/null
 cat /etc/crontab
