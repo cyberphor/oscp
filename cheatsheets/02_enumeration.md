@@ -77,13 +77,13 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 ### HTTP
 #### Dirb
 ```bash
-dirb $TARGET -r -z10 # recursive; wait 10 milliseconds between delays
+dirb http://$TARGET -r -z10 # recursive; wait 10 milliseconds between delays
+dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-$WORDLIST # wordlist ex: common, dirb/big.txt
 ```
 
 #### Dirsearch
 ```bash
-sudo apt install dirsearch
-dirsearch -u $TARGET -o /home/victor/pwk/labs/$TARGET/scans/$TARGET-dirsearch --format=simple
+dirsearch -u $TARGET -o /home/victor/oscp/pwk/labs/$TARGET/scans/$TARGET-dirsearch-$PORT-$WORDLIST 
 ```
 
 #### Nikto
