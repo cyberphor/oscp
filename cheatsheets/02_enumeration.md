@@ -149,11 +149,13 @@ smbclient -L //$TARGET/ -p $PORT # specify non-standard SMB/Samba port
 smbget
 ```bash
 smbget -R smb://$TARGET/$SHARE
+smbget -R smb://$TARGET:$PORT/$SHARE
 ```
 
 SMBMap
 ```bash
 smbmap -H $TARGET
+smbmap -H $TARGET -P $PORT
 ```
 
 ### Rsync
