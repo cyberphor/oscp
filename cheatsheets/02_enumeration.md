@@ -143,22 +143,17 @@ netshareenum # print the real file-path of shares; good for accurate RCE
 SMBClient
 ```bash
 smbclient -L //$TARGET/ # list shares
-```
-
-Impacket SMB Client
-```bash
-impacket-smbclient ''@$TARGET
-use IPC$
-```
-
-SMBMap
-```bash
-smbmap -H $TARGET
+smbclient -L //$TARGET/ -p $PORT # specify non-standard SMB/Samba port
 ```
 
 smbget
 ```bash
 smbget -R smb://$TARGET/$SHARE
+```
+
+SMBMap
+```bash
+smbmap -H $TARGET
 ```
 
 ### Rsync
