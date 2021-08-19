@@ -33,7 +33,7 @@ Here are the solutions to challenges I solved across a number ethical hacking pl
 * [x] [Banzai](/walkthroughs/pg/banzai/)
 * [x] [Dibble](/walkthroughs/pg/dibble)
 * [x] [Fail](/walkthroughs/pg/fail/)
-* [ ] [Hunit](/walkthroughs/pg/hunit/)
+* [x] [Hunit](/walkthroughs/pg/hunit/)
 * [ ] [Hetermit](/walkthroughs/pg/hetermit/)
 
 #### Try Harder
