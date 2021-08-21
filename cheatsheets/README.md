@@ -183,11 +183,12 @@ whoami
 uname -a
 cat /etc/passwd
 cat /etc/crontab
-find / -perm -u=s -type f 2> /dev/null
+find / -perm -u=s -type f 2> /dev/null # files with SUID-bit set
+find /etc -type f -perm /g=w -exec ls -l {} + 2> /dev/null # files my group can edit
 ps aux | grep -v "\[" | grep root
 dpkg -l # debian
 rpm -qa # red hat
-pacman -Qe # arch
+pacman -Qe # arch linux
 ```
 
 #### Windows
