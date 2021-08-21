@@ -34,7 +34,7 @@ Here are the solutions to challenges I solved across a number ethical hacking pl
 * [x] [Dibble](/walkthroughs/pg/dibble)
 * [x] [Fail](/walkthroughs/pg/fail/)
 * [x] [Hunit](/walkthroughs/pg/hunit/)
-* [ ] [Hetermit](/walkthroughs/pg/hetermit/)
+* [x] [Hetermit](/walkthroughs/pg/hetermit/)
 
 #### Try Harder
 * [ ] [Meathead](/walkthroughs/pg/meathead/)
