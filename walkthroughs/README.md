@@ -1,15 +1,15 @@
 ## Walkthroughs
-* [HackTheBox](#hackthebox-tj-nulls-oscp-recommendations)
-* [Proving Grounds](#proving-grounds-tj-nulls-oscp-recommendations)
+* [HackTheBox](#hackthebox-tj-nulls-recommendations)
+* [Proving Grounds](#proving-grounds-tj-nulls-recommendations)
 * [TryHackMe](#tryhackme-offensive-pentesting-learning-path)
 
-### HackTheBox (TJ Null's OSCP Recommendations)
+### HackTheBox (TJ Null's Recommendations)
 * [ ] [Knife](/walkthroughs/htb/)
 * [ ] [Lame](walkthroughs/htb/)
 * [ ] [Legacy](/walkthroughs/htb/)
 * [ ] [Jeeves](/walkthroughs/htb/)
 
-### Proving Grounds (TJ Null's OSCP Recommendations)
+### Proving Grounds (TJ Null's Recommendations)
 #### Warm Up
 * [x] [Pebbles](/walkthroughs/pg/pebbles/)
 * [x] [Helpdesk](/walkthroughs/pg/helpdesk)
