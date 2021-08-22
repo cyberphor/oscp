@@ -4,10 +4,10 @@
 * [TryHackMe](#tryhackme-offensive-pentesting-learning-path)
 
 ### HackTheBox (TJ Null's OSCP Recommendations)
-* [] [Knife](/walkthroughs/htb/)
-* [] [Lame](walkthroughs/htb/)
-* [] [Legacy](/walkthroughs/htb/)
-* [] [Jeeves](/walkthroughs/htb/)
+* [ ] [Knife](/walkthroughs/htb/)
+* [ ] [Lame](walkthroughs/htb/)
+* [ ] [Legacy](/walkthroughs/htb/)
+* [ ] [Jeeves](/walkthroughs/htb/)
 
 ### Proving Grounds (TJ Null's OSCP Recommendations)
 #### Warm Up

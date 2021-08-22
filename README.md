@@ -3,6 +3,11 @@
 
 ## Table of Contents
 * [Bootstrap Code](/bootstrap-code/)
+  * [gbfuzzer](/bootstrap-code/gbfuzzer.py)
+  * [katz2crack](/bootstrap-code/katz2crack.py)
+  * [new-ctf](/bootstrap-code/new-ctf.sh)
+  * [supply-drop](/bootstrap-code/new-ctf.sh)
+  * [save-screenshots-here](/bootstrap-code/save-screenshots-here.py)
 * [Cheatsheets](/cheatsheets/)
   * [Reconnaissance](/cheatsheets/01_reconnaissance.md)
   * [Enumeration](/cheatsheets/02_enumeration.md)
@@ -16,4 +21,4 @@
   * [TryHackMe](/walkthroughs/thm/)
 
 ## Cheatsheet
-I personally maintain and use the cheatsheet here: [Cheatsheet](/cheatsheets/README.md)
+I personally use and maintain this cheatsheet: [Cheatsheet](/cheatsheets/README.md)
