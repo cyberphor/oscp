@@ -6,7 +6,7 @@
   * [gbfuzzer](/bootstrap-code/gbfuzzer.py)
   * [katz2crack](/bootstrap-code/katz2crack.py)
   * [new-ctf](/bootstrap-code/new-ctf.sh)
-  * [supply-drop](/bootstrap-code/new-ctf.sh)
+  * [supply-drop](/bootstrap-code/supply-drop.sh)
   * [save-screenshots-here](/bootstrap-code/save-screenshots-here.py)
 * [Cheatsheets](/cheatsheets/)
   * [Reconnaissance](/cheatsheets/01_reconnaissance.md)
