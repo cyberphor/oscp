@@ -1,5 +1,5 @@
 # pwk
-"Penetration Testing with Kali Linux" (PWK) cheatsheets and bootstrap code. 
+Cheatsheets & bootstrap code for "Penetration Testing with Kali Linux" and the OSCP exam.
 
 ## Table of Contents
 * [Bootstrap Code](/bootstrap-code/)
