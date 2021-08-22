@@ -1,6 +1,6 @@
 ## Walkthroughs
-* [HackTheBox](#hackthebox-tj-null-s-oscp-recommendations)
-* [Proving Grounds](#proving-grounds-tj-null-s-oscp-recommendations)
+* [HackTheBox](#hackthebox-tj-nulls-oscp-recommendations)
+* [Proving Grounds](#proving-grounds-tj-nulls-oscp-recommendations)
 * [TryHackMe](#tryhackme-offensive-pentesting-learning-path)
 
 ### HackTheBox (TJ Null's OSCP Recommendations)

@@ -21,4 +21,4 @@ Cheatsheets & bootstrap code for "Penetration Testing with Kali Linux" and the O
   * [TryHackMe](/walkthroughs/thm/)
 
 ## Cheatsheet
-I personally use and maintain this cheatsheet: [Cheatsheet](/cheatsheets/README.md)
+I personally use and maintain this [cheatsheet](/cheatsheets/README.md).
