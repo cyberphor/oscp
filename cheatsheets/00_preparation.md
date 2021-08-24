@@ -1,10 +1,10 @@
 # Preparation
 ## Table of Contents
 * [General Tips](#general-tips)
-* [Windows Command Shell]
-  * [Search the Entire Filesystem for a File](#search-the-entire-filesystem-for-a-
+* [Windows Command Shell](#windows-command-shell)
+  * [Search the Entire Filesystem for a File](#search-the-entire-filesystem-for-a-file)
   * [Get the Kernel Version](#get-the-kernel-version)
-* [Windows PowerShell]
+* [Windows PowerShell](#windows-powershell)
   * [One-Liner Syntax](#one-liner-syntax)
 * [Bourne-Again Shell (BASH)](#bourne-again-shell-bash)
   * [Keyboard Shortcuts](#keyboard-shortcuts)
@@ -14,7 +14,7 @@
   * [Invoke Another Shell](#invoke-another-shell)
   * [Send Multiple Files via SSH](#send-multiple-files-via-ssh)
   * [Download Multiple Files Using Wget](#download-multiple-files-using-wget)
-* [Python]
+* [Python](#python)
   * [Pyenv](#pyenv)
   * [Pip](#pip)
   * [Splitting a Long String](#splitting-a-long-string)
@@ -234,8 +234,11 @@ Segmentation fault
 ```
 
 ## Immunity Debugger
-Panes (clock-wise)
+### Panes 
+The default panes loaded when Immunity Debugger is started are listed below (going clock-wise starting with the top-left). To restore the panes to their default layout, click-on: Windows > 8 CPU - mainthread module...
 1. Disassembly
 2. Registers
 3. Dump
 4. Stack
+
+
