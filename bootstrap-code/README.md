@@ -1,10 +1,4 @@
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/bootstrap-code/README.md">Top of Page</a> |
-  <a href="/bootstrap-code/README.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-# Bootstrap Code
+## Bootstrap Code
 
 |Name|Description|
 |----|-------|
@@ -14,7 +8,7 @@
 |gbfuzzer.py|A generation-based fuzzer designed to make buffer overflows easier to execute.|
 |katz2crack.py|Converts a Mimikatz LSA dump file to a file easily parsed by John the Ripper, Hashcat, etc.|
 |new-ctf.sh|Create a directory, put the following sub-directories/files inside of it: exploits, loot, scans, screenshots, README.md (report) and change where screenshots are saved via my "save-screenshots-here" Python script (see below). |
-|print-all-possible-hex-chars.py|Prints all possible hexadecimal characters (format: "\x00\x01...")|
+|bytearray.py|Prints all possible hexadecimal characters (format: "\x00\x01...")|
 |print-open-ports-from-nmap-scan.py|Prints the TCP and UDP ports found open by Nmap. Intended to make it easier to copy/paste into an Nmap service version detection scan.|
 |supply-drop.sh|Download and install my preferred tools to personalize a new Kali install.|
 |save-screenshots-here.py|Sets the default directory for xfce4-screenshooter.|
@@ -25,11 +19,3 @@
 
 ## References
 - https://root4loot.com/post/eternalblue_manual_exploit/
-
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/bootstrap-code/README.md">Top of Page</a> |
-  <a href="/bootstrap-code/README.md#bottom-of-page">Bottom of Page</a>
-</p>
-
-## Bottom of Page
