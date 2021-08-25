@@ -65,7 +65,8 @@
 * [x] [Internal](/walkthroughs/thm/internal/)
 
 #### Buffer Overflow Exploitation
-* [ ] [Buffer Overflow Prep](/walkthroughs/thm/)
+* [ ] [Buffer Overflow Prep](/walkthroughs/thm/buffer-overflow-prep/)
+  * [x] [Task 1](/walkthroughs/thm/buffer-overflow-prep/task-1/) 
 * [ ] [Brainstorm](/walkthroughs/thm/)
 * [ ] [Gatekeeper](/walkthroughs/thm/)
 * [ ] [Brainpan 1](/walkthroughs/thm/)
