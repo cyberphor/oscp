@@ -216,7 +216,7 @@ Input the sentence below into the Command Bar of Immunity Debugger. Look for a l
 Use the offset value to fill the OFFSET variable within the "exploit.py" Python script. Also, put "BBBB" in the RETN variable (in order to confirm the location of the EIP register). Make sure to reload and restart the app before running "exploit.py" again. 
 
 ## Identify Bad Characters
-*Generate byte arrays,*
+*Generate byte arrays, edit exploit.py, and run exploit.py.*
 
 Generate a byte array using Immunity Debugger and the sentence below. Make sure to exclude the "null byte" or "\x00". 
 ```bash
