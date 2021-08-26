@@ -12,7 +12,12 @@
 
 ## Fuzz the App
 ```bash
+USER=admin
+PASS=password
 TARGET=???
+```
+```bash
+xfreerdp /u:$USER /p:$PASS /cert:ignore /v:$TARGET /workarea
 ```
 ```bash
 cd exploits
