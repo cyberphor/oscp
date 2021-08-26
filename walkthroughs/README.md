@@ -68,6 +68,7 @@
 * [ ] [Buffer Overflow Prep](/walkthroughs/thm/buffer-overflow-prep/)
   * [x] [Task 1](/walkthroughs/thm/buffer-overflow-prep/task-1/) 
   * [x] [Task 2](/walkthroughs/thm/buffer-overflow-prep/task-2/) 
+  * [x] [Task 3](/walkthroughs/thm/buffer-overflow-prep/task-3/) 
 * [ ] [Brainstorm](/walkthroughs/thm/)
 * [ ] [Gatekeeper](/walkthroughs/thm/)
 * [ ] [Brainpan 1](/walkthroughs/thm/)
