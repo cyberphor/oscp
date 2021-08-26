@@ -121,7 +121,12 @@ python exploit.py
 ```
 
 ```bash
-vim exploit.py # BADCHARS = "\x00\???"
+# ESP   , BADCHARS
+# 010203, "\x00\x??"
+# 010305, "\x00\x??\x??"
+# 020406, "\x00\x??\x??\x??"
+
+vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
 ```
 
 ## Find a JMP Instruction
