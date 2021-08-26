@@ -120,6 +120,10 @@ python exploit.py
 # output
 ```
 
+```bash
+vim exploit.py # BADCHARS = "\x00\???"
+```
+
 ## Find a JMP Instruction
 ```bash
 !mona jmp -r esp -cpb "???"
