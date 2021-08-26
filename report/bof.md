@@ -107,12 +107,6 @@ python exploit.py
 ```
 
 ```bash
-python exploit.py
-
-# output
-```
-
-```bash
 !mona compare -f C:\mona\oscp\bytearray.bin -a ???
 
 # output
