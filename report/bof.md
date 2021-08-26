@@ -21,7 +21,7 @@ xfreerdp /u:$USER /p:$PASS /cert:ignore /v:$TARGET /workarea
 ```
 ```bash
 cd exploits
-vim fuzzer.py # edit IP variable
+vim fuzzer.py # update the IP variable
 python fuzzer.py
 
 # output
@@ -35,7 +35,11 @@ msf-pattern_create -l ???
 ```
 
 ```bash
+# restart the app first
 vim exploit.py # PAYLOAD: (output above)
+python fuzzer.py
+
+# output
 ```
 
 ```bash
@@ -45,10 +49,8 @@ vim exploit.py # PAYLOAD: (output above)
 ```
 
 ```bash
+# restart the app first
 vim exploit.py # OFFSET: ???, PAYLOAD: "", RETN: "BBBB"
-```
-
-```bash
 python exploit.py
 
 # output
