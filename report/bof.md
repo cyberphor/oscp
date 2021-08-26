@@ -109,6 +109,12 @@ vim exploit.py # PAYLOAD: (output above)
 ```
 
 ```bash
+python exploit.py
+
+# output
+```
+
+```bash
 !mona compare -f C:\mona\oscp\bytearray.bin -a ???
 
 # output
