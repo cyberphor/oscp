@@ -132,6 +132,11 @@ vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
 # output
 ```
 
+```bash
+# ADDRESS: "???" # address of JMP instruction
+# RETN: "???" # address of JMP instrucion, in Little Endian
+```
+
 ## Generate a Payload
 
 USE YOUR IP ADDRESS FOR THE LHOST!
