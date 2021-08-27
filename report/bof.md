@@ -17,7 +17,7 @@ PASS=password
 TARGET=???
 ```
 ```bash
-xfreerdp /u:$USER /p:$PASS /cert:ignore /v:$TARGET /workarea
+xfreerdp /u:$USER /p:$PASS /cert:ignore /workarea /v:$TARGET
 ```
 ```bash
 cd exploits
