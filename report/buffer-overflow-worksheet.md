@@ -1,10 +1,8 @@
-# Buffer Overflow
+# Buffer Overflow Worksheet
 ## Table of Contents 
 * [Fuzz the App](#fuzz-the-app)
 * [Find the EIP Register](#find-the-eip-register)
 * [Identify Bad Characters](#identify-bad-characters)
-  * [Repeat Me](#repeat-me)
-  * [Gotchas](#gotchas)
 * [Find a JMP Instruction](#find-a-jmp-instruction)
 * [Generate a Payload](#generate-a-payload)
 * [Send the Exploit](#send-the-exploit)
