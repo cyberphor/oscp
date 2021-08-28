@@ -12,6 +12,7 @@ Cheatsheets & bootstrap code for "Penetration Testing with Kali Linux" and the O
   * [Reconnaissance](/cheatsheets/01_reconnaissance.md)
   * [Enumeration](/cheatsheets/02_enumeration.md)
   * [Gaining Access](/cheatsheets/03_gaining-access.md)
+    * [Buffer Overflow Worksheet](/cheatsheets/03a_buffer-overflow-worksheet.md)
   * [Maintaining Access](/cheatsheets/04_maintaining-access.md)
   * [Covering Tracks](/cheatsheets/05_covering-tracks.md)
 * [Report Template](/report/)
