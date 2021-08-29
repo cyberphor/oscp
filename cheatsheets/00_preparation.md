@@ -20,7 +20,6 @@
   * [Splitting a Long String](#splitting-a-long-string)
 * [OpenVPN](#openvpn)
 * [Compiling Vulnerable C Code](#compiling-vulnerable-c-code)
-* [Immunity Debugger](#immunity-debugger)
 
 ## General Tips
 * Avoid calling PowerShell from a Netcat provided cmd.exe shell. 
@@ -232,13 +231,3 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Segmentation fault
 ```
-
-## Immunity Debugger
-### Panes 
-The default panes loaded when Immunity Debugger is started are listed below (going clock-wise starting with the top-left). To restore the panes to their default layout, click-on: Windows > 8 CPU - mainthread module...
-1. Disassembly
-2. Registers
-3. Dump
-4. Stack
-
-

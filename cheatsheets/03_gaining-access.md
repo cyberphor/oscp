@@ -141,6 +141,14 @@ jmp esp # give it an assembly instruction
 00000000 FFE4 jmp esp # the second column is the opcode that corresponds with your instruction
 ```
 
+## Immunity Debugger
+### Panes 
+The default panes loaded when Immunity Debugger is started are listed below (going clock-wise starting with the top-left). To restore the panes to their default layout, click-on: Windows > 8 CPU. FYI, these panes belong to a single window called, "CPU." If additional windows are opened after the fact (ex: Log data) just close everything except for the CPU window. 
+1. Disassembly
+2. Registers
+3. Dump
+4. Stack
+
 ## Searching a Binary or DLL for Specific Assembly Instructions
 Using Immunity Debugger
 ```bash
@@ -239,6 +247,7 @@ Always re-copy the address. It will change as you remove bad characters from you
 ```bash
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
+
 
 # MS09_050: SMBv2 Command Value Vulnerability
 ## CVE-2009-3103
@@ -467,17 +476,10 @@ Execute shell command (ex: find current working directory).
 | ORA-01789 | Query block has incorrect number of result columns | |
 | ORA-01790 | Expression must have same datatype as corresponding expression | Re-write the SELECT statement so that each matching column is the same data type. Try replacing the columns with null. For example, if you only want to see the table_name and the output is 3 columns, use "table_name,null,null" not "table_name,2,3". |
 
-<p align="right">
-  <a href="/README.md">Home Page</a> |
-  <a href="/CheatSheets/2_exploit_web_apps_sqli.md">Top of Page</a> |
-  <a href="/CheatSheets/2_exploit_web_apps_sqli.md#bottom-of-page">Bottom of Page</a>
-</p>
-
 ## MySQL
 ```bash
 ' ORDER BY 1 #
 ```
-
 
 ## SQL Database Queries
 ```sql
