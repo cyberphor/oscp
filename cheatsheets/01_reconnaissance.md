@@ -1,5 +1,5 @@
-# Reconnaissance
-## Table of Contents
+## Reconnaissance
+### Table of Contents
 * [Ports](#ports)
 
 ### Ports
