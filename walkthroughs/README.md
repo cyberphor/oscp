@@ -73,7 +73,7 @@
   * [x] [Task 5](/walkthroughs/thm/buffer-overflow-prep/task-5/) 
   * [x] [Task 6](/walkthroughs/thm/buffer-overflow-prep/task-6/) 
   * [x] [Task 7](/walkthroughs/thm/buffer-overflow-prep/task-7/) 
-  * [ ] [Task 8](/walkthroughs/thm/buffer-overflow-prep/task-8/) 
+  * [x] [Task 8](/walkthroughs/thm/buffer-overflow-prep/task-8/) 
   * [ ] [Task 9](/walkthroughs/thm/buffer-overflow-prep/task-9/) 
   * [ ] [Task 10](/walkthroughs/thm/buffer-overflow-prep/task-10/) 
 * [ ] [Brainstorm](/walkthroughs/thm/)
