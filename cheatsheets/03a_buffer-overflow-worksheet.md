@@ -116,7 +116,7 @@ python exploit.py
 #   send exploit
 #   generate a new byte array
 #   compare to ESP
-#   remove bad characters (look at the Comparison Results table, remove the characters underlined by "0a")
+#   remove bad characters (look at the Comparison Results table in the Log data window, remove the characters underlined by "0a")
 
 # ESP     , BADCHARS
 # 0188FA30, "\x00\x??\x??\x??\x??"
