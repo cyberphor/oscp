@@ -1,5 +1,5 @@
-# Preparation
-## Table of Contents
+## Preparation
+### Table of Contents
 * [General Tips](#general-tips)
 * [Windows Command Shell](#windows-command-shell)
   * [Search the Entire Filesystem for a File](#search-the-entire-filesystem-for-a-file)
@@ -21,16 +21,16 @@
 * [OpenVPN](#openvpn)
 * [Compiling Vulnerable C Code](#compiling-vulnerable-c-code)
 
-## General Tips
+### General Tips
 * Avoid calling PowerShell from a Netcat provided cmd.exe shell. 
 
-## Windows Command Shell
-### Search the Entire Filesystem for a File 
+### Windows Command Shell
+#### Search the Entire Filesystem for a File 
 ```pwsh
 dir "\network-secret.txt" /s
 ```
 
-### Get the Kernel Version
+#### Get the Kernel Version
 ```pwsh
 systeminfo | findstr Build
 
@@ -38,8 +38,8 @@ systeminfo | findstr Build
 OS Version:                10.0.17763 N/A Build 17763
 ```
 
-## PowerShell
-### One-Liner Syntax
+### PowerShell
+#### One-Liner Syntax
 ```bash
 powershell.exe -nop -w hidden -e abcdcef...
 
@@ -48,8 +48,8 @@ powershell.exe -nop -w hidden -e abcdcef...
 # -e = Encoded Command (execute the following Base64 string as a command)
 ```
 
-## Bourne-Again Shell (BASH)
-### Create a Command Alias
+### Bourne-Again Shell (BASH)
+#### Create a Command Alias
 **Interactive Shells** (the CLI, a.k.a terminal)  
 Zsh
 ```bash
@@ -69,8 +69,8 @@ echo "alias cls='cls'" >> .profile # just me
 echo "alias cls='cls'" >> /etc/profile # for all users
 ```
 
-### Environment Variables
-#### PS1
+#### Environment Variables
+##### PS1
 ```bash
 # how to change it to the previously less flashy one
 vim .bashrc
@@ -86,28 +86,28 @@ chsh -s /bin/bash
 sudo reboot now
 ```
 
-### Rename Multiple Files
+#### Rename Multiple Files
 ```bash
 for FILE in *alpha*; do mv $FILE "${FILE/alpha/beta}"; done
 ```
 
-### Invoke Another Shell
+#### Invoke Another Shell
 This example allows you to invoke another shell Without opening another terminal (ex: after updating your .bashrc/.zshrc files).
 ```bash
 exec "$SHELL"
 ```
 
-### Send Multiple Files via SSH
+#### Send Multiple Files via SSH
 ```bash
 scp -r software/ victor@$TARGET:~/
 ```
 
-### Download Multiple Files Using Wget
+#### Download Multiple Files Using Wget
 ```bash
 wget -r http://$TARGET/$FOLDER -O $FOLDER
 ```
 
-### Web Server One-Liners
+#### Web Server One-Liners
 ```bash
 python -m SimpleHttpServer 5050
 python3 -m http.server 5050
@@ -116,14 +116,14 @@ ruby -run -e httpd . -p 5050
 busybox httpd -f -p 5050
 ```
 
-### Keyboard Shortcuts
+#### Keyboard Shortcuts
 ```bash
 CTRL+E # jump to end of line
 CTRL+A # jump to beginning of line
 CTRL+X+DEL # delete all text typed, from right to left
 ```
 
-### Screenshots
+#### Screenshots
 * PrtSc – Save a screenshot of the entire screen to the “Pictures” directory.
 * Shift + PrtSc – Save a screenshot of a specific region to Pictures.
 * Alt + PrtSc  – Save a screenshot of the current window to Pictures.
@@ -164,8 +164,8 @@ for i in range(0, len(long_string), chunk_size):
     print("long_string = long_string + " + '"' + str[i:i+chunk_size] + '"')
 ```
 
-## OpenVPN
-### Configuring a Password File
+### OpenVPN
+#### Configuring a Password File
 ```bash
 echo "victor" >> creds.txt
 echo "SuperStrongPassPhrase" >> creds.txt
@@ -177,13 +177,13 @@ sed -i '15 i\auth-user-pass creds.txt' pwk-labs.ovpn # insert this line before t
 sudo openvpn pwk-labs.ovpn
 ```
 
-## Compiling Vulnerable C Code
-### How to Invoke the Vim Text-Editor
+### Compiling Vulnerable C Code
+#### How to Invoke the Vim Text-Editor
 ```bash
 vim bof.c
 ```
 
-### Vulnerable C Code
+#### Vulnerable C Code
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -202,12 +202,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### How to Compile the Code Above
+#### How to Compile the Code Above
 ```
 gcc bof.c -o bof
 ```
 
-### How to Run the Resulting, Compiled Program (Example 1)
+#### How to Run the Resulting, Compiled Program (Example 1)
 ```bash
 ./bof hello
 
@@ -215,7 +215,7 @@ gcc bof.c -o bof
 hello
 ```
 
-### How to Run the Resulting, Compiled Program (Example 2)
+#### How to Run the Resulting, Compiled Program (Example 2)
 ```bash
 ./bof $(printf 'A%.0s' {1..64})
 
@@ -223,7 +223,7 @@ hello
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
-### How to Crash the Resulting, Compiled Program
+#### How to Crash the Resulting, Compiled Program
 ```bash
 ./bof $(printf 'A%.0s' {1..72})
 
