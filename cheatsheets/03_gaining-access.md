@@ -58,9 +58,15 @@ hashcat -m 1000 -a 0 --force --show hashes.dump /usr/share/wordlists/rockyou.txt
 ```
 
 ### John the Ripper
-```bash0 
+```bash
 unshadow demo-passwd demo-shadow > demo-unshadow
 john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
+```bash
+# cracking a RAR file
+rar2john backup.rar > hash.txt
+john --format=rar hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ## Bind Shells

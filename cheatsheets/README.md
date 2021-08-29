@@ -163,6 +163,13 @@ hashcat -m $MODE -a $ATTACK /path/to/hashes.txt /usr/share/wordlists/rockyou.txt
 hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
 ```
 
+John the Ripper
+```bash
+# cracking a RAR file
+rar2john backup.rar > hash.txt
+john --format=rar hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
 #### Remote File Inclusion
 ```bash
 # find a way to upload a PHP command shell
