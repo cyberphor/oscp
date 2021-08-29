@@ -1,6 +1,5 @@
 ## PWK/OSCP Cheatsheet
-**Author:** Victor Fernandez III  
-**GitHub:** http://github.com/cyberphor  
+**Author:** Victor Fernandez III, http://github.com/cyberphor
 
 ### Reconnaissance
 #### Ports

