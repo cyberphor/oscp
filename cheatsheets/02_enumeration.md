@@ -9,6 +9,7 @@
 * [NFS](#nfs)
 * [RPC](#rpc)
 * [SMB](#smb)
+* [WinRM](#winrm)
 * [IRC](#irc)
 * [Rsync](#rsync)
 
@@ -164,6 +165,11 @@ SMBMap
 ```bash
 smbmap -H $TARGET
 smbmap -H $TARGET -P $PORT
+```
+
+#### WinRM
+```bash
+evil-winrm -u $USER -p $PASSWORD -i $TARGET
 ```
 
 ### Rsync
