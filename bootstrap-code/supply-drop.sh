@@ -46,7 +46,7 @@ echo "[+] Installed: gcc-multilib"
 sudo apt install mingw-w64
 echo "[+] Installed: mingw-w64"
 
-sudo wget https://raw.githubusercontent.com/cyberphor/pwk/main/Code/save-screenshots-here.py -O /usr/local/bin/save-screenshots-here
+sudo wget https://raw.githubusercontent.com/cyberphor/pwk/main/bootstrap-code/save-screenshots-here.py -O /usr/local/bin/save-screenshots-here
 sudo chmod +x /usr/local/bin/save-screenshots-here
 echo "[+] Installed: save-screenshots-here"
 
@@ -64,3 +64,9 @@ echo "[+] Installed: foremost"
 
 sudo apt install steghide
 echo "[+] Installed: steghide"
+
+sudo gem install evil-winrm
+echo "[+] Installed: evil-winrm"
+
+sudo apt install unrar
+echo "[+] Installed: unrar"
