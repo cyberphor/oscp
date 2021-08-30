@@ -130,9 +130,15 @@ rdesktop -u administrator $TARGET
 ```
 
 #### Postgres
+TCP port 5437.
 ```bash
 psql -U postgres -p 5437 -h $TARGET # postgres:postgres
 SELECT pg_ls_dir('/');
+```
+
+#### WinRM
+```bash
+evil-winrm -u $USER -p $PASSWORD -i $TARGET
 ```
 
 ### Gaining Access
@@ -157,10 +163,25 @@ patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&pas
 
 Hashcat
 ```hash
-# modes - SHA256: 1400
-# attacks - Dictionary: 0
+# modes 
+# - SHA256: 1400
+# - RAR5: 13000
+
+# attacks
+# - Dictionary: 0
+```
+
+```bash
 hashcat -m $MODE -a $ATTACK /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
+```
+
+```bash
 hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
+```
+
+```bash
+
+hashcat -m 13000 -a 0 rar.hash /usr/share/wordlists/rockyou.txt
 ```
 
 John the Ripper
