@@ -42,25 +42,25 @@
 * [x] [Hetemit](/walkthroughs/pg/hetemit/)
 
 #### Try Harder
-* [ ] [Meathead](/walkthroughs/pg/meathead/)
+* [x] [Meathead](/walkthroughs/pg/meathead/)
 * [ ] [Vector](/walkthroughs/pg/vector/)
 * [ ] [Clyde](/walkthroughs/pg/clyde/)
 * [ ] [Shifty](/walkthroughs/pg/shifty/)
 
 ### TryHackMe (Offensive Pentesting Learning Path)
 #### Getting Started
-* [ ] [Vulnversity](/thm/vulnversity/)
-* [ ] [Blue](/thm/blue/)
-* [ ] [Kenobi](/thm/kenobi/)
+* [x] [Vulnversity](/thm/vulnversity/)
+* [x] [Blue](/thm/blue/)
+* [x] [Kenobi](/thm/kenobi/)
 
 #### Advanced Exploitation
-* [ ] [Steel Mountain](/walkthroughs/thm/steel-mountain/)
-* [ ] [Alfred](/walkthroughs/thm/alfred/)
-* [ ] [HackPark](/walkthroughs/thm/hackpark/)
+* [x] [Steel Mountain](/walkthroughs/thm/steel-mountain/)
+* [x] [Alfred](/walkthroughs/thm/alfred/)
+* [x] [HackPark](/walkthroughs/thm/hackpark/)
 * [x] [Game Zone](/walkthroughs/thm/game-zone/)
 * [x] [Skynet](/walkthroughs/thm/skynet/)
 * [x] [Daily Bugle](/walkthroughs/thm/daily-bugle/)
-* [ ] [Overpass 2 - Hacked](/walkthroughs/thm/overpass2hacked/)
+* [x] [Overpass 2 - Hacked](/walkthroughs/thm/overpass2hacked/)
 * [x] [Relevant](/walkthroughs//thm/relevant/)
 * [x] [Internal](/walkthroughs/thm/internal/)
 
@@ -89,5 +89,5 @@
 #### Extra Credit
 * [ ] [Hacking with PowerShell](/walkthroughs/thm/)
 * [ ] [Corp](/walkthroughs/thm/)
-* [x] [Mr. Robot CTF](/walkthroughs/thm/mr-robot-ctf/)
+* [ ] [Mr. Robot CTF](/walkthroughs/thm/mr-robot-ctf/)
 * [ ] [Retro](/walkthroughs/thm/)
