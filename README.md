@@ -4,7 +4,7 @@ Cheatsheets & bootstrap code for "Penetration Testing with Kali Linux" and the O
 ## Table of Contents
 * [Bootstrap Code](/bootstrap-code/)
   * [gbfuzzer](/bootstrap-code/gbfuzzer.py)
-  * [goshell.go](/bootstrap-code/goshell.go)
+  * [goshell](/bootstrap-code/goshell.go)
   * [katz2crack](/bootstrap-code/katz2crack.py)
   * [new-ctf](/bootstrap-code/new-ctf.sh)
   * [supply-drop](/bootstrap-code/supply-drop.sh)
