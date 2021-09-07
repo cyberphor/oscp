@@ -1,4 +1,4 @@
-## Pentesting Cheatsheet
+## OSCP Cheatsheet
 **Author:** Victor Fernandez III
 
 ### Table of Contents

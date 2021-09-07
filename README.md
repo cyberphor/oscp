@@ -1,10 +1,7 @@
-# pwk
-Bootstraps and cheatsheets for the OSCP exam.
-
-## My OSCP Cheatsheet
+## oscp
 I passed the OSCP exam on 2 September 2021 using this [cheatsheet](/cheatsheets/README.md) and a number of other online resources.
 
-## Table of Contents
+### Table of Contents
 * [Bootstraps](/bootstraps/)
   * [goshell](/bootstraps/goshell.go)
   * [katz2crack](/bootstraps/katz2crack.py)
@@ -17,4 +14,3 @@ I passed the OSCP exam on 2 September 2021 using this [cheatsheet](/cheatsheets/
   * [HackTheBox](/walkthroughs/htb/)
   * [Proving Grounds](/walkthroughs/pg/)
   * [TryHackMe](/walkthroughs/thm/)
-
