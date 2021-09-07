@@ -1,4 +1,4 @@
-# Buffer Overflow Worksheet
+# Buffer Overflow Cheatsheet
 ## Table of Contents 
 * [Fuzz the App](#fuzz-the-app)
 * [Find the EIP Register](#find-the-eip-register)

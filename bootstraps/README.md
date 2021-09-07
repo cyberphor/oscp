@@ -1,11 +1,8 @@
-## Bootstrap Code
+## Bootstraps
 
 |Name|Description|
 |----|-------|
 |add-new-windows-admin.c|Boiler-plate C code for a Windows-based exploit.|
-|customblue.sh|A compilation of steps for exploiting CVE-2017-0143 (Eternal Blue) without using Metasploit or Named Pipes (see blog post below).|
-|Get-NetworkConnectionFilePaths.ps1|Print the filepath of binaries responsible for open network connections.|
-|gbfuzzer.py|A generation-based fuzzer designed to make buffer overflows easier to execute.|
 |katz2crack.py|Converts a Mimikatz LSA dump file to a file easily parsed by John the Ripper, Hashcat, etc.|
 |new-ctf.sh|Create a directory, put the following sub-directories/files inside of it: exploits, loot, scans, screenshots, README.md (report) and change where screenshots are saved via my "save-screenshots-here" Python script (see below). |
 |bytearray.py|Prints all possible hexadecimal characters (format: "\x00\x01...")|
@@ -14,7 +11,6 @@
 |save-screenshots-here.py|Sets the default directory for xfce4-screenshooter.|
 |system-call-via-execl.c|Boiler-plate C code to execute a system call (Linux command) using the execl C function.|
 |system-call-via-system.c|Boiler-plate C code to execute a system call (Linux command) using the system C function.|
-|toggle-smbv1.py|Enable/disable SMBv1 on Kali Linux 5.10 (SMBv1 is disabled by default, but required for some exploits to work).|
 |vulnerable2bof.c|C code vulnerable to a Buffer Overflow.|
 
 ## References
