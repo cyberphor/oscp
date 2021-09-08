@@ -1,4 +1,4 @@
-## Preparation
+## Miscellaneous Commands
 ### Table of Contents
 * [General Tips](#general-tips)
 * [Windows Command Shell](#windows-command-shell)
