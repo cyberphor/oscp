@@ -528,7 +528,7 @@ Execute shell command (ex: find current working directory).
 ```
 
 Common Oracle-based SQL Query Errors
-| ID | Error | Explaination |
+| ID | Error | Explanation |
 |---|---|---|
 |  ORA-00923 | FROM keyword not found where expected | Occurs when you try to execute a SELECT or REVOKE statement without a FROM keyword in its correct form and place. If you are seeing this error, the keyword FROM is spelled incorrectly, misplaced, or altogether missing. In Oracle, the keyword FROM must follow the last selected item in a SELECT statement or in the case of a REVOKE statement, the privileges. If the FROM keyword is missing or otherwise incorrect, you will see ORA-00923. |
 | ORA-00933 | SQL command not properly ended | The SQL statement ends with an inappropriate clause. Correct the syntax by removing the inappropriate clauses.
