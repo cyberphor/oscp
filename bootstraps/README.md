@@ -22,7 +22,7 @@
 * vulnerable2bof.c
   * C code vulnerable to a Buffer Overflow.
 
-## References
+### References
 Exploits
 - https://root4loot.com/post/eternalblue_manual_exploit/
 
