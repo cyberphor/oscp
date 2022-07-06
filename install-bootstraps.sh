@@ -2,7 +2,7 @@
 
 # exit script if not running as root or sudo
 if [ $(id -u) != 0 ]; then
-        echo "This script requires administrative privileges."
+    echo "This script requires administrative privileges."
     exit 1
 fi
 
@@ -23,14 +23,14 @@ BOOTSTRAPS=(
 ) 
 for BOOTSTRAP in ${BOOTSTRAPS[@]}; do
     if [ -f $BOOTSTRAP ]; then
-                chmod ug+x $BOOTSTRAP
-        cp $BOOTSTRAP $BOOTSTRAP_DIR
+        chmod ug+x $BOOTSTRAP
+        cp -p $BOOTSTRAP $BOOTSTRAP_DIR
     fi
 done
 
 # update the PATH environment variable
 # if it does not already include the 'bootstraps' directory
 if ! grep -q "/usr/local/bin/bootstraps" /etc/environment; then
-        sed -i 's/$/\:\/usr\/local\/bin\/bootstraps/g' /etc/environment
+    sed -i 's/$/\:\/usr\/local\/bin\/bootstraps/g' /etc/environment
     source /etc/environment
 fi

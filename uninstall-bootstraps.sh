@@ -2,7 +2,7 @@
 
 # exit script if not running as root or sudo
 if [ $(id -u) != 0 ]; then
-        echo "This script requires administrative privileges."
+    echo "This script requires administrative privileges."
     exit 1
 fi
 
