@@ -84,11 +84,9 @@ echo "alias cls='cls'" >> /etc/profile # for all users
 #### Environment Variables
 PS1
 ```bash
-# how to change it to the previously less flashy one
 vim .bashrc
 # search for PS1 using /PS1
-# comment-out PS1=$prompt_color...
-# un-comment the line beneath BackTrack red prompt
+# set the PROMPT_ALTERNATIVE environment variable to backtrack
 ```
 
 #### Shell
